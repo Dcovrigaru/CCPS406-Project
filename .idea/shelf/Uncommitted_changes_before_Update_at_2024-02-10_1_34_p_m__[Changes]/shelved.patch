@@ -1,0 +1,15 @@
+Index: testingrizvi.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/testingrizvi.py b/testingrizvi.py
+new file mode 100644
+--- /dev/null	(date 1707589587071)
++++ b/testingrizvi.py	(date 1707589587071)
+@@ -0,0 +1,4 @@
++def testing():
++    print("hello testing rizvi")
++
++testing()
+\ No newline at end of file
