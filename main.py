@@ -41,6 +41,9 @@ def main():
             pass
         elif user_input[:9] == "inventory":
             pass
+        else:
+            print(f"Not sure what {user_input} means. Try again!")
+
 
 if __name__ == "__main__":
     main()
