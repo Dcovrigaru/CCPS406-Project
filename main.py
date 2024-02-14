@@ -1,13 +1,19 @@
+from verbs import VerbHandler, verbs
+
 def main():
+    verb_handler = VerbHandler()  # Create an instance of the VerbHandler class
+
     while True:
-        user_input = input("Enter in an action: ").lower()
-        #Checking all input
+        user_input = input("Enter an action: ").lower()
+
+        # Checking all input
         if len(user_input) == 0:
             print("You're probably supposed to write something.")
             break
+
         elif len(user_input) == 1:
-            #Direction input
-            if user_input in ["N","E","S","W"]:
+            # Direction input
+            if user_input in ["n", "e", "s", "w"]:
                 """
                 REPLACE - Within this if statement should be a function that starts a new class that
                 would handle the response to moving in a certain way.
@@ -21,32 +27,17 @@ def main():
             else:
                 print(f"Not sure what {user_input} means. Try again!")
                 continue
-        #Other command inputs (beyond this line)
+
+        # Other command inputs (beyond this line)
         elif user_input == "exit":
             break
-        elif user_input[:3] == "use":
-            pass
-            """
-            REPLACE - Within all of the verb functions, there should be a class declaration pertaining
-            to the variable used. It should then print whether the action cannot be done, or change
-            internal variables to reflect such.
-            """
-        elif user_input[:4] == "open":
-            pass
-        elif user_input[:4] == "take":
-            pass
-        elif user_input[:5] == "wield":
-            pass
-        elif user_input[:6] == "attack":
-            pass
-        elif user_input[:9] == "inventory":
-            pass
+
+        elif user_input.split()[0] in verbs:  # Check if the first word is in the list of verbs
+            verb_handler.handle_action(user_input)  # Call handle_action method with the user input
+
+        else:
+            print("Invalid action. Please try again.")
+
 
 if __name__ == "__main__":
     main()
-
-"""
-NOTES:
-- Should all CURRENT variables be placed in ONE class object for clarity? Or should it be split up
-- Should all classes be put in one .py file seperate from main?
-"""
