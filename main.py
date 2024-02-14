@@ -4,10 +4,10 @@ def main():
         #Checking all input
         if len(user_input) == 0:
             print("You're probably supposed to write something.")
-            break
+            continue
         elif len(user_input) == 1:
             #Direction input
-            if user_input in ["N","E","S","W"]:
+            if user_input in ["n","e","s","w"]:
                 """
                 REPLACE - Within this if statement should be a function that starts a new class that
                 would handle the response to moving in a certain way.
@@ -24,23 +24,13 @@ def main():
         #Other command inputs (beyond this line)
         elif user_input == "exit":
             break
-        elif user_input[:3] == "use":
+        elif user_input.split(" ") in ["use", "open", "take", "wield", "attack", "inventory"]:
             pass
             """
             REPLACE - Within all of the verb functions, there should be a class declaration pertaining
             to the variable used. It should then print whether the action cannot be done, or change
             internal variables to reflect such.
             """
-        elif user_input[:4] == "open":
-            pass
-        elif user_input[:4] == "take":
-            pass
-        elif user_input[:5] == "wield":
-            pass
-        elif user_input[:6] == "attack":
-            pass
-        elif user_input[:9] == "inventory":
-            pass
         else:
             print(f"Not sure what {user_input} means. Try again!")
 
