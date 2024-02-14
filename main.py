@@ -1,11 +1,10 @@
 #Class Instances/Variables
 from verbs import VerbHandler, verbs
 from directions import DirectionHandling
-verb_handler = VerbHandler(items)
 UserCurrentRoom = DirectionHandling(currentRoom="attic")
 
 #Main Variables
-items_list = ["antique key", "flashlight", "pistol", "axe", "riddle", "paper" "journal", "pistol", "lockpick", "diary", "batteries", "rusty key"]
+items = ["antique key", "flashlight", "pistol", "axe", "riddle", "paper" "journal", "pistol", "lockpick", "diary", "batteries", "rusty key"]
 compass = ["n","e","w","s","u","d","up","east","west","down","north","south","current","c"]
 """
 Paper = Safe Passcode Paper
@@ -13,6 +12,7 @@ Rusty Key = Key for Stairs Between Office Room and Living Room
 Antique Key = Key for Front Door
 """
 def main():
+    verb_handler = VerbHandler(items)
     while True:
         user_input = input("Enter in an action: ").lower()
         print(user_input.split(" "))
@@ -20,13 +20,9 @@ def main():
         if len(user_input) == 0:
             print("You're probably supposed to write something.")
             continue
-        elif len(user_input) == 1:
+        elif user_input in compass:
             #Direction input
-            if user_input in compass:
-                UserCurrentRoom.move(user_input)
-            else:
-                print(f"Not sure what {user_input} means. Try again!")
-                continue
+            UserCurrentRoom.move(user_input)
         #Other command inputs (beyond this line)
         elif user_input == "exit":
             break
