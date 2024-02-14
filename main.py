@@ -1,11 +1,10 @@
 #Class Instances/Variables
 from verbs import VerbHandler, verbs
 from directions import DirectionHandling
-verb_handler = VerbHandler()
+verb_handler = VerbHandler(items)
 UserCurrentRoom = DirectionHandling(currentRoom="attic")
 
 #Main Variables
-verb_list = ["open", "take", "use", "wield", "attack", "inventory"]
 items_list = ["antique key", "flashlight", "pistol", "axe", "riddle", "paper" "journal", "pistol", "lockpick", "diary", "batteries", "rusty key"]
 compass = ["n","e","w","s","u","d","up","east","west","down","north","south","current","c"]
 """
@@ -31,7 +30,7 @@ def main():
         #Other command inputs (beyond this line)
         elif user_input == "exit":
             break
-        elif user_input.split(" ")[0] in verb_list:
+        elif user_input.split(" ")[0] in verbs:
             verb_handler.handle_action(user_input)
         elif len(user_input.split()) == 1 and user_input in verbs:
             # Send an error message if there is only one word and it is a verb
