@@ -1,39 +1,39 @@
+#Class Instances/Variables
+from verbs import VerbHandler, verbs
+from directions import DirectionHandling
+UserCurrentRoom = DirectionHandling(currentRoom="attic")
+
+#Main Variables
+items = ["antique key", "flashlight", "pistol", "axe", "riddle", "paper" "journal", "pistol", "lockpick", "diary", "batteries", "rusty key"]
+compass = ["n","e","w","s","u","d","up","east","west","down","north","south","current","c"]
+"""
+Paper = Safe Passcode Paper
+Rusty Key = Key for Stairs Between Office Room and Living Room
+Antique Key = Key for Front Door
+"""
 def main():
+    verb_handler = VerbHandler(items)
     while True:
         user_input = input("Enter in an action: ").lower()
+        print(user_input.split(" "))
         #Checking all input
         if len(user_input) == 0:
             print("You're probably supposed to write something.")
             continue
-        elif len(user_input) == 1:
+        elif user_input in compass:
             #Direction input
-            if user_input in ["n","e","s","w"]:
-                """
-                REPLACE - Within this if statement should be a function that starts a new class that
-                would handle the response to moving in a certain way.
-                It would then pass back the room they would be in should they have moved in that
-                direction or print an error. If they are moved in another room, a variable
-                should be changed within the object class pertaining to where the character is in.
-                NOTE - Error detection to anything in main should be limited to the first part of
-                user input. Anything beyond that would be resolved by the object classes referenced.
-                """
-                pass
-            else:
-                print(f"Not sure what {user_input} means. Try again!")
-                continue
+            UserCurrentRoom.move(user_input)
         #Other command inputs (beyond this line)
         elif user_input == "exit":
             break
-        elif user_input.split(" ") in ["use", "open", "take", "wield", "attack", "inventory"]:
-            pass
-            """
-            REPLACE - Within all of the verb functions, there should be a class declaration pertaining
-            to the variable used. It should then print whether the action cannot be done, or change
-            internal variables to reflect such.
-            """
+        elif user_input.split(" ")[0] in verbs:
+            verb_handler.handle_action(user_input)
+        elif len(user_input.split()) == 1 and user_input in verbs:
+            # Send an error message if there is only one word and it is a verb
+            print(f"What are you trying to {user_input} ?")
         else:
             print(f"Not sure what {user_input} means. Try again!")
-
+            continue
 
 if __name__ == "__main__":
     main()
