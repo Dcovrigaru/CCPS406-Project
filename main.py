@@ -1,7 +1,8 @@
 from verbs import VerbHandler, verbs
 
 def main():
-    verb_handler = VerbHandler()  # Create an instance of the VerbHandler class
+    items = ["item1", "item2", "item3"]
+    verb_handler = VerbHandler(items)  # Pass the items list when creating the VerbHandler instance
 
     while True:
         user_input = input("Enter an action: ").lower()
@@ -31,13 +32,15 @@ def main():
         # Other command inputs (beyond this line)
         elif user_input == "exit":
             break
+        elif len(user_input.split()) == 1 and user_input in verbs:
+            # Send an error message if there is only one word and it is a verb
+            print("What are you trying to " + user_input + "?")
 
         elif user_input.split()[0] in verbs:  # Check if the first word is in the list of verbs
             verb_handler.handle_action(user_input)  # Call handle_action method with the user input
 
         else:
             print("Invalid action. Please try again.")
-
 
 if __name__ == "__main__":
     main()
