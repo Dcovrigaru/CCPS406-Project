@@ -1,25 +1,22 @@
+from directions import DirectionHandling
+
 def main():
+
+    UserCurrentRoom = DirectionHandling(currentRoom="attic")   #obj of directions.py
+
     while True:
         user_input = input("Enter in an action: ").lower()
         #Checking all input
         if len(user_input) == 0:
             print("You're probably supposed to write something.")
-            break
-        elif len(user_input) == 1:
+            continue
+        elif len(user_input) == 1 or len(user_input) == 4 or len(user_input) == 5 or len(user_input) == 2 or len(user_input) ==7:
             #Direction input
-            if user_input in ["N","E","S","W"]:
-                """
-                REPLACE - Within this if statement should be a function that starts a new class that
-                would handle the response to moving in a certain way.
-                It would then pass back the room they would be in should they have moved in that
-                direction or print an error. If they are moved in another room, a variable
-                should be changed within the object class pertaining to where the character is in.
-                NOTE - Error detection to anything in main should be limited to the first part of
-                user input. Anything beyond that would be resolved by the object classes referenced.
-                """
-                pass
+            if user_input in ["n","e","w","s","u","d","up","east","west","down","north","south","current","c"]: #north, east, west, south, up, down
+                UserCurrentRoom.move(user_input)
+
             else:
-                print(f"Not sure what {user_input} means. Try again!")
+                print(f"Not sure what '{user_input}' means. Try again!")
                 continue
         #Other command inputs (beyond this line)
         elif user_input == "exit":
@@ -42,7 +39,7 @@ def main():
         elif user_input[:9] == "inventory":
             pass
         else:
-            print(f"Not sure what {user_input} means. Try again!")
+            print(f"Not sure what '{user_input}' means. Try again!")
 
 
 if __name__ == "__main__":
