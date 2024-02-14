@@ -1,0 +1,22 @@
+{
+  "player": {
+    "name": "Jake",
+    "age": 25,
+    "health": 200
+  },
+  "npcs": [
+    {
+      "type": "zombie",
+      "health": 35,
+      "damage_min": 15,
+      "damage_max": 40,
+      "is_friendly": false
+    },
+    {
+      "type": "friendly zombie",
+      "health": 35,
+      "is_friendly": true,
+      "shout": "geghfbeubsbdeg"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "rooms": [
+    {
+      "name": "Attic",
+      "first_text": "You are in the pitch-black attic, navigating through musty darkness. The only sound is your cautious steps on creaking floorboards...",
+      "after_text": "You are back in the attic.",
+      "times_entered": 0,
+      "items": ["axe", "batteries"],
+      "exits": ["Hallway"],
+      "zombies": 2
+    },
+    {
+      "name": "Hallway",
+      "first_text": "You are standing in a wide hallway, doors lead in various directions, the air heavy with dust and decay...",
+      "after_text": "You are in the Hallway.",
+      "times_entered": 0,
+      "items": ["riddle", "lockpick"],
+      "exits": ["Bedroom", "Office Room", "Bathroom", "Living Room"],
+      "zombies": 3
+    },
+    {
+      "name": "Bedroom",
+      "first_text": "The bedroom is cold and unwelcoming, the remains of a life once lived now gone. You notice a pistol on the bedside table...",
+      "after_text": "You are in the Bedroom.",
+      "times_entered": 0,
+      "items": ["pistol"],
+      "exits": ["Hallway"],
+      "zombies": 1
+    },
+    {
+      "name": "Bathroom",
+      "first_text": "Mold lines the edges of the bathtub, a grimy mirror reflects a room long neglected. Something gleams beneath the sink...",
+      "after_text": "You are in the Bathroom.",
+      "times_entered": 0,
+      "items": ["Key for stairs between Office Room and Living Room"],
+      "exits": ["Hallway"],
+      "zombies": 0
+    },
+    {
+      "name": "Office Room",
+      "first_text": "Papers and books are strewn across the office room, a testament to a mind once focused on work now abandoned...",
+      "after_text": "You are in the Office Room.",
+      "times_entered": 0,
+      "items": ["Gun Safe Passcode Paper"],
+      "exits": ["Hallway", "Living Room"],
+      "zombies": 2
+    },
+    {
+      "name": "Living Room",
+      "first_text": "The living room feels strangely homely despite the chaos, pictures on the wall hint at happier times...",
+      "after_text": "You are in the Living Room.",
+      "times_entered": 0,
+      "items": ["Victor’s Diary"],
+      "exits": ["Hallway", "Basement", "Office Room"],
+      "zombies": 3
+    },
+    {
+      "name": "Kitchen",
+      "first_text": "Utensils and plates are scattered around the kitchen. In the dim light, you spot a flashlight inside a cupboard...",
+      "after_text": "You are in the Kitchen.",
+      "times_entered": 0,
+      "items": ["flashlight", "Small Journal"],
+      "exits": ["Foyer"],
+      "zombies": 2
+    },
+    {
+      "name": "Garage",
+      "first_text": "The garage is cluttered with tools and old furniture. Dust covers everything, except for a journal that seems recently placed...",
+      "after_text": "You are in the Garage.",
+      "times_entered": 0,
+      "items": ["Victor’s Diary"],
+      "exits": ["Kitchen"],
+      "zombies": 1
+    },
+    {
+      "name": "Foyer",
+      "first_text": "The grand foyer offers a false sense of welcome, its grand staircase leading nowhere, the front door firmly shut...",
+      "after_text": "You are in the Foyer.",
+      "times_entered": 0,
+      "items": [],
+      "exits": ["Kitchen", "Living Room"],
+      "zombies": 4
+    },
+    {
+      "name": "Basement",
+      "first_text": "Descending into the basement, an impenetrable darkness engulfs you. You fumble for the flashlight...",
+      "after_text": "You are in the Basement.",
+      "times_entered": 0,
+      "items": ["front door key"],
+      "exits": ["Living Room"],
+      "zombies": 4
+    }
+  ]
+}
