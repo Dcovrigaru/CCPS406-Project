@@ -89,6 +89,62 @@
       "items": ["front door key"],
       "exits": ["Living Room"],
       "zombies": 4
+    },
+    {
+  "player": {
+    "name": "Jake",
+    "age": 25,
+    "health": 200
+  },
+  "npcs": [
+    {
+      "type": "zombie",
+      "health": 35,
+      "damage_min": 15,
+      "damage_max": 40,
+      "is_friendly": false
+    },
+    {
+      "type": "friendly zombie",
+      "health": 35,
+      "is_friendly": true,
+      "shout": "geghfbeubsbdeg"
     }
   ]
-}
+},
+    {
+  "Gun": {
+    "message": "Headshot, the zombie is dead",
+    "Damage": "Zombie health -= 35"
+  },
+  "Axe": {
+    "message1": "Bodyshot, the zombie is injured",
+    "Damage1": "Zombie health -= 20 to 35 damage",
+    "message2": "Lucky, your axe killed the zombie",
+    "Damage2": "Zombie health -= 20 to 35 damage (If it kills)"
+  },
+  "ZombieAttack": {
+    "message": "Ow, that hurt, the zombie did X damage, you now have X health left",
+    "UserHealth": "User health -= X damage"
+  }
+},
+    {
+  "intro": "Jake is on a long lone road trip to visit his parents, but his car breaks down by the side of the road. With no cellphone signal and no one nearby, he wanders into the forest looking for some help and comes by a lone mansion in the forest. It looks super spooky but he walks in anyway in hopes of any help, where he immediately gets swarmed by zombies. Panicked, he runs into the attic. After the noise fades away, Jake begins to make his way out, utilizing weapons and items to open and escape rooms whilst killing zombies.",
+  "epilogue": "Once he escapes, he finally sees real people who help him. He eventually makes it to his parent's home.",{
+  "game_over": [
+    {
+      "condition": "health_over",
+      "message": "You have succumbed to your injuries. Remember, managing your health against zombies is crucial. Try to avoid unnecessary fights and find health items."
+    },
+    {
+      "condition": "time_expired",
+      "message": "Time has run out before you could escape. Time management is key; plan your moves carefully and keep an eye out for shortcuts.",
+      "turns": "X"
+    },
+    {
+      "condition": "caught",
+      "message": "You were overwhelmed by zombies. Sometimes, stealth is smarter than confrontation. Consider using silent weapons or finding paths around them."
+    }
+  ]
+},
+
