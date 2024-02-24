@@ -25,12 +25,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "CodersFTW"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;CodersFTW&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -60,7 +60,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Marco-Branch",
+    "git-widget-placeholder": "Tai",
+    "last_opened_file_path": "/Users/taiwoaladejebi/Desktop/Mac Studio - Desktop/CCPS 406/CCPS406-Project-main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -87,6 +88,7 @@
       <updated>1707586158810</updated>
       <workItem from="1707586159894" duration="2008000" />
       <workItem from="1707588183944" duration="1376000" />
+      <workItem from="1707591350126" duration="17000" />
     </task>
     <task id="LOCAL-00001" summary="yumm">
       <option name="closed" value="true" />
