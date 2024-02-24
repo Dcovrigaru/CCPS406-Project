@@ -1,5 +1,5 @@
 class DirectionHandling:
-    def __init__(self, currentRoom):  #TESTINTNTTTNTNHFHFKHFDH
+    def __init__(self, currentRoom):  
         self.currentRoom = currentRoom
 
     def move(self, direction):
