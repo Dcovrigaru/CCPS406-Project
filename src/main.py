@@ -1,4 +1,5 @@
 #Class Instances/Variables
+
 from verbs import VerbHandler, verbs
 from directions import DirectionHandling
 UserCurrentRoom = DirectionHandling(currentRoom="attic")

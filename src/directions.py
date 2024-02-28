@@ -1,5 +1,7 @@
+import json
+
 class DirectionHandling:
-    def __init__(self, currentRoom):  
+    def __init__(self, currentRoom):
         self.currentRoom = currentRoom
 
     def move(self, direction):
@@ -22,10 +24,10 @@ class DirectionHandling:
             if nextRoom:
                 self.currentRoom = nextRoom
                 print(f'You have moved {targetDirection} to {self.currentRoom}.')
+
             else:
                 print(f'You cannot go {targetDirection} from the {self.currentRoom}.')
-        else:
-            print('Invalid command.')
+
 
     def getNextRoom(self, direction):
         roomConnections = {
@@ -42,6 +44,9 @@ class DirectionHandling:
         }
 
         return roomConnections.get(self.currentRoom, {}).get(direction)
+
+
+
 
 
 
