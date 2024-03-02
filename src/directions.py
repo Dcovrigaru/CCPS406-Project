@@ -1,5 +1,6 @@
 import json
 
+
 class DirectionHandling:
     def __init__(self, currentRoom):
         self.currentRoom = currentRoom

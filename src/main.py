@@ -1,5 +1,5 @@
 #Class Instances/Variables
-
+import json
 from verbs import VerbHandler, verbs
 from directions import DirectionHandling
 UserCurrentRoom = DirectionHandling(currentRoom="attic")
