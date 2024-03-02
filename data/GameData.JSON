@@ -1,6 +1,6 @@
 {
   "story": {
-    "intro": "During a long road trip to visit your parents all the way in Manitoba, your car suddenly broke down in a remote area, with no cellphone service nor anyone nearby.\n You venture into a nearby forest searching for help. There you discover a spooky mansion and decide to enter in desperation,\n only to be immediately surrounded by zombies. In a state of panic you run into the attic for safety.\n Now, after catching your breath and realizing the horrific situation you've found yourself in, you must navigate through the rooms, defeat the zombies and find the key for your way out !",
+    "intro": "During a long road trip to visit your parents all the way in Manitoba, your car suddenly broke down in a remote area, with no cellphone service nor anyone nearby.\n You venture into a nearby forest searching for help. There you discover a spooky mansion and decide to enter in desperation,\n only to be immediately surrounded by zombies. In a state of panic you run into the attic for safety.\n Now, after catching your breath and realizing the horrific situation you've found yourself in, you must navigate through the rooms, defeat the zombies and find the key for your way out!",
     "escaped": "The key turns, and it unlocks. You shove it open and run out the door, using your flashlight to navigate through the midnight darkness of the woods. Sprinting back to your broken-down car by the highway,\n relief washes over you as you find police investigating the scene. You've been awake, alert and tired for so long and are too exhausted to explain the truth of what you experienced. The police assist with your car and ensure your safety,\ncasually dismissing your condition after they found amounts of strong psychedelics in your car. They don't bother conversating with you much,\nto which you don't mind. The next morning, clean and composed, you resume your drive to your parents' house,\nattempting to leave the nightmarish ordeal behind. However, the trauma lingers, etching a lasting mark on your psyche.\n\n**********THE END**********"
   },
 
@@ -12,7 +12,7 @@
     },
     {
       "condition2": "time_expired",
-      "message": "Time has run out before you could escape. The zombies have fully swarmed you. Time management is key; plan your moves carefully and keep an eye out for clues and shortcuts.",
+      "message": "You took too long to get out, and the toxic air finally overtook you. The lethal air within the forsaken walls of this zombie-infested house have claimed another victim, a fresh new zombie to inhabit its walls forever. As time slipped away, the poisonous atmosphere took its toll, sealing your fate.\nGame over. Remember: Time management is key; plan your moves carefully and keep an eye out for clues and shortcuts.",
       "turns": "X"
     }
   ],
@@ -31,7 +31,7 @@
     },
     {
       "name": "hallway",
-      "first_text": "You cautiously make your way down the ladder to the hallway, and there's two dull zombies on each end, west and east, blocking half open doors.\nThe only way into those two rooms will require you to kill them.\nBeside you, you see a bookshelf, empty except for a scribe with words and what appears to be some lockpicks.",
+      "first_text": "You cautiously make your way down the ladder to the hallway, and there's two dull zombies on each end, west and east, blocking half open doors.\nThe only way into those two rooms will require you to kill them. Beside you, you see a bookshelf, empty except for a scribe with words and what appears to be some lockpicks.\nThe air quality is harsh and choking you, making you almost nauseous, and you realize you need to escape the house quickly before you slowly pass out and die.",
       "after_text": "You are in the hallway.",
       "WestorEastwithzombies": "The zombie is in the way! You'll have to kill the zombie first to go this way.",
       "times_entered": 0,
@@ -123,7 +123,7 @@
     {
       "name": "shelf",
       "location": "office room",
-      "Openshelf1": "Looks like you'll need lockpicks to open this.",
+      "Openshelf1": "Looks like you'll need lockpicks; to open this.",
       "Openshelf2": "It opened! Inside you find a piece of paper with some numbers on it!",
       "openafter": "There's nothing in here anymore."
     },
@@ -163,7 +163,7 @@
       "location": "attic",
       "desc": "Used to power on fuse box to power the house.",
       "TakenText": "Theese batteries look like they could work on the fuse box to give light to the house! Try the on the fuse box.",
-      "PoweredOnFuseBoxmessage": "The batteries powered on the fuse box! You restore all power to the house, except for the basemen t which isn't working."
+      "PoweredOnFuseBoxmessage": "The batteries powered on the fuse box! You restore all power to the house, except for the basement which isn't working."
     },
     {
       "name": "axe",
