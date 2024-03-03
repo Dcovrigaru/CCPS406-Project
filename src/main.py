@@ -22,6 +22,13 @@ Paper = Safe Passcode Paper
 Rusty Key = Key for Stairs Between Office Room and Living Room
 Antique Key = Key for Front Door
 """
+print('\n' * 5)
+print(data['story']['intro'])
+print('\n' * 3)
+for room in data['rooms']:
+    if room['name'] == currentRoom:
+        print(room['first_text'])
+
 def main():
     verb_handler = VerbHandler(items, UserCurrentRoom, npc, player, data)
     while True:
