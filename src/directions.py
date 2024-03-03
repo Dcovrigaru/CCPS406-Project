@@ -1,23 +1,30 @@
 import json
 import os
 
+
 class DirectionHandling:
+
     def __init__(self, currentRoom):
         self.currentRoom = currentRoom
-
-
     def move(self, direction):
         possibleDirections = {
             's': 'south','n': 'north','w': 'west','e': 'east','u': 'up','d': 'down','south': 'south','north': 'north',
             'west': 'west','east': 'east','up': 'up','down': 'down'
         }
-
+        hasSpecialCurrentMessage = ['attic', 'kitchen', 'garage', 'basement']
         direction = direction.lower()
 
         if direction == 'current' or direction =='c':
-            print(f'You are currently in the {self.currentRoom}.')
+            FilePath = os.path.join(os.path.dirname(__file__), '..', 'data', 'GameData.JSON')
+            with open(FilePath, 'r') as file:
+                data = json.load(file)
+            for room in data.get('rooms', []):
+                if room['name'] == self.currentRoom:
+                    if room['name'] in hasSpecialCurrentMessage:
+                        print(room['currentText']) #prints current message if in special four rooms above
+                    else:
+                        print(room['after_text'])   #otherwise just prints the after_text for 'current' command
             return
-
 
         if direction in possibleDirections:
             targetDirection = possibleDirections[direction]
@@ -48,12 +55,11 @@ class DirectionHandling:
 
 
 
-##this below function is called on line 27. it prints the JSON messages for entering rooms.
+##this below function is called on line 37. it prints the JSON messages for entering rooms.
 def RoomMessages(currentRoom):
-    json_file_path = os.path.join(os.path.dirname(__file__), '..', 'data', 'GameData.JSON')
-    with open(json_file_path, 'r') as json_file:
-        data = json.load(json_file)
-
+    FilePath = os.path.join(os.path.dirname(__file__), '..', 'data', 'GameData.JSON')
+    with open(FilePath, 'r') as file:
+        data = json.load(file)
     # search for the current room in the JSON data
     for room in data.get('rooms', []):
         if room['name'] == currentRoom:
@@ -66,8 +72,8 @@ def RoomMessages(currentRoom):
                 print(room['first_text'])
 
             # increment times_entered and write to JSON file
-            with open(json_file_path, 'w') as json_file:
-                json.dump(data, json_file, indent=2)
+            with open(FilePath, 'w') as file:
+                json.dump(data, file, indent=2)
 
             return
 
@@ -76,10 +82,10 @@ def RoomMessages(currentRoom):
 #this is called at the beginning of the game once just to reset the times_entered,
 # since the above func writes to the json to increment them
 def ResetNewGame():
-    json_file_path = os.path.join(os.path.dirname(__file__), '..', 'data', 'GameData.JSON')
+    FilePath = os.path.join(os.path.dirname(__file__), '..', 'data', 'GameData.JSON')
 
-    with open(json_file_path, 'r') as json_file:
-        data = json.load(json_file)
+    with open(FilePath, 'r') as file:
+        data = json.load(file)
 
     print("\n\t ***WELCOME TO DEATH ESCAPE***\n\t",data.get('story', {}).get('intro', ''))   #print intro
     print(data.get('rooms', [])[0].get('first_text', '')) #print attic message
@@ -91,9 +97,9 @@ def ResetNewGame():
         else:
             room['times_entered'] = 0
 
-    # Write the modified data back to the JSON file
-    with open(json_file_path, 'w') as json_file:
-        json.dump(data, json_file, indent=2)
+    # rewrite times_entered default values back to JSON file
+    with open(FilePath, 'w') as file:
+        json.dump(data, file, indent=2)
 
 
 

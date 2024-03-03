@@ -1,5 +1,4 @@
 #Class Instances/Variables
-import json
 from verbs import VerbHandler, verbs
 from directions import *
 UserCurrentRoom = DirectionHandling(currentRoom="attic") #player starts in attic
@@ -10,7 +9,7 @@ compass = ["n", "e", "w", "s", "u", "d", "up", "east", "west", "down", "north", 
 
 
 def main():
-    ResetNewGame()           #this resets times_entered for all rooms back to 0 (attic to 1) and prints games intro message
+    ResetNewGame()     #this resets times_entered for all rooms back to 0 (attic to 1) and prints games intro message
     verb_handler = VerbHandler(items)
     while True:
         user_input = input("Enter in an action: ").lower()
