@@ -10,10 +10,10 @@ class Combat:
             print("You have no weapon equipped.")
             return
 
-        if self.player.current_weapon == "Gun":
+        if self.player.current_weapon == "pistol":
             damage = 35  # Fixed damage for simplicity
             message = "Boom, the zombie is dead."
-        elif self.player.current_weapon == "Axe":
+        elif self.player.current_weapon == "axe":
             damage = random.randint(20, 35)  # Variable damage for the axe
             message = "Lucky, your axe killed the zombie." if damage > 30 else "Bodyshot, the zombie is injured."
 
