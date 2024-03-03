@@ -20,7 +20,7 @@
       "first_text": "You are in the pitch-black attic, the only way out is down, the way you came.\nYou sense a fuse box, its outline faintly visible but powerless. You notice something small, smooth, and round on the floor beside the fuse box, resembling batteries,\nas well as what appears to be an axe. You realize the smart thing to do is to probably take both of them.",
       "tryingdownwithoutpoweroraxe": "Power on the fuse box with the batteries first before going downstairs, as well take the axe",
       "after_text": "You are back in the attic. Looks cozy and safe, nice spot to catch your breath. You can continue your quest downstairs.",
-      "times_entered": 2,
+      "times_entered": 1,
       "items": [
         "axe",
         "batteries"
@@ -35,7 +35,7 @@
       "first_text": "You cautiously make your way down the ladder to the hallway, and there's two dull zombies on each end, west and east, blocking half open doors.\nThe only way into those two rooms will require you to kill them. Beside you, you see a bookshelf, empty except for a scribe with words and what appears to be some lockpicks.\nThe air quality is harsh and choking you, making you almost nauseous, and you realize you need to escape the house quickly before you slowly pass out and die.",
       "after_text": "You are in the hallway. Can go up, east or west to attic, office and bedroom respectively.",
       "WestorEastwithzombies": "The zombie is in the way! You'll have to kill the zombie first to go this way.",
-      "times_entered": 3,
+      "times_entered": 0,
       "items": [
         "scribe",
         "lockpick"
@@ -50,7 +50,7 @@
       "name": "bedroom",
       "first_text": "You open the door to find an old bedroom, filled with cobwebs and a thin layer of dust across the floor and furniture. Theres a menacing zombie standing and\ngroaning on the bed; no one has slept in this bed in a while, and you doubt you would want to lay down on it either.\nThe windows are too small for you to fit through, and too high up to jump out of. Nothing in this room looks interesting,\nexcept a bathroom to the north, as well as a locked rotary combination safe. What could be the passcode, and what could be inside?",
       "after_text": "You are in the bedroom. There's a safe, northern path to bathroom, and an eastern exit to hallway.",
-      "times_entered": 1,
+      "times_entered": 0,
       "items": [
         "gun"
       ],
@@ -201,7 +201,7 @@
       "location": "garage",
       "openbox": "A lone diary rests in here, could it be Victor's Diary?",
       "openafter": "There's nothing in here anymore.",
-      "IsLocked": true
+      "IsLocked": false
     },
     "cupboard": {
       "name": "cupboard",

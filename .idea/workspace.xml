@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="json updata again">
+    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="updated json and directions.py and main.py to print all room messages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/GameData.JSON" beforeDir="false" afterPath="$PROJECT_DIR$/data/GameData.JSON" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/directions.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/directions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +108,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709425397589</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="updated json and directions.py and main.py to print all room messages">
+      <option name="closed" value="true" />
+      <created>1709479039881</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1709479039881</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -130,6 +136,7 @@
     <MESSAGE value="Finished JSON File with everything, including rooms, items, subrooms, journal text, story text, combat and more" />
     <MESSAGE value="json fix" />
     <MESSAGE value="json updata again" />
-    <option name="LAST_COMMIT_MESSAGE" value="json updata again" />
+    <MESSAGE value="updated json and directions.py and main.py to print all room messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated json and directions.py and main.py to print all room messages" />
   </component>
 </project>
