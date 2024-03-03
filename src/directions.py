@@ -1,6 +1,7 @@
 class DirectionHandling:
-    def __init__(self, currentRoom):  
+    def __init__(self, currentRoom, data):
         self.currentRoom = currentRoom
+        self.data = data
 
     def move(self, direction):
         possibleDirections = {
@@ -22,6 +23,15 @@ class DirectionHandling:
             if nextRoom:
                 self.currentRoom = nextRoom
                 print(f'You have moved {targetDirection} to {self.currentRoom}.')
+                for room in self.data['rooms']:
+                    if room['name'] == self.currentRoom:
+                        if room['times_entered'] == 0:
+                            room['times_entered'] += 1
+                            print(room['first_text'])
+                        else:
+                            print(room['after_text'])
+
+
             else:
                 print(f'You cannot go {targetDirection} from the {self.currentRoom}.')
         else:

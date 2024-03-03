@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="Made Wield&#10;Updated main.py to tell verb class users current location&#10;Edited the Json file&#10;Updated take to ensure that the item being accessed is in the users current room">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-02-10_1_34_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-02-10_1_34_p_m___Changes_.xml" afterDir="false" />
+    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="Combat is 90 percent done&#10;Every class imports json from main, json is only imported in main now&#10;Edited the Json file again slightly">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/GameData.Json" beforeDir="false" afterPath="$PROJECT_DIR$/data/GameData.Json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/combat.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/combat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/directions.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/directions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/player.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verbs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/verbs.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +147,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709435260961</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Combat is 90 percent done&#10;Every class imports json from main, json is only imported in main now&#10;Edited the Json file again slightly">
+      <option name="closed" value="true" />
+      <created>1709475030265</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709475030265</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -168,6 +172,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fdg" />
     <MESSAGE value="Made Wield&#10;Updated main.py to tell verb class users current location&#10;Edited the Json file&#10;Updated take to ensure that the item being accessed is in the users current room" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made Wield&#10;Updated main.py to tell verb class users current location&#10;Edited the Json file&#10;Updated take to ensure that the item being accessed is in the users current room" />
+    <MESSAGE value="Combat is 90 percent done&#10;Every class imports json from main, json is only imported in main now&#10;Edited the Json file again slightly" />
+    <option name="LAST_COMMIT_MESSAGE" value="Combat is 90 percent done&#10;Every class imports json from main, json is only imported in main now&#10;Edited the Json file again slightly" />
   </component>
 </project>

@@ -11,7 +11,8 @@ verbs = data['verbs']
 items = data['items']
 
 #Class Instances/Variables
-UserCurrentRoom = DirectionHandling(currentRoom="attic")
+currentRoom = "attic"
+UserCurrentRoom = DirectionHandling(currentRoom, data)
 player = None
 npc = None
 #Main Variables
