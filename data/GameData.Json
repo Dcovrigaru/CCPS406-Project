@@ -24,7 +24,7 @@
       "first_text": "You are in the pitch-black attic, the only way out is down, the way you came.\nYou sense a fuse box, its outline faintly visible but powerless. You notice something small, smooth, and round on the floor beside the fuse box, resembling batteries, as well as what appears to be an axe. You realize the smart thing to do is to probably take both of them.",
       "TryingHallwayWithoutPower": "Power on the fuse box with the batteries first before going downstairs.",
       "after_text": "You are back in the attic. Looks cozy and safe, nice spot to catch your breath.",
-      "times_entered": 0,
+      "times_entered": 1,
       "items": ["axe", "batteries"],
       "exits": ["hallway"],
       "zombies": 0
