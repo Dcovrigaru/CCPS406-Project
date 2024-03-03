@@ -51,7 +51,7 @@
     },
     {
       "name": "Bathroom",
-      "first_text_withoutriddle": "You find yourself in a run-down bathroom. The sink is stained, and a cracked mirror shows your worried face. At least there's no zombies here, but there are cockroaches and bugs. Yuck! The only way out is south, the way you came.",
+      "first_text_withoutriddle": "You find yourself in a run-down bathroom. The sink is stained, and a cracked mirror shows your worried face. At least there's no zombies here, but there are cockroaches and bugs. There is a bathtub but it's too disgusting to check out. Yuck! The only way out is south, the way you came.",
       "after_text": "You are in the Bathroom.",
       "times_entered": 0,
       "subrooms": ["bathtub"],
@@ -61,7 +61,7 @@
     },
     {
       "name": "office",
-      "first_text": "Looks like a super old fashioned office room. There's a locked door to go down to the first floor from here, but you'll need to find a key and lockpicks won't work. There's two more dangerous zombies in your way of getting to that door. The desk shelves are all open and empty, but one catches your eye;\n this shelf has a shiny handle, but it's loosely locked; can you unlock it?",
+      "first_text": "Looks like a super old fashioned office room. There's a locked door to go down to the first floor from here, but you'll need to find a key and lockpicks won't work. There's two more dangerous zombies in your way of getting to that door. The desk shelves are all open and empty, but one catches your eye;\n this shelf has a shiny handle, but it's loosely locked; can you open it with your lockpicks?",
       "after_text": "You are in the office room.",
       "times_entered": 0,
       "subrooms": ["shelf"],
@@ -80,7 +80,7 @@
     },
     {
       "name": "kitchen",
-      "first_text": "You enter the dirty kitchen. There's a zombie here, and a south exit to the garage, as well as a locked cupboard containing useful items",
+      "first_text": "You enter the dirty kitchen. There's a zombie here, and a south exit to the garage, as well as a locked cupboard containing useful items. Continue your search for the front door key!",
       "after_text": "You are back in the kitchen, ready to cook & eat rotten zombies? Just kidding.",
       "times_entered": 0,
       "subrooms": ["cupboard"],
@@ -90,7 +90,7 @@
     },
     {
       "name": "garage",
-      "first_text": "You enter the garage, an ugly dead end. Only thing here is a broken car like yours outside, and a zombie gaurding an open box whihc contains what seems to be a diary. Kill the zombie to retrieve the diary from the box!",
+      "first_text": "You enter the garage, an ugly dead end. Only thing here is a broken car like yours outside, and a zombie guarding an open box which contains what seems to be a diary. Try to retrieve the diary from the box!",
       "after_text": "You are back in the garage, smelling like grease. To cheer you up, at least your broken car outside is cooler than the one here.",
       "times_entered": 0,
       "subrooms": ["box"],
@@ -110,7 +110,7 @@
     {
       "name": "basement",
       "first_text": "You finally descend into the basement where you see in the far end 3 zombies guarding the front door key! There's no exits here neither anything interesting, besides the key. Kill the zombies to get the key!",
-      "afterkillallzombies": "You did it!! You killed all 3 zombies here, and the front door key is yours! you take a moment to catch your breath, the lingering adrenaline coursing through your veins. You make your way to the key as it rests on a gothic dried-blood-stained pedestal, next to a clothed human skeleton, bathed in moonlight filtering through a small window. A red tag attached to it declares hauntingly, 'Frontdoor key.'",
+      "afterkillzombies": "You did it!! You killed all 3 zombies here, and the front door key is yours! you take a moment to catch your breath, the lingering adrenaline coursing through your veins. You make your way to the key as it rests on a gothic dried-blood-stained pedestal, next to a clothed human skeleton, bathed in moonlight filtering through a small window. A red tag attached to it declares hauntingly, 'Frontdoor key.'",
       "after_text": "You are back in the basement. Nothing to see here.",
       "times_entered": 0,
       "items": ["key"],
@@ -138,7 +138,7 @@
       "name": "bathtub",
       "location": "bathroom",
       "openbathtub1": "Not trying to look in there, it's too disgusting!",
-      "openbathtubwithriddle": "Despite the sheer disgust, you pull back the curtain and look into the bathtub and find a key on the floor!",
+      "openbathtubwithriddle": "Despite the sheer disgust, you pull back the curtain and look into the bathtub and find a doorkey on the floor!",
       "openafter": "There's nothing in here anymore."
     },
     {
@@ -162,26 +162,26 @@
       "name": "batteries",
       "location": "attic",
       "desc": "Used to power on fuse box to power the house.",
-      "TakenText": "Theese batteries look like they could work on the fuse box to give light to the house! Try the on the fuse box.",
+      "TakenText": "These batteries look like they could work on the fuse box to give light to the house! Try the on the fuse box.",
       "PoweredOnFuseBoxmessage": "The batteries powered on the fuse box! You restore all power to the house, except for the basement which isn't working."
     },
     {
       "name": "axe",
       "location": "attic",
       "description": "Jake's secondary defense against zombies.",
-      "Damage": 27,
+      "Damage": 28,
       "TakenText": "This will be really helpful to fight off all the zombies downstairs. Maybe there's more weapons in the house?"
     },
     {
       "name": "scribe",
       "location": "hallway",
-      "desc": "riddle for clue needed to find key to downstairs key in office.",
+      "desc": "Riddle for clue needed to find key to downstairs key in office.",
       "TakenText": "This scrap of paper has a little riddle written on it in cursive handwriting. It reads:\n'I'm not a lock, but a tool that turns,\nIn the bathroom, where cleanliness yearns.\nNear the basin or tub, where water flows free,\nSearch for me there, and the key you shall see.'"
     },
     {
       "name": "lockpicks",
       "location": "hallway",
-      "desc": "useful tool needed to unlock various things.",
+      "desc": "Useful tool needed to unlock various things.",
       "TakenText": "A handy lockpick set! Back in high school you had a set just like this and were a pro at lockpicking. This can definitely unlock some cool things throughout this house."
     },
 
@@ -209,10 +209,10 @@
       "name": "key",
       "location": "bathtub",
       "desc": "Unlocks downstairs door in office.",
-      "TakenText": "What was thing key doing in this nasty bathtuh? Nonetheless, let's go to the office and use it to unlock the key to downstairs."
+      "TakenText": "What was this key doing in this nasty bathtub? Nonetheless, let's go to the office and use it to unlock the key to downstairs."
     },
     {
-      "name": "key",
+      "name": "escapekey",
       "location": "basement",
       "desc": "Unlock the front door for escape.",
       "TakenText": "Taken! Finally, let's use this key to escape the house from the foyer."
@@ -220,14 +220,14 @@
     {
       "name": "journal",
       "location": "cupboard",
-      "desc": "explanation for everything",
+      "desc": "Explanation for everything going on.",
       "TakenText": "A small journal! It seems handmade in a rush, with a hard leather cover and only two pages inside, held together with strings. What could it contain? Read it to find out. Time is running out!",
       "UseJournal": "The small yet concise journal reads:\n\tDear my beloved Seraphina,\n\t\tIt is I, your dear husband of 30 years, Victor Blackthorne. I am grieved of your passing and want to raise you from the dead so that we may live together once again. I am locking\n this journal away in the kitchen and hope you will find it, as you always found me in my lows and helped me. I am composing this final letter in case you come back but I am longer here.\n My quest for forbidden knowledge has found me digging up the dead from the cemetery and experimenting on them in our basement, in hopes to be able to raise you too, my love. But the undead are overpowering me and not listening to my commands and I\n fear my death is certain, and I will never be able to see you again nor be buried with you. If you ever do come back, my diary in the garage written in our secret language has instructions on this forbidden disgraced knowledge\n so that you may bring me back too. I have hidden a gun in our safe, the passcode locked in the office desk shelf, and have locked all doors and windows to prevent the zombies from escaping outside, as well as powered off the house.\n Place my diary on the bookshelf in the living room to come find me, as I will spend my final moments hiding in the basement before the zombies get to me. I have with me the front door key, the only way out this nightmare.\n Retrieve it from the basement, unlock the front door, and release these malevolent beings once and for all. There remains no more barriers to overcome; the world must bear the consequences of my anguish and suffering\n in my innocent pursuit of tranquility and repose to have my wife back. Our suffering is ceaseless and harrowing, and I harbor no hopes for a better world for anyone except for us both. \nThis infernal punishment persists in its deceit, offering no deeper understanding of myself or the existence that surrounds me.\n"
     },
     {
       "name": "diary",
       "location": "box",
-      "desc": "to get to basement",
+      "desc": "To get to the basement.",
       "TakenText": "You take a well maintained black hardcover diary with just two eerie words on its cover, reading 'Victor's Diary'.",
       "UseDiaryinLivingroom": "Using the diary on shelf causes the bookshelf to slide down and reveal the stairs to basement, where you're potential escape awaits! It's too dark down there, and you'll need a source of light to go.",
       "UseDiaryElsewhere": "This diary is old and the handwriting looks unreadable. The only use you have for it would be to try using it on the living room bookshelf."
