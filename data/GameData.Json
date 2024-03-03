@@ -252,22 +252,22 @@
   ],
 
 
-    "weapons": {
-      "gun": {
-        "name": "gun",
-        "message": "Headshot, the zombie is dead",
-        "Damage": "Zombie health -= 35",
-        "is_wielded": false
-      },
-      "axe": {
-        "name": "axe",
-        "message1": "Bodyshot, the zombie is injured",
-        "Damage1": "Zombie health -= 20 to 35 damage",
-        "message2": "Lucky, your axe killed the zombie",
-        "Damage2": "Zombie health -= 20 to 35 damage (If it kills)",
-        "is_wielded": false
-      }
+  "weapons": {
+    "gun": {
+      "name": "gun",
+      "attack_message": "Headshot, the zombie is dead",
+      "damage_message": "Zombie health -= 35",
+      "is_wielded": false
     },
+    "axe": {
+      "name": "axe",
+      "attack_message": "Bodyshot, the zombie is injured",
+      "damage_message": "Zombie health -= 20 to 35 damage",
+      "kill_message": "Lucky, your axe killed the zombie",
+      "kill_damage": "Zombie health -= 20 to 35 damage (If it kills)",
+      "is_wielded": false
+  }
+},
 
     "verbs":  ["open", "take", "use", "wield", "attack", "inventory"]
 

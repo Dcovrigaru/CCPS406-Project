@@ -1,3 +1,6 @@
+from combat import Combat
+from verbs import VerbHandler
+from directions import DirectionHandling
 #Importing Json
 import json
 with open('../data/GameData.json') as f:
@@ -8,10 +11,9 @@ verbs = data['verbs']
 items = data['items']
 
 #Class Instances/Variables
-from verbs import VerbHandler
-from directions import DirectionHandling
 UserCurrentRoom = DirectionHandling(currentRoom="attic")
-
+player = None
+npc = None
 #Main Variables
 compass = ["n","e","w","s","u","d","up","east","west","down","north","south","current","c"]
 """
@@ -20,7 +22,7 @@ Rusty Key = Key for Stairs Between Office Room and Living Room
 Antique Key = Key for Front Door
 """
 def main():
-    verb_handler = VerbHandler(items, UserCurrentRoom)
+    verb_handler = VerbHandler(items, UserCurrentRoom, npc, player, data)
     while True:
         user_input = input("Enter in an action: ").lower()
         print(user_input.split(" "))

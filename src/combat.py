@@ -1,27 +1,36 @@
 import random
 
 class Combat:
-    def __init__(self, player, npc):
+    def __init__(self, player, npc, data):
         self.player = player
         self.npc = npc
+        self.data = data
 
-    def player_attack(self):
-        if not self.player.current_weapon:
-            print("You have no weapon equipped.")
-            return
+    def player_attack(self, current_weapon, current_room):
+        room_data = next(room for room in self.data['rooms'] if room['name'] == current_room)
+        if current_weapon == "gun":
+            # Decrement the number of zombies in the current room
+            for room in self.data['rooms']:
+                if room['name'] == current_room:
+                    room['zombies'] -= 1
+                    break
 
-        if self.player.current_weapon == "pistol":
-            damage = 35  # Fixed damage for simplicity
-            message = "Boom, the zombie is dead."
-        elif self.player.current_weapon == "axe":
-            damage = random.randint(20, 35)  # Variable damage for the axe
-            message = "Lucky, your axe killed the zombie." if damage > 30 else "Bodyshot, the zombie is injured."
 
-        self.npc.take_damage(damage)
-        print(message)
 
-        if not self.npc.is_alive():
-            print(f"{self.npc.name} has been defeated.")
+            print(self.data['weapons'][current_weapon]['attack_message'])
+            print("There are " + str(room_data['zombies']) + " zombies left in the room")
+
+        elif current_weapon == "axe":
+            # Implement your own logic here for axe damage calculation
+            damage = random.randint(20, 35)  # Example random damage for demonstration
+            # Decrement the number of zombies in the current room
+            for room in self.data['rooms']:
+                if room['name'] == current_room:
+                    room['zombies'] -= 1
+
+                    print(self.data['weapons'][current_weapon]['attack_message'])
+                    print("There are " + str(room_data['zombies']) + " zombies left in the room")
+                    break
 
     def npc_attack(self):
         if not self.npc.is_alive():

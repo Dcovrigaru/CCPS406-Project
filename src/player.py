@@ -5,17 +5,6 @@ class Player:
         self.inventory = []
         self.current_weapon = None
 
-    def add_item(self, item):
-        self.inventory.append(item)
-        print(f"{item} added to inventory.")
-
-    def equip_weapon(self, weapon):
-        if weapon in self.inventory:
-            self.current_weapon = weapon
-            print(f"{weapon} equipped as current weapon.")
-        else:
-            print(f"You do not have {weapon} in your inventory.")
-
     def take_damage(self, damage):
         self.health -= damage
         if self.health <= 0:
