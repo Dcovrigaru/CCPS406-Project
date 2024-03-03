@@ -1,5 +1,3 @@
-verbs = ["open", "take", "use", "wield", "attack", "inventory"]
-
 class VerbHandler:
     def __init__(self, items):
         self.items = items
@@ -13,16 +11,17 @@ class VerbHandler:
 
         # Check if the verb is in the list of verbs
         if verb in verbs:
+            # Check if the verb is "inventory"
+            if verb == "inventory":
+                # Call the corresponding method without item
+                getattr(self, f"handle_{verb}")()
             # Check if there's a second word (after the verb)
-            if len(words) > 1:
-                # Check if the verb is not "inventory" and the item is in the items list
-                if verb != "inventory" and words[1] in self.items:
+            elif len(words) > 1:
+                # Check if the item is in the items list
+                if words[1] in self.items:
                     item_name = words[1]
                     # Call the corresponding method with the item name
                     getattr(self, f"handle_{verb}")(item_name)
-                # If verb is "inventory", call the corresponding method without item
-                elif verb == "inventory":
-                    getattr(self, f"handle_{verb}")()
                 elif verb == "attack":
                     if words[1] == "zombie":
                         self.handle_attack(words[1])
@@ -33,6 +32,9 @@ class VerbHandler:
             else:
                 # No item provided
                 print("No item provided. Please try again.")
+        elif verb == "inventory":
+            # If the verb is "inventory", call the corresponding method without item
+            getattr(self, f"handle_{verb}")()
         else:
             print("Invalid action. Please try again.")
 
@@ -59,3 +61,8 @@ class VerbHandler:
     def handle_inventory(self):
         # Implement inventory action logic
         print("Handling inventory action...")
+
+# List of verbs
+verbs = ["open", "take", "use", "wield", "attack", "inventory"]
+
+# Define the list of items
