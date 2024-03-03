@@ -12,7 +12,7 @@ class Player:
         else:
             print(f"{self.name} now has {self.health} health.")
 
-    def is_alive(self):
+    def healthStatus(self):
         return self.health > 0
 
     def list_inventory(self):
@@ -22,3 +22,6 @@ class Player:
                 print(f"- {item}")
         else:
             print("Your inventory is empty.")
+            
+    def hasKey(self, key_name):
+        return key_name in self.inventory
