@@ -1,18 +1,16 @@
 #Class Instances/Variables
 import json
 from verbs import VerbHandler, verbs
-from directions import DirectionHandling
-UserCurrentRoom = DirectionHandling(currentRoom="attic")
+from directions import *
+UserCurrentRoom = DirectionHandling(currentRoom="attic") #player starts in attic
 
 #Main Variables
 items = ["key", "flashlight", "pistol", "axe", "scribe", "paper" "journal", "lockpick", "diary", "batteries", "key"]
-compass = ["n","e","w","s","u","d","up","east","west","down","north","south","current","c"]
-"""
-Paper = Safe Passcode Paper
-Rusty Key = Key for Stairs Between Office Room and Living Room
-Antique Key = Key for Front Door
-"""
+compass = ["n", "e", "w", "s", "u", "d", "up", "east", "west", "down", "north", "south", "current", "c"]
+
+
 def main():
+    ResetNewGame()           #this resets times_entered for all rooms back to 0 (attic to 1) and prints games intro message
     verb_handler = VerbHandler(items)
     while True:
         user_input = input("Enter in an action: ").lower()
@@ -39,8 +37,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-"""
-NOTES:
-- Should all CURRENT variables be placed in ONE class object for clarity? Or should it be split up
-- Should all classes be put in one .py file seperate from main?
-"""
