@@ -5,7 +5,7 @@ from directions import DirectionHandling
 UserCurrentRoom = DirectionHandling(currentRoom="attic")
 
 #Main Variables
-items = ["antique key", "flashlight", "pistol", "axe", "riddle", "paper" "journal", "pistol", "lockpick", "diary", "batteries", "rusty key"]
+items = ["key", "flashlight", "pistol", "axe", "scribe", "paper" "journal", "lockpick", "diary", "batteries", "key"]
 compass = ["n","e","w","s","u","d","up","east","west","down","north","south","current","c"]
 """
 Paper = Safe Passcode Paper
