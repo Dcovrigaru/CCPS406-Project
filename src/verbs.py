@@ -76,7 +76,8 @@ class VerbHandler:
         if item_name in self.inventory:
             print(f"You already have the {item_name} in your inventory.")
             return
-        # Check if the item is present in the current room
+
+        # Find the current room
         current_room = next((room for room in self.data['rooms'] if room['name'] == self.current_room.currentRoom),
                             None)
         if current_room:
@@ -90,34 +91,26 @@ class VerbHandler:
                         break
                 return
 
+            # Check if the item is in a locked subroom
+            if 'subrooms' in current_room:
+                for subroom_name in current_room['subrooms']:
+                    subroom = next((subroom for subroom in self.data['subrooms'] if subroom['name'] == subroom_name),
+                                   None)
+                    if subroom and item_name in subroom.get('items', []):
+                        if subroom.get('locked', True):
+                            print(f"The {item_name} is in a locked subroom.")
+                            return
+                        else:
+                            print(f"You took the {item_name}.")
+                            self.inventory.append(item_name)
+                            for item in self.data['items']:
+                                if item['name'] == item_name:
+                                    print(item.get('TakenText', ""))
+                                    break
+                            return
 
-        # Check if the item is in a locked subroom
-            for subroom in self.data['subrooms1']:
-                if subroom['location'] == self.current_room.currentRoom:
-                    y = subroom.get('locked')
-                    break
-            if y:
-                return
-                print(f"The {item_name} is in a locked subroom.")
-                return
-            else:
-                # Subroom is unlocked, allow taking the item
-                print(f"You took the {item_name}.")
-                self.inventory.append(item_name)
-                for item in self.data['items']:
-                    if item['name'] == item_name:
-                        print(item['TakenText'])
-                        break
-                return
-
-        # Add the item to inventory if it's present in the current room
-        print(f"You took the {item_name}.")
-        self.inventory.append(item_name)
-        for item in self.data['items']:
-            if item['name'] == item_name:
-                print(item['TakenText'])
-                break
-
+        # Item not found in the current room
+        print(f"I don't see a {item_name} here.")
 
     def handle_use(self, item_name):
         # Check if the item is in the inventory

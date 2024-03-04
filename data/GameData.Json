@@ -44,18 +44,18 @@
       "first_text": "You open the door to find an old bedroom, filled with cobwebs and a thin layer of dust across the floor and furniture. Theres a menacing zombie standing and groaning on the bed;\n no one has slept in this bed in a while, and you doubt you would want to lay down on it either.\n The windows are too small for you to fit through, and too high up to jump out of. Nothing in this room looks interesting, except a bathroom to the north, as well as a locked rotary combination safe. What could be the passcode, and what could be inside?",
       "after_text": "You are in the bedroom.",
       "times_entered": 0,
-      "items": ["gun"],
+      "items": [""],
       "subrooms": ["safe"],
       "exits": ["hallway", "bathroom"],
       "zombies": 1
     },
     {
-      "name": "Bathroom",
-      "first_text_withoutriddle": "You find yourself in a run-down bathroom. The sink is stained, and a cracked mirror shows your worried face. At least there's no zombies here, but there are cockroaches and bugs. There is a bathtub but it's too disgusting to check out. Yuck! The only way out is south, the way you came.",
+      "name": "bathroom",
+      "first_text": "You find yourself in a run-down bathroom. The sink is stained, and a cracked mirror shows your worried face. At least there's no zombies here, but there are cockroaches and bugs. There is a bathtub but it's too disgusting to check out. Yuck! The only way out is south, the way you came.",
       "after_text": "You are in the Bathroom.",
       "times_entered": 0,
       "subrooms": ["bathtub"],
-      "items": ["key"],
+      "items": [""],
       "exits": ["bedroom"],
       "zombies": 0
     },
@@ -64,7 +64,7 @@
       "first_text": "Looks like a super old fashioned office room. There's a locked door to go down to the first floor from here, but you'll need to find a key and lockpicks won't work. There's two more dangerous zombies in your way of getting to that door. The desk shelves are all open and empty, but one catches your eye;\n this shelf has a shiny handle, but it's loosely locked; can you open it with your lockpicks?",
       "after_text": "You are in the office room.",
       "times_entered": 0,
-      "items": ["paper"],
+      "items": [""],
       "subrooms": ["shelf"],
       "exits": ["hallway", "living room"],
       "zombies": 2
@@ -73,6 +73,7 @@
       "name": "living room",
       "first_text": "You made it downstairs to the living room! It's old fashioned with an old box TV and scattered DVD cassettes. Here's there's two more zombies in your of getting to the western foyer. There's nothing here, except a full bookshelf with an empty slot asking for 'Victor's Diary' to be placed on it to unlock passage to go down the basement.",
       "after_text": "You are in the living room.",
+      "items": [""],
       "basementWithoutflashlight": "It's too dark and dangerous! Get a source of light first.",
       "times_entered": 0,
       "exits": ["basement", "office","foyer"],
@@ -84,7 +85,7 @@
       "after_text": "You are back in the kitchen, ready to cook & eat rotten zombies? Just kidding.",
       "times_entered": 0,
       "subrooms": ["cupboard"],
-      "items": ["flashlight", "journal"],
+      "items": [""],
       "exits": ["foyer","garage"],
       "zombies": 2
     },
@@ -94,7 +95,7 @@
       "after_text": "You are back in the garage, smelling like grease. To cheer you up, at least your broken car outside is cooler than the one here.",
       "times_entered": 0,
       "subrooms": ["box"],
-      "items": ["diary"],
+      "items": [""],
       "exits": ["kitchen"],
       "zombies": 1
     },
@@ -128,7 +129,7 @@
       "unlocker": "lockpick",
       "locked_message": "Looks like you'll need lockpicks; to open this.",
       "unlocked_message": "It opened! Inside you find a piece of paper with some numbers on it!",
-      "openafter": "There's nothing in here anymore."
+      "openafter": "You already opened this"
     },
     {
       "name": "safe",
@@ -138,36 +139,35 @@
       "unlocker": "paper",
       "locked_message": "This safe can't be unlocked by force nor by lockpicks as it has a rotary combination lock. Where can you find the code?",
       "unlocked_message": "The code from the paper worked! Inside you find a pistol, no way!",
-      "openafter": "There's nothing in here anymore."
+      "openafter": "You already opened this"
     },
     {
       "name": "bathtub",
       "location": "bathroom",
       "locked": true,
-      "items": "key",
+      "items": "doorkey",
       "unlocker": "scribe",
-      "openbathtub1": "Not trying to look in there, it's too disgusting!",
-      "openbathtubwithriddle": "Despite the sheer disgust, you pull back the curtain and look into the bathtub and find a doorkey on the floor!",
-      "openafter": "There's nothing in here anymore."
+      "locked_message": "Not trying to look in there, it's too disgusting!",
+      "unlocked_message": "Despite the sheer disgust, you pull back the curtain and look into the bathtub and find a doorkey on the floor!",
+      "openafter": "You already opened this"
     },
     {
       "name": "box",
       "items": "diary",
-      "unlocker": "paper",
       "location": "garage",
-      "locked": true,
-      "openbox": "A lone diary rests in here, could it be Victor's Diary?",
-      "openafter": "There's nothing in here anymore."
+      "locked": false,
+      "unlocked_message": "A lone diary rests in here, could it be Victor's Diary?",
+      "openafter": "You already opened this"
     },
     {
        "name": "cupboard",
-      "items": "gun",
+      "items": "flashlight , journal",
       "unlocker": "lockpick",
       "location": "kitchen",
       "locked": true,
-      "opencupboard1": "You'll need to use the lockpicks upstairs to unlock this.",
-      "opencupboard2": "The lockpicks worked on the cupboard, and in it you find a flashlight and a journal! Both of these look promising.",
-      "openafter": "Nothing in here anymore."
+      "locked_message": "You'll need to use the lockpicks upstairs to unlock this.",
+      "unlocked_message": "The lockpicks worked on the cupboard, and in it you find a flashlight and a journal! Both of these look promising.",
+      "openafter": "You already opened this"
     }
   ],
 
