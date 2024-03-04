@@ -26,7 +26,7 @@ player = None
 npc = None
 #Main Variables
 #print(y)
-print(data['story']['intro'] + '\n')
+print('*****DEATH ESCAPE******\n\n\t' + data['story']['intro'] + '\n')
 for room in data['rooms']:
     if room['name'] == currentRoom:
         print(room['first_text'])

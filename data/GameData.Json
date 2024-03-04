@@ -20,7 +20,7 @@
       "first_text": "You are in the pitch-black attic, the only way out is down, the way you came.\nYou sense a fuse box, its outline faintly visible but powerless. You notice something small, smooth, & round on the floor beside the fuse box, resembling batteries,\nas well as what appears to be an axe. You realize the smart thing to do is to probably take both of them.",
       "tryingdownwithoutpoweroraxe": "Power on the fuse box with the batteries first before going downstairs, as well take the axe",
       "after_text": "You are back in the attic. Looks cozy & safe, nice spot to catch your breath. You can continue your quest downstairs.",
-      "currentText": "You are currently in the attic. Exits are down & items here are batteries & axe.",
+      "currentText": "You are currently in the attic. Only exit is down.",
       "times_entered": 1,
       "items": [
         "axe",
@@ -36,6 +36,7 @@
       "first_text": "You cautiously make your way down the ladder to the hallway, & there's two dull zombies on each end, west & east, blocking half open doors.\nThe only way into those two rooms will require you to kill them. Beside you, you see a bookshelf, empty except for a scribe with words & what appears to be some lockpicks.\nThe air quality is harsh & choking you, making you almost nauseous, & you realize you need to escape the house quickly before you slowly pass out & die.",
       "after_text": "You are in the hallway. Can go up, east or west to attic, office & bedroom respectively. Items here were scribe & lockpicks.",
       "WestorEastwithzombies": "The zombie is in the way! You'll have to kill the zombie first to go this way.",
+      "currentText": "You are currently in the hallway. Can go east, west or up.",
       "times_entered": 0,
       "items": [
         "scribe",
@@ -51,6 +52,7 @@
       "name": "bedroom",
       "first_text": "You open the door to find an old bedroom, filled with cobwebs & a thin layer of dust across the floor & furniture. Theres a menacing zombie standing\n& groaning on the bed; no one has slept in this bed in a while, & you doubt you would want to lay down on it either.\nThe windows are too small for you to fit through, & too high up to jump out of. Nothing in this room looks interesting,\nexcept a bathroom to the north, as well as a locked rotary combination safe. What could be the passcode, & what could be inside?",
       "after_text": "You are in the bedroom. There's a safe, northern path to bathroom, & an eastern exit to hallway.",
+      "currentText": "You are currently in the bedroom. Can go north or east.",
       "times_entered": 0,
       "items": [
         "gun"
@@ -66,8 +68,10 @@
     },
     {
       "name": "bathroom",
-      "first_text": "You find yourself in a run-down bathroom. The sink is stained, & a cracked mirror shows your worried face. At least there's no zombies here,\nbut there are cockroaches & bugs. There is a bathtub but it's too disgusting to check out unless you have a good reason to. Yuck! The only way out is south, the way you came.",
+      "first_text": "You find yourself in a run-down bathroom. The sink is stained, & a cracked mirror shows your worried face. At least there's no zombies here,\nbut there are cockroaches & bugs. There is a curtain covering the tub but it's too disgusting to check out unless you have a good reason to. Yuck! The only way out is south, the way you came.",
       "after_text": "You are in the filthy bathroom again. Water's not running but who cares. What's in the bathtub? Only way out is back south to bedroom.",
+      "curtainwithoutriddle": "It's too filthy to look and you might throw up. Do you really have a reason to look?",
+      "currentText": "You are currently in the bathroom, only way out is south.",
       "times_entered": 0,
       "subrooms": [
         "bathtub"
@@ -84,6 +88,8 @@
       "name": "office",
       "first_text": "Looks like a super old fashioned office room. There's a locked door to go down to the first floor from here, but you'll\nneed to find a key & lockpicks won't work. There's two more dangerous zombies in your way of getting to that door. The desk shelves are all open & empty,\nbut one catches your eye;this shelf has a shiny handle, but it's loosely locked; can you open it with your lockpicks?",
       "after_text": "You are in the messy office room. There's a shelf, door leading downstairs, & western path to hallway.",
+      "currentText": "You are currently in the office. Can go west or down.",
+      "downwithlockeddoor": "The door is locked to go downstairs; try finding the key first.",
       "times_entered": 0,
       "subrooms": [
         "shelf"
@@ -101,6 +107,8 @@
       "name": "living room",
       "first_text": "You made it downstairs to the living room! It's old fashioned with an old box TV & scattered DVD cassettes. Here's there's two more zombies in your of getting\nto the western foyer. There's nothing here, except a full bookshelf with an empty slot asking for 'Victor's Diary' to be placed on it to unlock passage to go down the basement.",
       "after_text": "You are in the living room. Can go upstairs from here, and west to foyer, as well as down to basement if you have the diary to use on bookshelf.",
+      "downwithoutdiary": "The passage to the basement is locked. Find a diary and use it here to unlock it.",
+      "currentText": "You are currently in the living room. Can go up, down or west.",
       "basementWithoutflashlight": "It's too dark and dangerous! Get a source of light first.",
       "times_entered": 0,
       "exits": [
@@ -133,7 +141,7 @@
       "name": "garage",
       "first_text": "You enter the garage, an ugly dead end. Only thing here is a broken car like yours outside, & a zombie guarding an open box which contains what seems to be a diary.\nTry to retrieve the diary from the box!",
       "after_text": "You are back in the garage, only way back is north back to kitchen. smelling like grease, to cheer you up, at least your broken car outside is cooler than the one here.\nThe box in the corner contained a diary.",
-      "currentText": "Forgot where you are? You're in the garage, which has really only a box you can open, as well as a northern exit.",
+      "currentText": "Forgot where you are? You're in the garage, and can only go north.",
       "times_entered": 0,
       "subrooms": [
         "box"
@@ -150,6 +158,7 @@
       "name": "foyer",
       "first_text": "You made it to the main foyer! It's very big & fancy, & there's 3 zombies here. There's a western exit to the kitchen, & the front door is heavily locked,\nrequiring you to find a key to open it & exit as lockpicks won't work on it. Continue searching, maybe it's in the basement!",
       "after_text": "You are in the foyer, where your locked front door escape is. Find the key & use it to get outta here! You can go east & west from here.",
+      "currentText": "You are standing in the foyer right now. Can go west and east, and out the front door if you have the key for it.",
       "times_entered": 0,
       "items": [],
       "exits": [

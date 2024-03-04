@@ -14,7 +14,9 @@ class DirectionHandling:
         direction = direction.lower()
 
         if direction == 'current' or direction =='c':
-            print(f'You are currently in the {self.currentRoom}.')
+            for room in self.data['rooms']:
+                if room['name'] == self.currentRoom:
+                    print(room['currentText'])
             return
 
 

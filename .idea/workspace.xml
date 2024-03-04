@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="&#10;upto date as of march 3rd night.">
+    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="has most upto date json">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/GameData.Json" beforeDir="false" afterPath="$PROJECT_DIR$/data/GameData.Json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/directions.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/directions.py" afterDir="false" />
@@ -188,7 +188,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709520048641</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="has most upto date json">
+      <option name="closed" value="true" />
+      <created>1709521824434</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1709521824434</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -208,6 +216,7 @@
     <MESSAGE value="Combat is 90 percent done&#10;Every class imports json from main, json is only imported in main now&#10;Edited the Json file again slightly" />
     <MESSAGE value="Directions includes room descriptions" />
     <MESSAGE value="&#10;upto date as of march 3rd night." />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;upto date as of march 3rd night." />
+    <MESSAGE value="has most upto date json" />
+    <option name="LAST_COMMIT_MESSAGE" value="has most upto date json" />
   </component>
 </project>
