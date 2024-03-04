@@ -1,5 +1,6 @@
-
 from combat import Combat
+
+
 class VerbHandler:
     def __init__(self, items, current_room, player, npc, data):
         self.items = items
@@ -76,8 +77,6 @@ class VerbHandler:
             print(f"I don't see a {item_name} here.")
             return
 
-
-
     def handle_take(self, item_name):
         # Check if the item is already in the inventory
         if item_name in self.inventory:
@@ -120,21 +119,31 @@ class VerbHandler:
         print(f"I don't see a {item_name} here.")
 
     def handle_use(self, item_name):
-        # Check if the item is in the inventory
-        if item_name in self.inventory:
-            # Implement use action logic
-            print(f"Handling use action for item: {item_name}...")
-        else:
+        if item_name not in self.inventory:  # Checking to see if the player has the said item
             print(f"You don't have the {item_name} in your inventory.")
+            return
+        #elif item_name not in weapon_names:  # Checking to see if the item is even a weapon capable of wielding
+         #   print(f"Are you sure {item_name} is a weapon?")
+            #  return
 
-    def handle_wield(self, item_name):
+        # Check if any other weapon is wielded and unwield it
+
+        for item in self.data['items']:
+            if item['name'] == item_name:
+                print(item.get('UseText', ""))
+                break
+        return
+
+
+
+    def handle_wield(self, item_name):  # Function for handling the verb 'wield'
         weapons = self.data['weapons']
         weapon_names = [self.data["weapons"][weapon]["name"] for weapon in self.data["weapons"]]
         # Check if the item is in the inventory
-        if item_name not in self.inventory:
+        if item_name not in self.inventory:  # Checking to see if the player has the said item
             print(f"You don't have the {item_name} in your inventory.")
             return
-        elif item_name not in weapon_names:
+        elif item_name not in weapon_names:  # Checking to see if the item is even a weapon capable of wielding
             print(f"Are you sure {item_name} is a weapon?")
             return
 
@@ -152,7 +161,7 @@ class VerbHandler:
         else:
             print(f"The {item_name} is already wielded")
 
-    def handle_attack(self, item_name):
+    def handle_attack(self, item_name):  # Function for handling the verb 'attack'
         # Implement attack action logic
         if item_name != "zombies" and item_name != "zombie":
             print(f"Uh oh, you can't attack a {item_name}")
@@ -161,28 +170,29 @@ class VerbHandler:
         for room in self.data['rooms']:
             if room['name'] == self.current_room.currentRoom:
                 if room['zombies'] > 0:
-                    zombies_present = True
+                    zombies_present = True  # Sets true if zombies are found in the room
                     break
 
-        if not zombies_present:
+        if not zombies_present:  # Checks if there are any zombies to attack
             print("There are no zombies in this room")
             return
 
         # Check if the player is wielding a weapon
-        if self.wielded_weapon is None:
+        if self.wielded_weapon is None:  # Checking if a player is wielding a weapon
             print(f"You are not wielding any weapon to attack with")
             return
         else:
-            self.combat_instance.player_attack(self.wielded_weapon, self.current_room.currentRoom)
-            #print(data['weapons'][self.wielded_weapon]['attack_message'])
+            self.combat_instance.player_attack(self.wielded_weapon,
+                                               self.current_room.currentRoom)  # Calls the player_attack to handle attacks
+            # print(data['weapons'][self.wielded_weapon]['attack_message'])
 
-
-    def handle_inventory(self):
-        if len(self.inventory) == 0:
+    def handle_inventory(self):  # Function for handling the verb 'inventory'
+        if len(self.inventory) == 0:  # Displays a message if the inventory is empty
             print("You haven't picked anything up")
         else:
             for item_name in self.inventory:
                 for item in self.data['items']:
                     if item['name'] == item_name:
-                        print(f"[{item['name']}]\t{item['desc']}")
+                        print(
+                            f"[{item['name']}]\t{item['desc']}")  # Displays each item vertically in a list side by side its description
                         break

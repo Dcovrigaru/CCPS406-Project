@@ -9,15 +9,6 @@ with open('../data/GameData.json') as f:
 # Extract items and verbs from the data
 verbs = data['verbs']
 items = data['items']
-subroom_name = "safe"  # Replace "your_subroom_name" with the actual name of the subroom
-y = None
-for subroom in data['subrooms']:
-    if subroom['name'] == subroom_name:
-        y = subroom.get('locked')
-        break
-
-# Now y contains the value of the 'locked' attribute of the subroom with the specified name
-
 
 #Class Instances/Variables
 currentRoom = "attic"
@@ -25,7 +16,6 @@ UserCurrentRoom = DirectionHandling(currentRoom, data)
 player = None
 npc = None
 #Main Variables
-print(y)
 print('\n' * 2)
 print(data['story']['intro'])
 print('\n' * 2)

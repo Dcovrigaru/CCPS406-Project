@@ -178,33 +178,38 @@
       "location": "attic",
       "desc": "Used to power on fuse box to power the house.",
       "TakenText": "These batteries look like they could work on the fuse box to give light to the house! Try them on the fuse box.",
-      "PoweredOnFuseBoxmessage": "The batteries powered on the fuse box! You restore all power to the house, except for the basement which isn't working."
+      "UseText": "The batteries powered on the fuse box! You restore all power to the house, except for the basement which isn't working."
+
     },
     {
       "name": "axe",
       "location": "attic",
       "desc": "Jake's secondary defense against zombies.",
       "Damage": 28,
-      "TakenText": "This will be really helpful to fight off all the zombies downstairs. Maybe there's more weapons in the house?"
+      "TakenText": "This will be really helpful to fight off all the zombies downstairs. Maybe there's more weapons in the house?",
+      "UseText": "This is a weapon, it probably attacks"
     },
     {
       "name": "scribe",
       "location": "hallway",
       "desc": "Riddle for clue needed to find key to downstairs key in office.",
-      "TakenText": "This scrap of paper has a little riddle written on it in cursive handwriting. It reads:\n'I'm not a lock, but a tool that turns,\nIn the bathroom, where cleanliness yearns.\nNear the basin or tub, where water flows free,\nSearch for me there, and the key you shall see.'"
+      "TakenText": "This scrap of paper has a little riddle written on it in cursive handwriting. It reads:\n'I'm not a lock, but a tool that turns,\nIn the bathroom, where cleanliness yearns.\nNear the basin or tub, where water flows free,\nSearch for me there, and the key you shall see.'",
+      "UseText": "How can I use a scribe?"
     },
     {
       "name": "lockpick",
       "location": "hallway",
       "desc": "Useful tool needed to unlock various things.",
-      "TakenText": "A handy lockpick set! Back in high school you had a set just like this and were a pro at lockpicking. This can definitely unlock some cool things throughout this house."
+      "TakenText": "A handy lockpick set! Back in high school you had a set just like this and were a pro at lockpicking. This can definitely unlock some cool things throughout this house.",
+      "UseText": "Wonder what it means to use this? Maybe it opens something?"
     },
 
     {
       "name": "flashlight",
       "location": "cupboard",
       "desc": "Required to navigate the dark basement.",
-      "TakenText": "You grab the flashlight and it works! You can use this to access the dark mysterious basement where there's no light."
+      "TakenText": "You grab the flashlight and it works! You can use this to access the dark mysterious basement where there's no light.",
+      "UseText": "Seems this was turned on the second I grabbed it"
     },
     {
       "name": "gun",
@@ -212,39 +217,45 @@
       "desc": "A pistol, this could do serious damage.",
       "Damage": 50,
       "TakenText": "This pistol looks like it was made 100 years ago. Nonetheless, it will make it easier to kill zombies, but you notice it only has 15 bullets left, so use wisely.",
-      "BulletsLeft": 15
+      "BulletsLeft": 15,
+      "UseText": "This is a weapon, it probabaly attacks"
     },
     {
       "name": "paper",
       "location": "office",
       "desc": "Passcode for a safe.",
-      "TakenText": "Seems like a 5 digit numerical code for a safe. Wonder where the safe is, and what could lie inside of it?"
+      "TakenText": "Seems like a 5 digit numerical code for a safe. Wonder where the safe is, and what could lie inside of it?",
+      "UseText": "How can you possibly 'use' a paper? Maybe the code opens something mentioned?"
     },
     {
       "name": "key",
       "location": "bathtub",
       "desc": "Unlocks downstairs door in office.",
-      "TakenText": "What was this key doing in this nasty bathtub? Nonetheless, let's go to the office and use it to unlock the key to downstairs."
+      "TakenText": "What was this key doing in this nasty bathtub? Nonetheless, let's go to the office and use it to unlock the key to downstairs.",
+      "UseText": "How do you use a key, maybe you open something with it?"
     },
     {
       "name": "escapekey",
       "location": "basement",
       "desc": "Unlock the front door for escape.",
-      "TakenText": "Taken! Finally, let's use this key to escape the house from the foyer."
+      "TakenText": "Taken! Finally, let's use this key to escape the house from the foyer.",
+      "UseText": "The small yet concise journal reads:\n\tDear my beloved Seraphina,\n\t\tIt is I, your dear husband of 30 years, Victor Blackthorne. I am grieved of your passing and want to raise you from the dead so that we may live together once again. I am locking\n this journal away in the kitchen and hope you will find it, as you always found me in my lows and helped me. I am composing this final letter in case you come back but I am longer here.\n My quest for forbidden knowledge has found me digging up the dead from the cemetery and experimenting on them in our basement, in hopes to be able to raise you too, my love. But the undead are overpowering me and not listening to my commands and I\n fear my death is certain, and I will never be able to see you again nor be buried with you. If you ever do come back, my diary in the garage written in our secret language has instructions on this forbidden disgraced knowledge\n so that you may bring me back too. I have hidden a gun in our safe, the passcode locked in the office desk shelf, and have locked all doors and windows to prevent the zombies from escaping outside, as well as powered off the house.\n Place my diary on the bookshelf in the living room to come find me, as I will spend my final moments hiding in the basement before the zombies get to me. I have with me the front door key, the only way out this nightmare.\n Retrieve it from the basement, unlock the front door, and release these malevolent beings once and for all. There remains no more barriers to overcome; the world must bear the consequences of my anguish and suffering\n in my innocent pursuit of tranquility and repose to have my wife back. Our suffering is ceaseless and harrowing, and I harbor no hopes for a better world for anyone except for us both. \nThis infernal punishment persists in its deceit, offering no deeper understanding of myself or the existence that surrounds me.\n"
+
+
     },
     {
       "name": "journal",
       "location": "cupboard",
       "desc": "Explanation for everything going on.",
       "TakenText": "A small journal! It seems handmade in a rush, with a hard leather cover and only two pages inside, held together with strings. What could it contain? Read it to find out. Time is running out!",
-      "UseJournal": "The small yet concise journal reads:\n\tDear my beloved Seraphina,\n\t\tIt is I, your dear husband of 30 years, Victor Blackthorne. I am grieved of your passing and want to raise you from the dead so that we may live together once again. I am locking\n this journal away in the kitchen and hope you will find it, as you always found me in my lows and helped me. I am composing this final letter in case you come back but I am longer here.\n My quest for forbidden knowledge has found me digging up the dead from the cemetery and experimenting on them in our basement, in hopes to be able to raise you too, my love. But the undead are overpowering me and not listening to my commands and I\n fear my death is certain, and I will never be able to see you again nor be buried with you. If you ever do come back, my diary in the garage written in our secret language has instructions on this forbidden disgraced knowledge\n so that you may bring me back too. I have hidden a gun in our safe, the passcode locked in the office desk shelf, and have locked all doors and windows to prevent the zombies from escaping outside, as well as powered off the house.\n Place my diary on the bookshelf in the living room to come find me, as I will spend my final moments hiding in the basement before the zombies get to me. I have with me the front door key, the only way out this nightmare.\n Retrieve it from the basement, unlock the front door, and release these malevolent beings once and for all. There remains no more barriers to overcome; the world must bear the consequences of my anguish and suffering\n in my innocent pursuit of tranquility and repose to have my wife back. Our suffering is ceaseless and harrowing, and I harbor no hopes for a better world for anyone except for us both. \nThis infernal punishment persists in its deceit, offering no deeper understanding of myself or the existence that surrounds me.\n"
+      "UseText": "The small yet concise journal reads:\n\tDear my beloved Seraphina,\n\t\tIt is I, your dear husband of 30 years, Victor Blackthorne. I am grieved of your passing and want to raise you from the dead so that we may live together once again. I am locking\n this journal away in the kitchen and hope you will find it, as you always found me in my lows and helped me. I am composing this final letter in case you come back but I am longer here.\n My quest for forbidden knowledge has found me digging up the dead from the cemetery and experimenting on them in our basement, in hopes to be able to raise you too, my love. But the undead are overpowering me and not listening to my commands and I\n fear my death is certain, and I will never be able to see you again nor be buried with you. If you ever do come back, my diary in the garage written in our secret language has instructions on this forbidden disgraced knowledge\n so that you may bring me back too. I have hidden a gun in our safe, the passcode locked in the office desk shelf, and have locked all doors and windows to prevent the zombies from escaping outside, as well as powered off the house.\n Place my diary on the bookshelf in the living room to come find me, as I will spend my final moments hiding in the basement before the zombies get to me. I have with me the front door key, the only way out this nightmare.\n Retrieve it from the basement, unlock the front door, and release these malevolent beings once and for all. There remains no more barriers to overcome; the world must bear the consequences of my anguish and suffering\n in my innocent pursuit of tranquility and repose to have my wife back. Our suffering is ceaseless and harrowing, and I harbor no hopes for a better world for anyone except for us both. \nThis infernal punishment persists in its deceit, offering no deeper understanding of myself or the existence that surrounds me.\n"
     },
     {
       "name": "diary",
       "location": "box",
       "desc": "To get to the basement.",
       "TakenText": "You take a well maintained black hardcover diary with just two eerie words on its cover, reading 'Victor's Diary'.",
-      "UseDiaryinLivingroom": "Using the diary on shelf causes the bookshelf to slide down and reveal the stairs to basement, where you're potential escape awaits! It's too dark down there, and you'll need a source of light to go.",
+      "UseText": "Using the diary on shelf causes the bookshelf to slide down and reveal the stairs to basement, where you're potential escape awaits! It's too dark down there, and you'll need a source of light to go.",
       "UseDiaryElsewhere": "This diary is old and the handwriting looks unreadable. The only use you have for it would be to try using it on the living room bookshelf."
     }
   ],
