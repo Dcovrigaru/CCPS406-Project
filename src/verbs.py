@@ -68,8 +68,15 @@ class VerbHandler:
                     else:
                         print(subroom.get('openafter', "The room is already unlocked."))
                         return
+
+                else:
+                    print(f"I don't see a {item_name} here.")
+                    return
         else:
             print(f"I don't see a {item_name} here.")
+            return
+
+
 
     def handle_take(self, item_name):
         # Check if the item is already in the inventory
