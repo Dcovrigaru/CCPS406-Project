@@ -157,7 +157,7 @@
       "location": "garage",
       "locked": false,
       "unlocked_message": "A lone diary rests in here, could it be Victor's Diary?",
-      "openafter": "You already opened this"
+      "openafter": "This box is unlocked, wonder why they wouldn't lock it? Anyways why is there a diary there?"
     },
     {
        "name": "cupboard",
