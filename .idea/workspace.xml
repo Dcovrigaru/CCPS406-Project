@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="&#10;box is unlocked unlike the rest of subrooms. box doesn't require anything to open. also, scribe (which has the riddle) is required to open bathub, otherwise player will not open it as it is too disgusting.">
+    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="Directions includes room descriptions">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/GameData.Json" beforeDir="false" afterPath="$PROJECT_DIR$/data/GameData.Json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/directions.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/directions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/verbs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/verbs.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Ofir-Branch" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -34,6 +38,9 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2cBe4oYu0CAhRoLUwKTYiApf2Zx" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -42,27 +49,78 @@
   &quot;keyToString&quot;: {
     &quot;Python.directions.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tempJSONtest.executor&quot;: &quot;Run&quot;,
     &quot;Python.test.executor&quot;: &quot;Run&quot;,
     &quot;Python.testingrizvi.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Rizvi-Branch&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Console&quot;
+    &quot;git-widget-placeholder&quot;: &quot;Dean2.0-Branch&quot;
   }
 }</component>
-  <component name="PyConsoleOptionsProvider">
-    <option name="myPythonConsoleState">
-      <console-settings module-name="CCPS406-Project" is-module-sdk="true">
-        <option name="myUseModuleSdk" value="true" />
-        <option name="myModuleName" value="CCPS406-Project" />
-      </console-settings>
-    </option>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\dean\PycharmProjects\CCPS406-Project\data" />
+      <recent name="C:\Users\dean\PycharmProjects\CCPS406-Project\src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CCPS406-Project" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="CCPS406-Project" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.test" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-50da183f06c8-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13135.95" />
+        <option value="bundled-python-sdk-5a2391486177-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13763.11" />
       </set>
     </attachedChunks>
   </component>
@@ -83,45 +141,45 @@
       <option name="project" value="LOCAL" />
       <updated>1707590158726</updated>
     </task>
-    <task id="LOCAL-00002" summary="Finished JSON File with everything, including rooms, items, subrooms, journal text, story text, combat and more">
+    <task id="LOCAL-00002" summary="Made Wield&#10;Updated main.py to tell verb class users current location&#10;Edited the Json file&#10;Updated take to ensure that the item being accessed is in the users current room">
       <option name="closed" value="true" />
-      <created>1709159966181</created>
+      <created>1709435260961</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1709159966181</updated>
+      <updated>1709435260961</updated>
     </task>
-    <task id="LOCAL-00003" summary="json fix">
+    <task id="LOCAL-00003" summary="Combat is 90 percent done&#10;Every class imports json from main, json is only imported in main now&#10;Edited the Json file again slightly">
       <option name="closed" value="true" />
-      <created>1709414695964</created>
+      <created>1709475030265</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1709414695964</updated>
+      <updated>1709475030265</updated>
     </task>
-    <task id="LOCAL-00004" summary="json updata again">
+    <task id="LOCAL-00004" summary="Directions includes room descriptions">
       <option name="closed" value="true" />
-      <created>1709425397589</created>
+      <created>1709476078273</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1709425397589</updated>
+      <updated>1709476078273</updated>
     </task>
-    <task id="LOCAL-00005" summary="updated json and directions.py and main.py to print all room messages">
+    <task id="LOCAL-00005" summary="Directions includes room descriptions">
       <option name="closed" value="true" />
-      <created>1709479039881</created>
+      <created>1709476166862</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1709479039881</updated>
+      <updated>1709476166862</updated>
     </task>
-    <task id="LOCAL-00006" summary="&#10;box is unlocked unlike the rest of subrooms. box doesn't require anything to open. also, scribe (which has the riddle) is required to open bathub, otherwise player will not open it as it is too disgusting.">
+    <task id="LOCAL-00006" summary="Directions includes room descriptions">
       <option name="closed" value="true" />
-      <created>1709480559481</created>
+      <created>1709477001894</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1709480559481</updated>
+      <updated>1709477001894</updated>
     </task>
     <option name="localTasksCounter" value="7" />
     <servers />
@@ -139,12 +197,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fdg" />
-    <MESSAGE value="added else statement" />
-    <MESSAGE value="Finished JSON File with everything, including rooms, items, subrooms, journal text, story text, combat and more" />
-    <MESSAGE value="json fix" />
-    <MESSAGE value="json updata again" />
-    <MESSAGE value="updated json and directions.py and main.py to print all room messages" />
-    <MESSAGE value="&#10;box is unlocked unlike the rest of subrooms. box doesn't require anything to open. also, scribe (which has the riddle) is required to open bathub, otherwise player will not open it as it is too disgusting." />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;box is unlocked unlike the rest of subrooms. box doesn't require anything to open. also, scribe (which has the riddle) is required to open bathub, otherwise player will not open it as it is too disgusting." />
+    <MESSAGE value="Made Wield&#10;Updated main.py to tell verb class users current location&#10;Edited the Json file&#10;Updated take to ensure that the item being accessed is in the users current room" />
+    <MESSAGE value="Combat is 90 percent done&#10;Every class imports json from main, json is only imported in main now&#10;Edited the Json file again slightly" />
+    <MESSAGE value="Directions includes room descriptions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Directions includes room descriptions" />
   </component>
 </project>

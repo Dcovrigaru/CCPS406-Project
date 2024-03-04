@@ -1,13 +1,20 @@
-verbs = ["open", "take", "use", "wield", "attack", "inventory"]
 
+from combat import Combat
 class VerbHandler:
-    def __init__(self, items):
+    def __init__(self, items, current_room, player, npc, data):
         self.items = items
+        self.inventory = []
+        self.wielded_weapon = None
+        self.current_room = current_room
+        self.player = player
+        self.npc = npc
+        self.data = data
+        self.combat_instance = Combat(player, npc, data)
 
     def handle_action(self, user_input):
+        verbs = self.data['verbs']
         # Split the user input into words
         words = user_input.split()
-
         # Extract the verb (first word)
         verb = words[0]
 
@@ -15,21 +22,28 @@ class VerbHandler:
         if verb in verbs:
             # Check if there's a second word (after the verb)
             if len(words) > 1:
+
+                # Join the remaining words to form the item name
+                item_name = ' '.join(words[1:])
                 # Check if the verb is not "inventory" and the item is in the items list
-                if verb != "inventory" and words[1] in self.items:
-                    item_name = words[1]
-                    # Call the corresponding method with the item name
-                    getattr(self, f"handle_{verb}")(item_name)
+                if verb != "inventory":
+                    if verb == "take":
+                        self.handle_take(item_name)
+                    elif verb == "attack":
+                        self.handle_attack(item_name)
+                    elif item_name in self.items or item_name in self.inventory or verb == "open":
+                        # Call the corresponding method with the item name
+                        getattr(self, f"handle_{verb}")(item_name)
+                    else:
+                        print(f"You haven't found '{item_name}' yet.")
                 # If verb is "inventory", call the corresponding method without item
-                elif verb == "inventory":
-                    getattr(self, f"handle_{verb}")()
                 elif verb == "attack":
                     if words[1] == "zombie":
                         self.handle_attack(words[1])
                     else:
                         print("You can only attack a zombie!")
-                else:
-                    print(f"Item '{words[1]}' not found.")
+            elif verb == "inventory":
+                getattr(self, f"handle_{verb}")()
             else:
                 # No item provided
                 print("No item provided. Please try again.")
@@ -37,25 +51,138 @@ class VerbHandler:
             print("Invalid action. Please try again.")
 
     def handle_open(self, item_name):
-        # Implement open action logic
-        print(f"Handling open action for item: {item_name}...")
+        room = next((room for room in self.data['rooms'] if room['name'] == self.current_room.currentRoom), None)
+        if room and 'subrooms' in room:
+            for subroom_name in room['subrooms']:
+                subroom = next((subroom for subroom in self.data['subrooms'] if subroom['name'] == subroom_name), None)
+                if subroom and subroom['name'] == item_name:
+                    if subroom.get('locked', False) and 'unlocker' in subroom and subroom['unlocker'] in self.inventory:
+                        subroom['locked'] = False
+                        print(subroom.get('unlocked_message', "The room is unlocked."))
+                        print(f"The {item_name} is in the {room['name']}.")
+                        return
+                    elif subroom.get('locked', False) and 'unlocker' in subroom and subroom[
+                        'unlocker'] not in self.inventory:
+                        print(subroom.get('locked_message', "You don't have the necessary item to unlock this room."))
+                        return
+                    else:
+                        print(subroom.get('openafter', "The room is already unlocked."))
+                        return
+        else:
+            print(f"I don't see a {item_name} here.")
 
     def handle_take(self, item_name):
-        # Implement take action logic
-        print(f"Handling take action for item: {item_name}...")
+        # Check if the item is already in the inventory
+        if item_name in self.inventory:
+            print(f"You already have the {item_name} in your inventory.")
+            return
+        # Check if the item is present in the current room
+        current_room = next((room for room in self.data['rooms'] if room['name'] == self.current_room.currentRoom),
+                            None)
+        if current_room:
+            # Check if the item is directly in the room (not in a subroom)
+            if item_name in current_room['items']:
+                print(f"You took the {item_name}.")
+                self.inventory.append(item_name)
+                for item in self.data['items']:
+                    if item['name'] == item_name:
+                        print(item.get('TakenText', ""))
+                        break
+                return
+
+
+        # Check if the item is in a locked subroom
+            for subroom in self.data['subrooms1']:
+                if subroom['location'] == self.current_room.currentRoom:
+                    y = subroom.get('locked')
+                    break
+            if y:
+                return
+                print(f"The {item_name} is in a locked subroom.")
+                return
+            else:
+                # Subroom is unlocked, allow taking the item
+                print(f"You took the {item_name}.")
+                self.inventory.append(item_name)
+                for item in self.data['items']:
+                    if item['name'] == item_name:
+                        print(item['TakenText'])
+                        break
+                return
+
+        # Add the item to inventory if it's present in the current room
+        print(f"You took the {item_name}.")
+        self.inventory.append(item_name)
+        for item in self.data['items']:
+            if item['name'] == item_name:
+                print(item['TakenText'])
+                break
+
 
     def handle_use(self, item_name):
-        # Implement use action logic
-        print(f"Handling use action for item: {item_name}...")
+        # Check if the item is in the inventory
+        if item_name in self.inventory:
+            # Implement use action logic
+            print(f"Handling use action for item: {item_name}...")
+        else:
+            print(f"You don't have the {item_name} in your inventory.")
 
     def handle_wield(self, item_name):
-        # Implement wield action logic
-        print(f"Handling wield action for item: {item_name}...")
+        weapons = self.data['weapons']
+        weapon_names = [self.data["weapons"][weapon]["name"] for weapon in self.data["weapons"]]
+        # Check if the item is in the inventory
+        if item_name not in self.inventory:
+            print(f"You don't have the {item_name} in your inventory.")
+            return
+        elif item_name not in weapon_names:
+            print(f"Are you sure {item_name} is a weapon?")
+            return
+
+        # Check if any other weapon is wielded and unwield it
+        for weapon, details in self.data['weapons'].items():
+            if weapon != item_name and details['is_wielded']:
+                details['is_wielded'] = False
+                print(f"You were wielding the {weapon}, you have unwielded it.")
+
+        # Wield the selected weapon
+        if not self.data['weapons'][item_name]['is_wielded']:
+            self.data['weapons'][item_name]['is_wielded'] = True
+            self.wielded_weapon = item_name
+            print(f"You are now wielding the {self.wielded_weapon}")
+        else:
+            print(f"The {item_name} is already wielded")
 
     def handle_attack(self, item_name):
         # Implement attack action logic
-        print(f"Handling attack action for item: {item_name}...")
+        if item_name != "zombies" and item_name != "zombie":
+            print(f"Uh oh, you can't attack a {item_name}")
+            return
+        zombies_present = False
+        for room in self.data['rooms']:
+            if room['name'] == self.current_room.currentRoom:
+                if room['zombies'] > 0:
+                    zombies_present = True
+                    break
+
+        if not zombies_present:
+            print("There are no zombies in this room")
+            return
+
+        # Check if the player is wielding a weapon
+        if self.wielded_weapon is None:
+            print(f"You are not wielding any weapon to attack with")
+            return
+        else:
+            self.combat_instance.player_attack(self.wielded_weapon, self.current_room.currentRoom)
+            #print(data['weapons'][self.wielded_weapon]['attack_message'])
+
 
     def handle_inventory(self):
-        # Implement inventory action logic
-        print("Handling inventory action...")
+        if len(self.inventory) == 0:
+            print("You haven't picked anything up")
+        else:
+            for item_name in self.inventory:
+                for item in self.data['items']:
+                    if item['name'] == item_name:
+                        print(f"[{item['name']}]\t{item['desc']}")
+                        break

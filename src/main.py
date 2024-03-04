@@ -1,16 +1,40 @@
+from combat import Combat
+from verbs import VerbHandler
+from directions import DirectionHandling, compass
+#Importing Json
+import json
+with open('../data/GameData.json') as f:
+    data = json.load(f)
+
+# Extract items and verbs from the data
+verbs = data['verbs']
+items = data['items']
+subroom_name = "safe"  # Replace "your_subroom_name" with the actual name of the subroom
+y = None
+for subroom in data['subrooms']:
+    if subroom['name'] == subroom_name:
+        y = subroom.get('locked')
+        break
+
+# Now y contains the value of the 'locked' attribute of the subroom with the specified name
+
+
 #Class Instances/Variables
-from verbs import VerbHandler, verbs
-from directions import *
-UserCurrentRoom = DirectionHandling(currentRoom="attic") #player starts in attic
-
+currentRoom = "attic"
+UserCurrentRoom = DirectionHandling(currentRoom, data)
+player = None
+npc = None
 #Main Variables
-items = ["key", "flashlight", "pistol", "axe", "scribe", "paper" "journal", "lockpick", "diary", "batteries", "key"]
-compass = ["n", "e", "w", "s", "u", "d", "up", "east", "west", "down", "north", "south", "current", "c"]
-
+print(y)
+print('\n' * 2)
+print(data['story']['intro'])
+print('\n' * 2)
+for room in data['rooms']:
+    if room['name'] == currentRoom:
+        print(room['first_text'])
 
 def main():
-    ResetNewGame()     #this resets times_entered for all rooms back to 0 (attic to 1) and prints games intro message
-    verb_handler = VerbHandler(items)
+    verb_handler = VerbHandler(items, UserCurrentRoom, npc, player, data)
     while True:
         user_input = input("Enter in an action: ").lower()
         print(user_input.split(" "))
