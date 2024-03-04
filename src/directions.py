@@ -1,5 +1,5 @@
-compass = ["n","e","w","s","u","d","up","east","west","down","north","south","current","c"]
 
+compass = ["n","e","w","s","u","d","up","east","west","down","north","south","current","c"]
 class DirectionHandling:
     def __init__(self, currentRoom, data):
         self.currentRoom = currentRoom
@@ -24,7 +24,6 @@ class DirectionHandling:
 
             if nextRoom:
                 self.currentRoom = nextRoom
-                print(f'You have moved {targetDirection} to {self.currentRoom}.')
                 for room in self.data['rooms']:
                     if room['name'] == self.currentRoom:
                         if room['times_entered'] == 0:

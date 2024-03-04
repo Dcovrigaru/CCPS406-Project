@@ -25,10 +25,8 @@ UserCurrentRoom = DirectionHandling(currentRoom, data)
 player = None
 npc = None
 #Main Variables
-print(y)
-print('\n' * 2)
-print(data['story']['intro'])
-print('\n' * 2)
+#print(y)
+print(data['story']['intro'] + '\n')
 for room in data['rooms']:
     if room['name'] == currentRoom:
         print(room['first_text'])
