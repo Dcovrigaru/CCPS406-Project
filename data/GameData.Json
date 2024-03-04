@@ -64,8 +64,8 @@
       "first_text": "Looks like a super old fashioned office room. There's a locked door to go down to the first floor from here, but you'll need to find a key and lockpicks won't work. There's two more dangerous zombies in your way of getting to that door. The desk shelves are all open and empty, but one catches your eye;\n this shelf has a shiny handle, but it's loosely locked; can you open it with your lockpicks?",
       "after_text": "You are in the office room.",
       "times_entered": 0,
-      "subrooms": ["shelf"],
       "items": ["paper"],
+      "subrooms": ["shelf"],
       "exits": ["hallway", "living room"],
       "zombies": 2
     },
@@ -123,33 +123,48 @@
     {
       "name": "shelf",
       "location": "office room",
-      "Openshelf1": "Looks like you'll need lockpicks; to open this.",
-      "Openshelf2": "It opened! Inside you find a piece of paper with some numbers on it!",
+      "locked": true,
+      "items": "paper",
+      "unlocker": "lockpick",
+      "locked_message": "Looks like you'll need lockpicks; to open this.",
+      "unlocked_message": "It opened! Inside you find a piece of paper with some numbers on it!",
       "openafter": "There's nothing in here anymore."
     },
     {
       "name": "safe",
       "location": "bedroom",
-      "opensafe1": "This safe can't be unlocked by force nor by lockpicks as it has a rotary combination lock. Where can you find the code?",
-      "opensafe2": "The code from the paper worked! Inside you find a pistol, no way!",
+      "locked": true,
+      "items": "gun",
+      "unlocker": "paper",
+      "locked_message": "This safe can't be unlocked by force nor by lockpicks as it has a rotary combination lock. Where can you find the code?",
+      "unlocked_message": "The code from the paper worked! Inside you find a pistol, no way!",
       "openafter": "There's nothing in here anymore."
     },
     {
       "name": "bathtub",
       "location": "bathroom",
+      "locked": true,
+      "items": "key",
+      "unlocker": "scribe",
       "openbathtub1": "Not trying to look in there, it's too disgusting!",
       "openbathtubwithriddle": "Despite the sheer disgust, you pull back the curtain and look into the bathtub and find a doorkey on the floor!",
       "openafter": "There's nothing in here anymore."
     },
     {
       "name": "box",
+      "items": "diary",
+      "unlocker": "paper",
       "location": "garage",
+      "locked": true,
       "openbox": "A lone diary rests in here, could it be Victor's Diary?",
       "openafter": "There's nothing in here anymore."
     },
     {
        "name": "cupboard",
+      "items": "gun",
+      "unlocker": "lockpick",
       "location": "kitchen",
+      "locked": true,
       "opencupboard1": "You'll need to use the lockpicks upstairs to unlock this.",
       "opencupboard2": "The lockpicks worked on the cupboard, and in it you find a flashlight and a journal! Both of these look promising.",
       "openafter": "Nothing in here anymore."
@@ -201,7 +216,7 @@
     },
     {
       "name": "paper",
-      "location": "desk",
+      "location": "office",
       "desc": "Passcode for a safe.",
       "TakenText": "Seems like a 5 digit numerical code for a safe. Wonder where the safe is, and what could lie inside of it?"
     },

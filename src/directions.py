@@ -1,3 +1,5 @@
+compass = ["n","e","w","s","u","d","up","east","west","down","north","south","current","c"]
+
 class DirectionHandling:
     def __init__(self, currentRoom, data):
         self.currentRoom = currentRoom

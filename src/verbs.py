@@ -31,7 +31,7 @@ class VerbHandler:
                         self.handle_take(item_name)
                     elif verb == "attack":
                         self.handle_attack(item_name)
-                    elif item_name in self.items or item_name in self.inventory:
+                    elif item_name in self.items or item_name in self.inventory or verb == "open":
                         # Call the corresponding method with the item name
                         getattr(self, f"handle_{verb}")(item_name)
                     else:
@@ -51,25 +51,64 @@ class VerbHandler:
             print("Invalid action. Please try again.")
 
     def handle_open(self, item_name):
-        # Implement open action logic
-        print(f"Handling open action for item: {item_name}...")
+        room = next((room for room in self.data['rooms'] if room['name'] == self.current_room.currentRoom), None)
+        if room and 'subrooms' in room:
+            for subroom_name in room['subrooms']:
+                subroom = next((subroom for subroom in self.data['subrooms'] if subroom['name'] == subroom_name), None)
+                if subroom and subroom['name'] == item_name:
+                    if subroom.get('locked', False) and 'unlocker' in subroom and subroom['unlocker'] in self.inventory:
+                        subroom['locked'] = False
+                        print(subroom.get('unlocked_message', "The room is unlocked."))
+                        print(f"The {item_name} is in the {room['name']}.")
+                        return
+                    elif subroom.get('locked', False) and 'unlocker' in subroom and subroom[
+                        'unlocker'] not in self.inventory:
+                        print(subroom.get('locked_message', "You don't have the necessary item to unlock this room."))
+                        return
+                    else:
+                        print(subroom.get('openafter', "The room is already unlocked."))
+                        return
+        else:
+            print(f"I don't see a {item_name} here.")
 
     def handle_take(self, item_name):
         # Check if the item is already in the inventory
         if item_name in self.inventory:
             print(f"You already have the {item_name} in your inventory.")
             return
-
         # Check if the item is present in the current room
-        item_present_in_room = False
-        for room in self.data['rooms']:
-            if room['name'] == self.current_room.currentRoom and item_name in room['items']:
-                item_present_in_room = True
-                break
+        current_room = next((room for room in self.data['rooms'] if room['name'] == self.current_room.currentRoom),
+                            None)
+        if current_room:
+            # Check if the item is directly in the room (not in a subroom)
+            if item_name in current_room['items']:
+                print(f"You took the {item_name}.")
+                self.inventory.append(item_name)
+                for item in self.data['items']:
+                    if item['name'] == item_name:
+                        print(item.get('TakenText', ""))
+                        break
+                return
 
-        if not item_present_in_room:
-            print(f"I dont see a {item_name}")
-            return
+
+        # Check if the item is in a locked subroom
+            for subroom in self.data['subrooms1']:
+                if subroom['location'] == self.current_room.currentRoom:
+                    y = subroom.get('locked')
+                    break
+            if y:
+                return
+                print(f"The {item_name} is in a locked subroom.")
+                return
+            else:
+                # Subroom is unlocked, allow taking the item
+                print(f"You took the {item_name}.")
+                self.inventory.append(item_name)
+                for item in self.data['items']:
+                    if item['name'] == item_name:
+                        print(item['TakenText'])
+                        break
+                return
 
         # Add the item to inventory if it's present in the current room
         print(f"You took the {item_name}.")
