@@ -1,6 +1,6 @@
 from combat import Combat
 from verbs import VerbHandler
-from directions import DirectionHandling
+from directions import DirectionHandling, compass
 #Importing Json
 import json
 with open('../data/GameData.json') as f:
@@ -11,18 +11,20 @@ verbs = data['verbs']
 items = data['items']
 
 #Class Instances/Variables
-UserCurrentRoom = DirectionHandling(currentRoom="attic")
+currentRoom = "attic"
+UserCurrentRoom = DirectionHandling(currentRoom, data)
 player = None
 npc = None
 #Main Variables
-compass = ["n","e","w","s","u","d","up","east","west","down","north","south","current","c"]
-"""
-Paper = Safe Passcode Paper
-Rusty Key = Key for Stairs Between Office Room and Living Room
-Antique Key = Key for Front Door
-"""
+print('\n' * 2)
+print(data['story']['intro'])
+print('\n' * 2)
+for room in data['rooms']:
+    if room['name'] == currentRoom:
+        print(room['first_text'])
+
 def main():
-    verb_handler = VerbHandler(items, UserCurrentRoom, npc, player, data)
+    verb_handler = VerbHandler(items, UserCurrentRoom, npc, player, data) #Calling the verb class
     while True:
         user_input = input("Enter in an action: ").lower()
         print(user_input.split(" "))
@@ -35,7 +37,14 @@ def main():
             UserCurrentRoom.move(user_input)
         #Other command inputs (beyond this line)
         elif user_input == "exit":
-            break
+            checking_quit = input("Are you sure you want to quit? (y/n): ").lower()
+            print(user_input.split(" "))
+            if checking_quit == ("yes") or checking_quit == ("y"):
+                print("Bye")
+                break
+            else:
+                print("Guess well continue")
+                continue
         elif user_input.split(" ")[0] in verbs:
             verb_handler.handle_action(user_input)
         elif len(user_input.split()) == 1 and user_input in verbs:
@@ -48,8 +57,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-"""
-NOTES:
-- Should all CURRENT variables be placed in ONE class object for clarity? Or should it be split up
-- Should all classes be put in one .py file seperate from main?
-"""
