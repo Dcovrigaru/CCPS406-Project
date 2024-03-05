@@ -1,7 +1,6 @@
 from combat import Combat
 from verbs import VerbHandler
 from directions import DirectionHandling, compass
-#Importing Json
 import json
 with open('../data/GameData.json') as f:
     data = json.load(f)
@@ -9,30 +8,17 @@ with open('../data/GameData.json') as f:
 # Extract items and verbs from the data
 verbs = data['verbs']
 items = data['items']
-subroom_name = "safe"  # Replace "your_subroom_name" with the actual name of the subroom
-y = None
-for subroom in data['subrooms']:
-    if subroom['name'] == subroom_name:
-        y = subroom.get('locked')
-        break
-
-# Now y contains the value of the 'locked' attribute of the subroom with the specified name
-
 
 #Class Instances/Variables
 currentRoom = "attic"
-UserCurrentRoom = DirectionHandling(currentRoom, data)
 player = None
 npc = None
-#Main Variables
-#print(y)
-print('*****DEATH ESCAPE******\n\n\t' + data['story']['intro'] + '\n')
-for room in data['rooms']:
-    if room['name'] == currentRoom:
-        print(room['first_text'])
+UserCurrentRoom = DirectionHandling(currentRoom, data, None)
+verb_handler = VerbHandler(items, UserCurrentRoom, npc, player, data)
+UserCurrentRoom.verb_handler = verb_handler  #this is so DirectionHandling can access the inventory attribute of player
 
 def main():
-    verb_handler = VerbHandler(items, UserCurrentRoom, npc, player, data)
+    print('*****DEATH ESCAPE******\n\n\t' + data['story']['intro'] + '\n\n' + data['rooms'][0]['first_text'])
     while True:
         user_input = input("Enter in an action: ").lower()
         print(user_input.split(" "))
@@ -45,7 +31,14 @@ def main():
             UserCurrentRoom.move(user_input)
         #Other command inputs (beyond this line)
         elif user_input == "exit":
-            break
+            checking_quit = input("Are you sure you want to quit? (y/n): ").lower()
+            print(user_input.split(" "))
+            if checking_quit == ("yes") or checking_quit == ("y"):
+                print("Bye! Try again later.")
+                break
+            else:
+                print("Guess we'll continue!")
+                continue
         elif user_input.split(" ")[0] in verbs:
             verb_handler.handle_action(user_input)
         elif len(user_input.split()) == 1 and user_input in verbs:
