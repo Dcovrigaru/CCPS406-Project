@@ -24,7 +24,7 @@ for room in data['rooms']:
         print(room['first_text'])
 
 def main():
-    verb_handler = VerbHandler(items, UserCurrentRoom, npc, player, data)
+    verb_handler = VerbHandler(items, UserCurrentRoom, npc, player, data) #Calling the verb class
     while True:
         user_input = input("Enter in an action: ").lower()
         print(user_input.split(" "))
