@@ -24,7 +24,7 @@
       "first_text": "You are in the pitch-black attic, the only way out is down, the way you came.\nYou sense a fuse box, its outline faintly visible but powerless. You notice something small, smooth, and round on the floor beside the fuse box, resembling batteries, as well as what appears to be an axe. You realize the smart thing to do is to probably take both of them.",
       "TryingHallwayWithoutPower": "Power on the fuse box with the batteries first before going downstairs.",
       "after_text": "You are back in the attic. Looks cozy and safe, nice spot to catch your breath.",
-      "times_entered": 0,
+      "times_entered": 1,
       "items": ["axe", "batteries"],
       "exits": ["hallway"],
       "zombies": 0
@@ -44,18 +44,18 @@
       "first_text": "You open the door to find an old bedroom, filled with cobwebs and a thin layer of dust across the floor and furniture. Theres a menacing zombie standing and groaning on the bed;\n no one has slept in this bed in a while, and you doubt you would want to lay down on it either.\n The windows are too small for you to fit through, and too high up to jump out of. Nothing in this room looks interesting, except a bathroom to the north, as well as a locked rotary combination safe. What could be the passcode, and what could be inside?",
       "after_text": "You are in the bedroom.",
       "times_entered": 0,
-      "items": ["gun"],
+      "items": [""],
       "subrooms": ["safe"],
       "exits": ["hallway", "bathroom"],
       "zombies": 1
     },
     {
-      "name": "Bathroom",
-      "first_text_withoutriddle": "You find yourself in a run-down bathroom. The sink is stained, and a cracked mirror shows your worried face. At least there's no zombies here, but there are cockroaches and bugs. There is a bathtub but it's too disgusting to check out. Yuck! The only way out is south, the way you came.",
+      "name": "bathroom",
+      "first_text": "You find yourself in a run-down bathroom. The sink is stained, and a cracked mirror shows your worried face. At least there's no zombies here, but there are cockroaches and bugs. There is a bathtub but it's too disgusting to check out. Yuck! The only way out is south, the way you came.",
       "after_text": "You are in the Bathroom.",
       "times_entered": 0,
       "subrooms": ["bathtub"],
-      "items": ["key"],
+      "items": [""],
       "exits": ["bedroom"],
       "zombies": 0
     },
@@ -64,8 +64,8 @@
       "first_text": "Looks like a super old fashioned office room. There's a locked door to go down to the first floor from here, but you'll need to find a key and lockpicks won't work. There's two more dangerous zombies in your way of getting to that door. The desk shelves are all open and empty, but one catches your eye;\n this shelf has a shiny handle, but it's loosely locked; can you open it with your lockpicks?",
       "after_text": "You are in the office room.",
       "times_entered": 0,
+      "items": [""],
       "subrooms": ["shelf"],
-      "items": ["paper"],
       "exits": ["hallway", "living room"],
       "zombies": 2
     },
@@ -73,6 +73,7 @@
       "name": "living room",
       "first_text": "You made it downstairs to the living room! It's old fashioned with an old box TV and scattered DVD cassettes. Here's there's two more zombies in your of getting to the western foyer. There's nothing here, except a full bookshelf with an empty slot asking for 'Victor's Diary' to be placed on it to unlock passage to go down the basement.",
       "after_text": "You are in the living room.",
+      "items": [""],
       "basementWithoutflashlight": "It's too dark and dangerous! Get a source of light first.",
       "times_entered": 0,
       "exits": ["basement", "office","foyer"],
@@ -84,7 +85,7 @@
       "after_text": "You are back in the kitchen, ready to cook & eat rotten zombies? Just kidding.",
       "times_entered": 0,
       "subrooms": ["cupboard"],
-      "items": ["flashlight", "journal"],
+      "items": [""],
       "exits": ["foyer","garage"],
       "zombies": 2
     },
@@ -94,7 +95,7 @@
       "after_text": "You are back in the garage, smelling like grease. To cheer you up, at least your broken car outside is cooler than the one here.",
       "times_entered": 0,
       "subrooms": ["box"],
-      "items": ["diary"],
+      "items": [""],
       "exits": ["kitchen"],
       "zombies": 1
     },
@@ -123,36 +124,50 @@
     {
       "name": "shelf",
       "location": "office room",
-      "Openshelf1": "Looks like you'll need lockpicks; to open this.",
-      "Openshelf2": "It opened! Inside you find a piece of paper with some numbers on it!",
-      "openafter": "There's nothing in here anymore."
+      "locked": true,
+      "items": "paper",
+      "unlocker": "lockpick",
+      "locked_message": "Looks like you'll need lockpicks; to open this.",
+      "unlocked_message": "It opened! Inside you find a piece of paper with some numbers on it!",
+      "openafter": "You already opened this"
     },
     {
       "name": "safe",
       "location": "bedroom",
-      "opensafe1": "This safe can't be unlocked by force nor by lockpicks as it has a rotary combination lock. Where can you find the code?",
-      "opensafe2": "The code from the paper worked! Inside you find a pistol, no way!",
-      "openafter": "There's nothing in here anymore."
+      "locked": true,
+      "items": "gun",
+      "unlocker": "paper",
+      "locked_message": "This safe can't be unlocked by force nor by lockpicks as it has a rotary combination lock. Where can you find the code?",
+      "unlocked_message": "The code from the paper worked! Inside you find a pistol, no way!",
+      "openafter": "You already opened this"
     },
     {
       "name": "bathtub",
       "location": "bathroom",
-      "openbathtub1": "Not trying to look in there, it's too disgusting!",
-      "openbathtubwithriddle": "Despite the sheer disgust, you pull back the curtain and look into the bathtub and find a doorkey on the floor!",
-      "openafter": "There's nothing in here anymore."
+      "locked": true,
+      "items": "doorkey",
+      "unlocker": "scribe",
+      "locked_message": "Not trying to look in there, it's too disgusting!",
+      "unlocked_message": "Despite the sheer disgust, you pull back the curtain and look into the bathtub and find a doorkey on the floor!",
+      "openafter": "You already opened this"
     },
     {
       "name": "box",
+      "items": "diary",
       "location": "garage",
-      "openbox": "A lone diary rests in here, could it be Victor's Diary?",
-      "openafter": "There's nothing in here anymore."
+      "locked": false,
+      "unlocked_message": "A lone diary rests in here, could it be Victor's Diary?",
+      "openafter": "This box is unlocked, wonder why they wouldn't lock it? Anyways why is there a diary there?"
     },
     {
        "name": "cupboard",
+      "items": "flashlight , journal",
+      "unlocker": "lockpick",
       "location": "kitchen",
-      "opencupboard1": "You'll need to use the lockpicks upstairs to unlock this.",
-      "opencupboard2": "The lockpicks worked on the cupboard, and in it you find a flashlight and a journal! Both of these look promising.",
-      "openafter": "Nothing in here anymore."
+      "locked": true,
+      "locked_message": "You'll need to use the lockpicks upstairs to unlock this.",
+      "unlocked_message": "The lockpicks worked on the cupboard, and in it you find a flashlight and a journal! Both of these look promising.",
+      "openafter": "You already opened this"
     }
   ],
 
@@ -163,33 +178,38 @@
       "location": "attic",
       "desc": "Used to power on fuse box to power the house.",
       "TakenText": "These batteries look like they could work on the fuse box to give light to the house! Try them on the fuse box.",
-      "PoweredOnFuseBoxmessage": "The batteries powered on the fuse box! You restore all power to the house, except for the basement which isn't working."
+      "UseText": "The batteries powered on the fuse box! You restore all power to the house, except for the basement which isn't working."
+
     },
     {
       "name": "axe",
       "location": "attic",
       "desc": "Jake's secondary defense against zombies.",
       "Damage": 28,
-      "TakenText": "This will be really helpful to fight off all the zombies downstairs. Maybe there's more weapons in the house?"
+      "TakenText": "This will be really helpful to fight off all the zombies downstairs. Maybe there's more weapons in the house?",
+      "UseText": "This is a weapon, it probably attacks"
     },
     {
       "name": "scribe",
       "location": "hallway",
       "desc": "Riddle for clue needed to find key to downstairs key in office.",
-      "TakenText": "This scrap of paper has a little riddle written on it in cursive handwriting. It reads:\n'I'm not a lock, but a tool that turns,\nIn the bathroom, where cleanliness yearns.\nNear the basin or tub, where water flows free,\nSearch for me there, and the key you shall see.'"
+      "TakenText": "This scrap of paper has a little riddle written on it in cursive handwriting. It reads:\n'I'm not a lock, but a tool that turns,\nIn the bathroom, where cleanliness yearns.\nNear the basin or tub, where water flows free,\nSearch for me there, and the key you shall see.'",
+      "UseText": "How can I use a scribe?"
     },
     {
       "name": "lockpick",
       "location": "hallway",
       "desc": "Useful tool needed to unlock various things.",
-      "TakenText": "A handy lockpick set! Back in high school you had a set just like this and were a pro at lockpicking. This can definitely unlock some cool things throughout this house."
+      "TakenText": "A handy lockpick set! Back in high school you had a set just like this and were a pro at lockpicking. This can definitely unlock some cool things throughout this house.",
+      "UseText": "Wonder what it means to use this? Maybe it opens something?"
     },
 
     {
       "name": "flashlight",
       "location": "cupboard",
       "desc": "Required to navigate the dark basement.",
-      "TakenText": "You grab the flashlight and it works! You can use this to access the dark mysterious basement where there's no light."
+      "TakenText": "You grab the flashlight and it works! You can use this to access the dark mysterious basement where there's no light.",
+      "UseText": "Seems this was turned on the second I grabbed it"
     },
     {
       "name": "gun",
@@ -197,39 +217,45 @@
       "desc": "A pistol, this could do serious damage.",
       "Damage": 50,
       "TakenText": "This pistol looks like it was made 100 years ago. Nonetheless, it will make it easier to kill zombies, but you notice it only has 15 bullets left, so use wisely.",
-      "BulletsLeft": 15
+      "BulletsLeft": 15,
+      "UseText": "This is a weapon, it probabaly attacks"
     },
     {
       "name": "paper",
-      "location": "desk",
+      "location": "office",
       "desc": "Passcode for a safe.",
-      "TakenText": "Seems like a 5 digit numerical code for a safe. Wonder where the safe is, and what could lie inside of it?"
+      "TakenText": "Seems like a 5 digit numerical code for a safe. Wonder where the safe is, and what could lie inside of it?",
+      "UseText": "How can you possibly 'use' a paper? Maybe the code opens something mentioned?"
     },
     {
       "name": "key",
       "location": "bathtub",
       "desc": "Unlocks downstairs door in office.",
-      "TakenText": "What was this key doing in this nasty bathtub? Nonetheless, let's go to the office and use it to unlock the key to downstairs."
+      "TakenText": "What was this key doing in this nasty bathtub? Nonetheless, let's go to the office and use it to unlock the key to downstairs.",
+      "UseText": "How do you use a key, maybe you open something with it?"
     },
     {
       "name": "escapekey",
       "location": "basement",
       "desc": "Unlock the front door for escape.",
-      "TakenText": "Taken! Finally, let's use this key to escape the house from the foyer."
+      "TakenText": "Taken! Finally, let's use this key to escape the house from the foyer.",
+      "UseText": "The small yet concise journal reads:\n\tDear my beloved Seraphina,\n\t\tIt is I, your dear husband of 30 years, Victor Blackthorne. I am grieved of your passing and want to raise you from the dead so that we may live together once again. I am locking\n this journal away in the kitchen and hope you will find it, as you always found me in my lows and helped me. I am composing this final letter in case you come back but I am longer here.\n My quest for forbidden knowledge has found me digging up the dead from the cemetery and experimenting on them in our basement, in hopes to be able to raise you too, my love. But the undead are overpowering me and not listening to my commands and I\n fear my death is certain, and I will never be able to see you again nor be buried with you. If you ever do come back, my diary in the garage written in our secret language has instructions on this forbidden disgraced knowledge\n so that you may bring me back too. I have hidden a gun in our safe, the passcode locked in the office desk shelf, and have locked all doors and windows to prevent the zombies from escaping outside, as well as powered off the house.\n Place my diary on the bookshelf in the living room to come find me, as I will spend my final moments hiding in the basement before the zombies get to me. I have with me the front door key, the only way out this nightmare.\n Retrieve it from the basement, unlock the front door, and release these malevolent beings once and for all. There remains no more barriers to overcome; the world must bear the consequences of my anguish and suffering\n in my innocent pursuit of tranquility and repose to have my wife back. Our suffering is ceaseless and harrowing, and I harbor no hopes for a better world for anyone except for us both. \nThis infernal punishment persists in its deceit, offering no deeper understanding of myself or the existence that surrounds me.\n"
+
+
     },
     {
       "name": "journal",
       "location": "cupboard",
       "desc": "Explanation for everything going on.",
       "TakenText": "A small journal! It seems handmade in a rush, with a hard leather cover and only two pages inside, held together with strings. What could it contain? Read it to find out. Time is running out!",
-      "UseJournal": "The small yet concise journal reads:\n\tDear my beloved Seraphina,\n\t\tIt is I, your dear husband of 30 years, Victor Blackthorne. I am grieved of your passing and want to raise you from the dead so that we may live together once again. I am locking\n this journal away in the kitchen and hope you will find it, as you always found me in my lows and helped me. I am composing this final letter in case you come back but I am longer here.\n My quest for forbidden knowledge has found me digging up the dead from the cemetery and experimenting on them in our basement, in hopes to be able to raise you too, my love. But the undead are overpowering me and not listening to my commands and I\n fear my death is certain, and I will never be able to see you again nor be buried with you. If you ever do come back, my diary in the garage written in our secret language has instructions on this forbidden disgraced knowledge\n so that you may bring me back too. I have hidden a gun in our safe, the passcode locked in the office desk shelf, and have locked all doors and windows to prevent the zombies from escaping outside, as well as powered off the house.\n Place my diary on the bookshelf in the living room to come find me, as I will spend my final moments hiding in the basement before the zombies get to me. I have with me the front door key, the only way out this nightmare.\n Retrieve it from the basement, unlock the front door, and release these malevolent beings once and for all. There remains no more barriers to overcome; the world must bear the consequences of my anguish and suffering\n in my innocent pursuit of tranquility and repose to have my wife back. Our suffering is ceaseless and harrowing, and I harbor no hopes for a better world for anyone except for us both. \nThis infernal punishment persists in its deceit, offering no deeper understanding of myself or the existence that surrounds me.\n"
+      "UseText": "The small yet concise journal reads:\n\tDear my beloved Seraphina,\n\t\tIt is I, your dear husband of 30 years, Victor Blackthorne. I am grieved of your passing and want to raise you from the dead so that we may live together once again. I am locking\n this journal away in the kitchen and hope you will find it, as you always found me in my lows and helped me. I am composing this final letter in case you come back but I am longer here.\n My quest for forbidden knowledge has found me digging up the dead from the cemetery and experimenting on them in our basement, in hopes to be able to raise you too, my love. But the undead are overpowering me and not listening to my commands and I\n fear my death is certain, and I will never be able to see you again nor be buried with you. If you ever do come back, my diary in the garage written in our secret language has instructions on this forbidden disgraced knowledge\n so that you may bring me back too. I have hidden a gun in our safe, the passcode locked in the office desk shelf, and have locked all doors and windows to prevent the zombies from escaping outside, as well as powered off the house.\n Place my diary on the bookshelf in the living room to come find me, as I will spend my final moments hiding in the basement before the zombies get to me. I have with me the front door key, the only way out this nightmare.\n Retrieve it from the basement, unlock the front door, and release these malevolent beings once and for all. There remains no more barriers to overcome; the world must bear the consequences of my anguish and suffering\n in my innocent pursuit of tranquility and repose to have my wife back. Our suffering is ceaseless and harrowing, and I harbor no hopes for a better world for anyone except for us both. \nThis infernal punishment persists in its deceit, offering no deeper understanding of myself or the existence that surrounds me.\n"
     },
     {
       "name": "diary",
       "location": "box",
       "desc": "To get to the basement.",
       "TakenText": "You take a well maintained black hardcover diary with just two eerie words on its cover, reading 'Victor's Diary'.",
-      "UseDiaryinLivingroom": "Using the diary on shelf causes the bookshelf to slide down and reveal the stairs to basement, where you're potential escape awaits! It's too dark down there, and you'll need a source of light to go.",
+      "UseText": "Using the diary on shelf causes the bookshelf to slide down and reveal the stairs to basement, where you're potential escape awaits! It's too dark down there, and you'll need a source of light to go.",
       "UseDiaryElsewhere": "This diary is old and the handwriting looks unreadable. The only use you have for it would be to try using it on the living room bookshelf."
     }
   ],
