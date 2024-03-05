@@ -1,9 +1,14 @@
-
+from verbs import *
+from player import *
 compass = ["n","e","w","s","u","d","up","east","west","down","north","south","current","c"]
+
+
 class DirectionHandling:
-    def __init__(self, currentRoom, data):
+    def __init__(self, currentRoom, data, verb_handler_instance):
         self.currentRoom = currentRoom
         self.data = data
+        self.verb_handler = verb_handler_instance
+
 
     def move(self, direction):
         possibleDirections = {
@@ -25,20 +30,20 @@ class DirectionHandling:
             nextRoom = self.getNextRoom(targetDirection)
 
             if nextRoom:
-                self.currentRoom = nextRoom
-                for room in self.data['rooms']:
-                    if room['name'] == self.currentRoom:
-                        if room['times_entered'] == 0:
-                            room['times_entered'] += 1
-                            print(room['first_text'])
-                        else:
-                            print(room['after_text'])
+                if self.AllowedToChangeRooms(nextRoom):
+                    self.currentRoom = nextRoom
+                    for room in self.data['rooms']:
+                        if room['name'] == self.currentRoom:
+                            if room['times_entered'] == 0:
+                                room['times_entered'] += 1
+                                print(room['first_text'])
+                            else:
+                                room['times_entered'] += 1
+                                print(room['after_text'])
 
 
             else:
-                print(f'You cannot go {targetDirection} from the {self.currentRoom}.')
-        else:
-            print('Invalid command.')
+                print(f"You cannot go {targetDirection} from the {self.currentRoom}.")
 
     def getNextRoom(self, direction):
         roomConnections = {
@@ -55,6 +60,42 @@ class DirectionHandling:
         }
 
         return roomConnections.get(self.currentRoom, {}).get(direction)
+
+
+    def AllowedToChangeRooms(self, nextRoom):
+        inventory = self.verb_handler.inventory
+        for room in self.data['rooms']:
+            if room['name']=='attic' and nextRoom=='hallway':
+                if 'axe' in inventory and room['usedBatteries']==True:
+                    return True
+                else:
+                     print(room['tryingdownwithoutpoweroraxe'])
+                     return False
+            if room['name']=='office' and nextRoom == 'living room':
+                if 'doorkey' in inventory:
+                    return True
+                else:
+                    print(room['downwithlockeddoor'])
+                    return False
+            if room['name']=='living room' and nextRoom == 'basement':
+                if 'flashlight' in inventory:
+                    return True
+                else:
+                    print(room['unlockedbasementbutnoflashlight'])
+                    return False
+
+        return True
+
+
+
+
+
+
+
+
+
+
+
 
 
 
