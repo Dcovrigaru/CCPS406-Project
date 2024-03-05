@@ -37,7 +37,14 @@ def main():
             UserCurrentRoom.move(user_input)
         #Other command inputs (beyond this line)
         elif user_input == "exit":
-            break
+            checking_quit = input("Are you sure you want to quit? (y/n): ").lower()
+            print(user_input.split(" "))
+            if checking_quit == ("yes") or checking_quit == ("y"):
+                print("Bye")
+                break
+            else:
+                print("Guess well continue")
+                continue
         elif user_input.split(" ")[0] in verbs:
             verb_handler.handle_action(user_input)
         elif len(user_input.split()) == 1 and user_input in verbs:
