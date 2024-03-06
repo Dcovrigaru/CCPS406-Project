@@ -35,6 +35,8 @@ class VerbHandler:
                     elif item_name in self.items or item_name in self.inventory or verb == "open":
                         # Call the corresponding method with the item name
                         getattr(self, f"handle_{verb}")(item_name)
+                    elif verb == "use":
+                        self.handle_use(item_name)
                     else:
                         print(f"You haven't found '{item_name}' yet.")
                 # If verb is "inventory", call the corresponding method without item
@@ -119,22 +121,57 @@ class VerbHandler:
         print(f"I don't see a {item_name} here.")
 
     def handle_use(self, item_name):
-        if item_name not in self.inventory:  # Checking to see if the player has the said item
+        # Loop through all items in the data
+        for item in self.data['items']:
+            # Check if the current item's name matches the provided item_name
+            if item['name'] == item_name:
+                # Check if the 'used_status' key is present in the item
+                if 'used_status' in item:
+                    # Check if the item has already been used and is not in the inventory
+                    if item['used_status'] and item_name not in self.inventory:
+                        print("You already used this item, you don't have it anymore")
+                        return
+
+        # Check if the item is not in the inventory
+        if item_name not in self.inventory:
             print(f"You don't have the {item_name} in your inventory.")
             return
-        #elif item_name not in weapon_names:  # Checking to see if the item is even a weapon capable of wielding
-         #   print(f"Are you sure {item_name} is a weapon?")
-            #  return
 
-        # Check if any other weapon is wielded and unwield it
+        # Loop through all items in the data
+        for item in self.data['items']:
+            # Check if the current item's name matches the provided item_name
+            if item['name'] == item_name:
+                # Check if the 'used_status' key is present in the item
+                if 'used_status' in item:
+                    # Check if the item has not been used yet
+                    if not item['used_status']:
+                        # Check if the current room matches the required location
+                        if self.current_room.currentRoom == item['req_location']:
+                            print(item['req_location'])
+                            item['used_status'] = True
+                            self.inventory.remove(item_name)
+                            # Print the 'UseText' of the item if available
+                            if 'UseText' in item:
+                                print(item['UseText'])
+                                return
+                        else:
+                            print(f"{item['name']} is not at the required location.")
+                            return
+                    else:
+                        print(f"{item['name']} has already been used.")
+                        return
+                break
 
+        # If no item is found with the provided name
+        else:
+            print(f"No item found with the name '{item_name}'")
+
+        # Print the 'UseText' of the item if available
         for item in self.data['items']:
             if item['name'] == item_name:
                 print(item.get('UseText', ""))
                 break
         return
-
-
 
     def handle_wield(self, item_name):  # Function for handling the verb 'wield'
         weapons = self.data['weapons']
