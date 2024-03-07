@@ -84,7 +84,7 @@
       "after_text": "You are back in the kitchen, ready to cook & eat rotten zombies? Just kidding. Can go south or east from here.",
       "currentText": "You're standing in the kitchen. There are exits to south and east.",
       "times_entered": 0,
-      "subroom": ["cupboard"],
+      "subrooms": ["cupboard"],
       "items": [""],
       "zombies": 2
     },
@@ -135,6 +135,7 @@
       "location": "bedroom",
       "locked": true,
       "items": "gun",
+      "correct_number": "58273",
       "unlocker": "paper",
       "locked_message": "This safe can't be unlocked by force nor by lockpicks as it has a rotary combination lock. Where can you find the code?",
       "unlocked_message": "The code from the paper worked! Inside you find a gun, no way!",
@@ -226,7 +227,7 @@
       "location": "desk",
       "desc": "Passcode for a safe.",
       "TakenText": "Seems like a 5 digit numerical code for a safe. Wonder where the safe is, & what could lie inside of it?",
-      "useText": "How can you possibly 'use' a paper? Maybe the code opens something mentioned?"
+      "UseText": "73582, But in what order is the code entered?"
     },
     {
       "name": "doorkey",

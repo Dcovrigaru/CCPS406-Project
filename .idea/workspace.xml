@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="Added &quot;are you sure you want to quit&quot; check">
+    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="Updated verbs and Json">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/GameData.Json" beforeDir="false" afterPath="$PROJECT_DIR$/data/GameData.Json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/verbs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/verbs.py" afterDir="false" />
@@ -235,7 +235,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709597959074</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Updated verbs and Json">
+      <option name="closed" value="true" />
+      <created>1709685765093</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1709685765093</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -257,6 +265,7 @@
     <MESSAGE value="More Verbs" />
     <MESSAGE value="Added 'UseText' for items in Json&#10;Removed Debugging code from main&#10;Added basics for 'use'" />
     <MESSAGE value="Added &quot;are you sure you want to quit&quot; check" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added &quot;are you sure you want to quit&quot; check" />
+    <MESSAGE value="Updated verbs and Json" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated verbs and Json" />
   </component>
 </project>
