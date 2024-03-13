@@ -12,9 +12,11 @@ class Player:
         else:
             print(f"{self.name} now has {self.health} health.")
 
-    def healthStatus(self):
-        return self.health > 0
+    def add_to_inventory(self, item):
+        self.inventory.append(item)
+        print(f"{item} added to inventory.")
 
+    # Ensure this method exists or is updated
     def list_inventory(self):
         if self.inventory:
             print("Inventory contains:")
@@ -22,6 +24,3 @@ class Player:
                 print(f"- {item}")
         else:
             print("Your inventory is empty.")
-            
-    def hasKey(self, key_name):
-        return key_name in self.inventory
