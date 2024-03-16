@@ -1,6 +1,5 @@
-from combat import Combat
 from verbs import VerbHandler
-from directions import DirectionHandling, compass
+from directions import DirectionHandling
 import json
 with open('../data/GameData.json') as f:
     data = json.load(f)
@@ -15,7 +14,7 @@ player = None
 npc = None
 UserCurrentRoom = DirectionHandling(currentRoom, data, None)
 verb_handler = VerbHandler(items, UserCurrentRoom, npc, player, data)
-UserCurrentRoom.verb_handler = verb_handler  #this is so DirectionHandling can access the inventory attribute of player
+UserCurrentRoom.verb_handler = verb_handler  #this is needed so DirectionHandling can access the inventory attribute of player
 
 def main():
     print('*****DEATH ESCAPE******\n\n\t' + data['story']['intro'] + '\n\n' + data['rooms'][0]['first_text'])
@@ -26,7 +25,7 @@ def main():
         if len(user_input) == 0:
             print("You're probably supposed to write something.")
             continue
-        elif user_input in compass:
+        elif user_input in data['compass']:
             #Direction input
             UserCurrentRoom.move(user_input)
         #Other command inputs (beyond this line)

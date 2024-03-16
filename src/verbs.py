@@ -130,11 +130,7 @@ class VerbHandler:
 
         for item in self.data['items']:
             if item['name'] == item_name:
-                print(item.get('UseText', ""))
-            if item['name'] == 'batteries':
-                for room in self.data['rooms']:
-                    if room['name'] == 'attic':
-                        room['usedBatteries']=True
+                print(item['UseText'])
             break
         return
 
