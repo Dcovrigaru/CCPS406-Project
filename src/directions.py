@@ -43,5 +43,5 @@ class DirectionHandling:
 
         return roomConnections.get(self.currentRoom, {}).get(direction)
 
-
-
+# \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/
+# CHANGE DIRECTIONS TO CHANGE ROOM VARIABLES AND THEN HAVE MAIN CONCURRENTLY LOAD ALL ROOM CLASSES FOR ALL DIFFERENT ROOMS
