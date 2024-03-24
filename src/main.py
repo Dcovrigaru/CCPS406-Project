@@ -1,18 +1,40 @@
-#Class Instances/Variables
-from verbs import VerbHandler, verbs
-from directions import DirectionHandling
-UserCurrentRoom = DirectionHandling(currentRoom="attic")
+from combat import Combat
+from verbs import VerbHandler
+from directions import DirectionHandling, compass
+#Importing Json
+import json
+with open('../data/GameData.json') as f:
+    data = json.load(f)
 
+# Extract items and verbs from the data
+verbs = data['verbs']
+items = data['items']
+subroom_name = "safe"  # Replace "your_subroom_name" with the actual name of the subroom
+y = None
+for subroom in data['subrooms']:
+    if subroom['name'] == subroom_name:
+        y = subroom.get('locked')
+        break
+
+# Now y contains the value of the 'locked' attribute of the subroom with the specified name
+
+
+#Class Instances/Variables
+currentRoom = "attic"
+UserCurrentRoom = DirectionHandling(currentRoom, data)
+player = None
+npc = None
 #Main Variables
-items = ["antique key", "flashlight", "pistol", "axe", "riddle", "paper" "journal", "pistol", "lockpick", "diary", "batteries", "rusty key"]
-compass = ["n","e","w","s","u","d","up","east","west","down","north","south","current","c"]
-"""
-Paper = Safe Passcode Paper
-Rusty Key = Key for Stairs Between Office Room and Living Room
-Antique Key = Key for Front Door
-"""
+print(y)
+print('\n' * 2)
+print(data['story']['intro'])
+print('\n' * 2)
+for room in data['rooms']:
+    if room['name'] == currentRoom:
+        print(room['first_text'])
+
 def main():
-    verb_handler = VerbHandler(items)
+    verb_handler = VerbHandler(items, UserCurrentRoom, npc, player, data)
     while True:
         user_input = input("Enter in an action: ").lower()
         print(user_input.split(" "))
@@ -38,8 +60,3 @@ def main():
 if __name__ == "__main__":
     main()
 
-"""
-NOTES:
-- Should all CURRENT variables be placed in ONE class object for clarity? Or should it be split up
-- Should all classes be put in one .py file seperate from main?
-"""
