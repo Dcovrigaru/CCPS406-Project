@@ -1,5 +1,7 @@
+from combat import Combat
 from verbs import VerbHandler
-from directions import DirectionHandling
+from directions import DirectionHandling, compass
+#Importing Json
 import json
 with open('../data/GameData.json') as f:
     data = json.load(f)
@@ -10,14 +12,19 @@ items = data['items']
 
 #Class Instances/Variables
 currentRoom = "attic"
+UserCurrentRoom = DirectionHandling(currentRoom, data)
 player = None
 npc = None
-UserCurrentRoom = DirectionHandling(currentRoom, data, None)
-verb_handler = VerbHandler(items, UserCurrentRoom, npc, player, data)
-UserCurrentRoom.verb_handler = verb_handler  #this is needed so DirectionHandling can access the inventory attribute of player
+#Main Variables
+print('\n' * 2)
+print(data['story']['intro'])
+print('\n' * 2)
+for room in data['rooms']:
+    if room['name'] == currentRoom:
+        print(room['first_text'])
 
 def main():
-    print('*****DEATH ESCAPE******\n\n\t' + data['story']['intro'] + '\n\n' + data['rooms'][0]['first_text'])
+    verb_handler = VerbHandler(items, UserCurrentRoom, npc, player, data) #Calling the verb class
     while True:
         user_input = input("Enter in an action: ").lower()
         print(user_input.split(" "))
@@ -25,7 +32,7 @@ def main():
         if len(user_input) == 0:
             print("You're probably supposed to write something.")
             continue
-        elif user_input in data['compass']:
+        elif user_input in compass:
             #Direction input
             UserCurrentRoom.move(user_input)
         #Other command inputs (beyond this line)
@@ -33,10 +40,10 @@ def main():
             checking_quit = input("Are you sure you want to quit? (y/n): ").lower()
             print(user_input.split(" "))
             if checking_quit == ("yes") or checking_quit == ("y"):
-                print("Bye! Try again later.")
+                print("Bye")
                 break
             else:
-                print("Guess we'll continue!")
+                print("Guess well continue")
                 continue
         elif user_input.split(" ")[0] in verbs:
             verb_handler.handle_action(user_input)

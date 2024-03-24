@@ -18,11 +18,11 @@
     {
       "name": "attic",
       "first_text": "You are in the pitch-black attic, the only way out is down, the way you came.\nYou sense a fuse box, its outline faintly visible but powerless. You notice something small, smooth, & round on the floor beside the fuse box, resembling batteries,\nas well as what appears to be an axe. You realize the smart thing to do is to probably take both of them.",
-      "notallowed": "It's too dark and dangerous to go down right now. Make sure you power on the fuse box and take the axe first for protection.",
+      "tryingdownwithoutpoweroraxe": "It's too dark and dangerous to go down right now. Make sure you power on the fuse box and take the axe first for protection.",
       "after_text": "You are back in the attic. Looks cozy & safe, nice spot to catch your breath. You can continue your quest downstairs.",
       "currentText": "You are currently in the attic. Only exit is down.",
       "times_entered": 1,
-      "usedBatteries": false,
+      "used_status": false,
       "items": ["axe", "batteries"],
       "zombies": 0
     },
@@ -50,7 +50,6 @@
       "name": "bathroom",
       "first_text": "You find yourself in a run-down bathroom. The sink is stained, & a cracked mirror shows your worried face. At least there's no zombies here,\nbut there are cockroaches & bugs. There is a curtain covering the tub but it's too disgusting to check out unless you have a good reason to. Yuck! The only way out is south, the way you came.",
       "after_text": "You are in the filthy bathroom again, which has a dirty curtain covering something. Only way out is back south to bedroom.",
-      "curtainwithoutriddle": "It's too filthy to look and you might throw up. Do you really have a reason to look?",
       "currentText": "You are currently in the bathroom, only way out is south.",
       "times_entered": 0,
       "subrooms": ["curtain"],
@@ -62,7 +61,7 @@
       "first_text": "Looks like a super old fashioned office room. There's a locked door to go down to the first floor from here, but you'll\nneed to find a key & lockpicks won't work. There's two more dangerous zombies in your way of getting to that door. The desk shelves are all open & empty,\nbut one catches your eye;this shelf has a shiny handle, but it's loosely locked; can you open it with your lockpicks?",
       "after_text": "You are in the messy office room. There's a shelf, door leading downstairs, & western path to hallway.",
       "currentText": "You are currently in the office. Can go west or down.",
-      "notallowed": "The door to go downstairs is locked; try finding the key first.",
+      "downwithlockeddoor": "The door to go downstairs is locked; try finding the key first.",
       "times_entered": 0,
       "subrooms": ["shelf"],
       "items": [""],
@@ -136,6 +135,7 @@
       "location": "bedroom",
       "locked": true,
       "items": "gun",
+      "correct_number": "58273",
       "unlocker": "paper",
       "locked_message": "This safe can't be unlocked by force nor by lockpicks as it has a rotary combination lock. Where can you find the code?",
       "unlocked_message": "The code from the paper worked! Inside you find a gun, no way!",
@@ -154,7 +154,7 @@
     {
       "name": "box",
       "items": "diary",
-      "unlocker": "axe",
+      "unlocker": "paper",
       "location": "garage",
       "locked": true,
       "openbox": "A lone diary rests in here, could it be Victor's Diary?",
@@ -162,7 +162,7 @@
     },
     {
        "name": "cupboard",
-      "items": ["flashlight","journal"],
+      "items": "gun",
       "unlocker": "lockpick",
       "location": "kitchen",
       "locked": true,
@@ -177,8 +177,9 @@
       "location": "attic",
       "desc": "Used to power on fuse box to power the house.",
       "TakenText": "These batteries look like they could work on the fuse box to give light to the house! Try them on the fuse box.",
-      "UseText": "The batteries powered on the fuse box! You restore all power to the house, except for the basement which isn't working."
-
+      "UseText": "The batteries powered on the fuse box! You restore all power to the house, except for the basement which isn't working.",
+      "used_status": false,
+      "req_location": "attic"
     },
     {
       "name": "axe",
@@ -226,21 +227,25 @@
       "location": "desk",
       "desc": "Passcode for a safe.",
       "TakenText": "Seems like a 5 digit numerical code for a safe. Wonder where the safe is, & what could lie inside of it?",
-      "useText": "How can you possibly 'use' a paper? Maybe the code opens something mentioned?"
+      "UseText": "73582, But in what order is the code entered?"
     },
     {
       "name": "doorkey",
       "location": "curtain",
       "desc": "Unlocks downstairs door in office.",
       "TakenText": "What was this key doing in this nasty bathtub? Nonetheless, let's go to the office & use it to unlock the key to downstairs.",
-      "UseText": "How do you use a key, maybe you open something with it?"
+      "UseText": "How do you use a key, maybe you open something with it?",
+      "Wrong_Text": "wrong location",
+      "used_status": false,
+      "req_location": "office"
     },
     {
       "name": "escapekey",
       "location": "basement",
       "desc": "Unlock the front door for escape.",
       "TakenText": "Taken! Finally, let's use this key to escape the house from the foyer.",
-      "locked": true
+      "used_status": false,
+      "req_location": "basement"
     },
     {
       "name": "journal",
@@ -254,8 +259,10 @@
       "location": "box",
       "desc": "To get to the basement.",
       "TakenText": "You take a well maintained black hardcover diary with just two eerie words on its cover, reading 'Victor's Diary'.",
-      "UseDiaryinLivingroom": "Using the diary on shelf causes the bookshelf to slide down & reveal the stairs to basement, where you're potential escape awaits! It's too dark down there, & you'll need a source of light to go.",
-      "UseDiaryElsewhere": "This diary is old & the handwriting looks unreadable. The only use you have for it would be to try using it on the living room bookshelf."
+      "UseText": "Using the diary on shelf causes the bookshelf to slide down & reveal the stairs to basement, where you're potential escape awaits! It's too dark down there, & you'll need a source of light to go.",
+      "Wrong_text": "This diary is old & the handwriting looks unreadable. The only use you have for it would be to try using it on the living room bookshelf.",
+      "used_status": false,
+      "req_location": "living room"
     }
   ],
   "player": {
@@ -300,62 +307,5 @@
     "wield",
     "attack",
     "inventory"
-  ],
-  "compass" : ["n","e","w","s","u","d","up","east","west","down","north","south","current","c"],
-  "possibleDirections": {
-    "s": "south",
-    "n": "north",
-    "w": "west",
-    "e": "east",
-    "u": "up",
-    "d": "down",
-    "south": "south",
-    "north": "north",
-    "west": "west",
-    "east": "east",
-    "up": "up",
-    "down": "down"
-},
-    "roomConnections": {
-    "bathroom": {
-      "south": "bedroom"
-    },
-    "bedroom": {
-      "north": "bathroom",
-      "east": "hallway"
-    },
-    "hallway": {
-      "west": "bedroom",
-      "east": "office",
-      "up": "attic"
-    },
-    "office": {
-      "west": "hallway",
-      "down": "living room"
-    },
-    "living room": {
-      "up": "office",
-      "down": "basement",
-      "west": "foyer"
-    },
-    "foyer": {
-      "east": "living room",
-      "west": "kitchen"
-    },
-    "kitchen": {
-      "south": "garage",
-      "east": "foyer"
-    },
-    "garage": {
-      "north": "kitchen"
-    },
-    "basement": {
-      "up": "living room"
-    },
-    "attic": {
-      "down": "hallway"
-    }
-  }
-
-
+  ]
 }

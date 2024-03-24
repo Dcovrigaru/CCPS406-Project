@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="added the used batteries boolean. it is set to false initially in json, but when use batteries, becomes true. needed for directions.py for locked room functionality">
+    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="Updated verbs and Json">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/GameData.Json" beforeDir="false" afterPath="$PROJECT_DIR$/data/GameData.Json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/directions.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/directions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/verbs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/verbs.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +51,7 @@
     &quot;Python.testingrizvi.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Rizvi-Branch&quot;
+    &quot;git-widget-placeholder&quot;: &quot;Dean2.0-Branch&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -120,7 +118,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-50da183f06c8-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13135.95" />
+        <option value="bundled-python-sdk-5a2391486177-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13763.11" />
       </set>
     </attachedChunks>
   </component>
@@ -181,69 +179,69 @@
       <option name="project" value="LOCAL" />
       <updated>1709477001894</updated>
     </task>
-    <task id="LOCAL-00007" summary="&#10;upto date as of march 3rd night.">
+    <task id="LOCAL-00007" summary="More Verbs">
       <option name="closed" value="true" />
-      <created>1709520048641</created>
+      <created>1709514991133</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1709520048641</updated>
+      <updated>1709514991133</updated>
     </task>
-    <task id="LOCAL-00008" summary="has most upto date json">
+    <task id="LOCAL-00008" summary="More Verbs">
       <option name="closed" value="true" />
-      <created>1709521824434</created>
+      <created>1709580672726</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1709521824434</updated>
+      <updated>1709580672726</updated>
     </task>
-    <task id="LOCAL-00009" summary="The text is formatted better, the after_text and currentText are displayed for each room as well.">
+    <task id="LOCAL-00009" summary="More Verbs">
       <option name="closed" value="true" />
-      <created>1709576979833</created>
+      <created>1709587503862</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1709576979833</updated>
+      <updated>1709587503862</updated>
     </task>
-    <task id="LOCAL-00010" summary="Added locked rooms functionality.">
+    <task id="LOCAL-00010" summary="Added 'UseText' for items in Json&#10;Removed Debugging code from main&#10;Added basics for 'use'">
       <option name="closed" value="true" />
-      <created>1709671300455</created>
+      <created>1709596712677</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1709671300455</updated>
+      <updated>1709596712677</updated>
     </task>
-    <task id="LOCAL-00011" summary="Added usedText for items, boolean for used batteries.">
+    <task id="LOCAL-00011" summary="Added &quot;are you sure you want to quit&quot; check">
       <option name="closed" value="true" />
-      <created>1709671339875</created>
+      <created>1709597210719</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1709671339875</updated>
+      <updated>1709597210719</updated>
     </task>
-    <task id="LOCAL-00012" summary="Added a line that allows directions.py to access player's inventory. Make sure you want to quit message, and formatted the opening text">
+    <task id="LOCAL-00012" summary="Added &quot;are you sure you want to quit&quot; check">
       <option name="closed" value="true" />
-      <created>1709671395293</created>
+      <created>1709597905375</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1709671395293</updated>
+      <updated>1709597905375</updated>
     </task>
-    <task id="LOCAL-00013" summary="added the used batteries boolean. it is set to false initially in json, but when use batteries, becomes true. needed for directions.py for locked room functionality">
+    <task id="LOCAL-00013" summary="Added &quot;are you sure you want to quit&quot; check">
       <option name="closed" value="true" />
-      <created>1709671460744</created>
+      <created>1709597959074</created>
       <option name="number" value="00013" />
       <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1709671460744</updated>
+      <updated>1709597959074</updated>
     </task>
-    <task id="LOCAL-00014" summary="added the used batteries boolean. it is set to false initially in json, but when use batteries, becomes true. needed for directions.py for locked room functionality">
+    <task id="LOCAL-00014" summary="Updated verbs and Json">
       <option name="closed" value="true" />
-      <created>1709671469501</created>
+      <created>1709685765093</created>
       <option name="number" value="00014" />
       <option name="presentableId" value="LOCAL-00014" />
       <option name="project" value="LOCAL" />
-      <updated>1709671469501</updated>
+      <updated>1709685765093</updated>
     </task>
     <option name="localTasksCounter" value="15" />
     <servers />
@@ -264,13 +262,10 @@
     <MESSAGE value="Made Wield&#10;Updated main.py to tell verb class users current location&#10;Edited the Json file&#10;Updated take to ensure that the item being accessed is in the users current room" />
     <MESSAGE value="Combat is 90 percent done&#10;Every class imports json from main, json is only imported in main now&#10;Edited the Json file again slightly" />
     <MESSAGE value="Directions includes room descriptions" />
-    <MESSAGE value="&#10;upto date as of march 3rd night." />
-    <MESSAGE value="has most upto date json" />
-    <MESSAGE value="The text is formatted better, the after_text and currentText are displayed for each room as well." />
-    <MESSAGE value="Added locked rooms functionality." />
-    <MESSAGE value="Added usedText for items, boolean for used batteries." />
-    <MESSAGE value="Added a line that allows directions.py to access player's inventory. Make sure you want to quit message, and formatted the opening text" />
-    <MESSAGE value="added the used batteries boolean. it is set to false initially in json, but when use batteries, becomes true. needed for directions.py for locked room functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="added the used batteries boolean. it is set to false initially in json, but when use batteries, becomes true. needed for directions.py for locked room functionality" />
+    <MESSAGE value="More Verbs" />
+    <MESSAGE value="Added 'UseText' for items in Json&#10;Removed Debugging code from main&#10;Added basics for 'use'" />
+    <MESSAGE value="Added &quot;are you sure you want to quit&quot; check" />
+    <MESSAGE value="Updated verbs and Json" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated verbs and Json" />
   </component>
 </project>

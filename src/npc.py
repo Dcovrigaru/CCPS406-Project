@@ -1,9 +1,7 @@
 class NPC:
-    def __init__(self, name, health, damage_min, damage_max, is_friendly=False, shout=None):
-        self.name = name
+    def __init__(self, id, health, is_friendly=False, shout=None):
+        self.id = id
         self.health = health
-        self.damage_min = damage_min
-        self.damage_max = damage_max
         self.is_friendly = is_friendly
         self.shout = shout
 
@@ -14,7 +12,7 @@ class NPC:
         else:
             print(f"{self.name} takes {damage} damage, remaining health: {self.health}")
 
-    def is_alive(self):
+    def healthStatus(self):
         return self.health > 0
 
     def speak(self):
