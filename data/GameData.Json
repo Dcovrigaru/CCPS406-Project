@@ -18,7 +18,7 @@
     {
       "name": "attic",
       "first_text": "You are in the pitch-black attic, the only way out is down, the way you came.\nYou sense a fuse box, its outline faintly visible but powerless. You notice something small, smooth, & round on the floor beside the fuse box, resembling batteries,\nas well as what appears to be an axe. You realize the smart thing to do is to probably take both of them.",
-      "tryingdownwithoutpoweroraxe": "It's too dark and dangerous to go down right now. Make sure you power on the fuse box and take the axe first for protection.",
+      "notallowed": "It's too dark and dangerous to go down right now. Make sure you power on the fuse box and take the axe first for protection.",
       "after_text": "You are back in the attic. Looks cozy & safe, nice spot to catch your breath. You can continue your quest downstairs.",
       "currentText": "You are currently in the attic. Only exit is down.",
       "times_entered": 1,
@@ -112,7 +112,7 @@
       "first_text": "You finally descend into the basement where you see in the far end 3 zombies guarding the front door key! There's no exits here neither anything interesting,\nbesides the key. Kill the zombies to get the key!",
       "afterkillzombies": "You did it!! You killed all 3 zombies here, & the front door key is yours! you take a moment to catch your breath, the lingering adrenaline coursing through your veins.\nYou make your way to the key as it rests on a gothic dried-blood-stained pedestal, next to a clothed human skeleton, bathed in moonlight filtering through a small window.\nA red tag attached to it declares hauntingly, 'escapekey.'",
       "after_text": "You are back in the basement. Nothing to see here besides horrific remains of human skeletons & dead zombies. Kill the zombies to take the front door key, if you haven't.",
-      "currentText": "You're in the basement right now, can onyy go back up",
+      "currentText": "You're in the basement right now, can only go back up",
       "isLocked": true,
       "times_entered": 0,
       "items": ["escapekey"],
@@ -154,7 +154,7 @@
     {
       "name": "box",
       "items": "diary",
-      "unlocker": "paper",
+      "unlocker": "axe",
       "location": "garage",
       "locked": true,
       "openbox": "A lone diary rests in here, could it be Victor's Diary?",
@@ -162,7 +162,7 @@
     },
     {
        "name": "cupboard",
-      "items": "gun",
+      "items": ["flashlight", "journal"],
       "unlocker": "lockpick",
       "location": "kitchen",
       "locked": true,
@@ -307,5 +307,75 @@
     "wield",
     "attack",
     "inventory"
-  ]
+  ],
+    "compass": [
+    "n",
+    "e",
+    "w",
+    "s",
+    "u",
+    "d",
+    "up",
+    "east",
+    "west",
+    "down",
+    "north",
+    "south",
+    "current",
+    "c"
+  ],
+   "possibleDirections": {
+    "s": "south",
+    "n": "north",
+    "w": "west",
+    "e": "east",
+    "u": "up",
+    "d": "down",
+    "south": "south",
+    "north": "north",
+    "west": "west",
+    "east": "east",
+    "up": "up",
+    "down": "down"
+},
+    "roomConnections": {
+    "bathroom": {
+      "south": "bedroom"
+    },
+    "bedroom": {
+      "north": "bathroom",
+      "east": "hallway"
+    },
+    "hallway": {
+      "west": "bedroom",
+      "east": "office",
+      "up": "attic"
+    },
+    "office": {
+      "west": "hallway",
+      "down": "living room"
+    },
+    "living room": {
+      "up": "office",
+      "down": "basement",
+      "west": "foyer"
+    },
+    "foyer": {
+      "east": "living room",
+      "west": "kitchen"
+    },
+    "kitchen": {
+      "south": "garage",
+      "east": "foyer"
+    },
+    "garage": {
+      "north": "kitchen"
+    },
+    "basement": {
+      "up": "living room"
+    },
+    "attic": {
+      "down": "hallway"
+    }
+  }
 }
