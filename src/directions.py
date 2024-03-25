@@ -36,17 +36,45 @@ class DirectionHandling:
         if nextRoom not in ('living room','hallway','basement'):
             return True
         inventory = self.verb_handler.inventory
-        if nextRoom=='hallway':
-            if self.data['items'][1]['name'] in inventory:# and self.data['rooms'][0][list(self.data['rooms'][0].keys())[6]]==True:
-                return True
+        if nextRoom== self.data['rooms'][1]['name']: #hallway
+            if self.data['items'][1]['name'] in inventory and self.data['items'][0]['used_status'] == True:
+                return True  #if axe in inventory, and batteries have been used, then allowed to go to hallway
             else:
                 print(self.data['rooms'][0]['notallowed'])
                 return False
-        if nextRoom=='living room':
-            if self.data['items'][7]['name'] in inventory:
-                return True
+        if nextRoom==self.data['rooms'][5]['name']: #living room
+            if self.data['items'][7]['name'] in inventory or self.data['items'][7]['used_status'] == True:
+                return True  #if doorkey in inventory
             else:
                 print(self.data['rooms'][4]['notallowed'])
                 return False
-        ##do for going down to basement from living room. text for basement is locked, then text for basement unlocked but no flashlight
-        #if nextRoom == 'basement':
+        if nextRoom==self.data['rooms'][9]['name']: #basement
+            if self.data['items'][10]['used_status'] == False: #if diary hasn't been used. doesnt matter if user has flashlight or not,
+                print(self.data['rooms'][5]['downwithoutdiary']) #the passage is still locked to the basement if diary hasnt been used.
+                return False
+            else:
+                if self.data['items'][4]['name'] not in inventory: #if diary has been used, but no flashlight
+                    print(self.data['rooms'][5]['unlockedbasementbutnoflashlight'])
+                    return False
+            return True  #if both above pass, that means diary.used == True and flashlight is in inventory. ready to go to basement
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

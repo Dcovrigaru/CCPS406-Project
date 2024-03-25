@@ -1,254 +1,273 @@
 {
   "story": {
-    "intro": "During a long road trip to visit your parents all the way in Manitoba, your car suddenly broke down in a remote area, with no cellphone service nor anyone nearby.\n You venture into a nearby forest searching for help. There you discover a spooky mansion and decide to enter in desperation,\n only to be immediately surrounded by zombies. In a state of panic you run into the attic for safety.\n Now, after catching your breath and realizing the horrific situation you've found yourself in, you must navigate through the rooms, defeat the zombies and find the key for your way out!",
-    "escaped": "The key turns, and it unlocks. You shove it open and run out the door, using your flashlight to navigate through the midnight darkness of the woods. Sprinting back to your broken-down car by the highway,\n relief washes over you as you find police investigating the scene. You've been awake, alert and tired for so long and are too exhausted to explain the truth of what you experienced. The police assist with your car and ensure your safety,\ncasually dismissing your condition after they found amounts of strong psychedelics in your car. They don't bother conversating with you much,\nto which you don't mind. The next morning, clean and composed, you resume your drive to your parents' house,\nattempting to leave the nightmarish ordeal behind. However, the trauma lingers, etching a lasting mark on your psyche.\n\n**********THE END**********"
+    "intro": "During a long road trip to visit your parents all the way in Manitoba, your car suddenly broke down in a remote area, with no cellphone service nor anyone nearby.\nYou venture into a nearby forest searching for help. There you discover a spooky mansion & decide to enter in desperation, only to be immediately surrounded by zombies.\nIn a state of panic you run into the attic for safety.\nNow, after catching your breath & realizing the horrific situation you've found yourself in, you must navigate through the rooms,\ndefeat the zombies & find the key for your way out!",
+    "escaped": "The key turns, & it unlocks. You shove it open & run out the door, using your flashlight to navigate through the midnight darkness of the woods. Sprinting back to your broken-down car by the highway, \n relief washes over you as you find police investigating the scene. You've been awake, alert & tired for so long & are too exhausted to explain the truth of what you experienced. The police assist with your car & ensure your safety, \n casually dismissing your condition after they found amounts of strong psychedelics in your car. They don't bother conversating with you much, \n to which you don't mind. The next morning, clean & composed, you resume your drive to your parents' house, attempting to leave the nightmarish ordeal behind. However, the trauma lingers, etching a lasting mark on your psyche.\n\n**********THE END**********"
   },
-
-
   "game_over": [
     {
       "condition1": "health_zero",
-      "message": "You have succumbed to your injuries. Remember, managing your health against zombies is crucial. Try to avoid unnecessary fights and consider smarter weapon choices."
+      "message": "You have succumbed to your injuries. Remember, managing your health against zombies is crucial.\nTry to avoid unnecessary fights & consider smarter weapon choices."
     },
     {
       "condition2": "time_expired",
-      "message": "You took too long to get out, and the toxic air finally overtook you. The lethal air within the forsaken walls of this zombie-infested house have claimed another victim, a fresh new zombie to inhabit its walls forever. As time slipped away, the poisonous atmosphere took its toll, sealing your fate.\nGame over. Remember: Time management is key; plan your moves carefully and keep an eye out for clues and shortcuts.",
+      "message": "You took too long to get out, & the toxic air finally overtook you. The lethal air within the forsaken walls\nof this zombie-infested house have claimed another victim, a fresh new zombie to inhabit its walls forever. As time slipped away, the poisonous atmosphere took its toll, sealing your fate.\nGame over. Remember: Time management is key; plan your moves carefully & keep an eye out for clues & shortcuts.",
       "turns": "X"
     }
   ],
-
-
-    "rooms": [
+  "rooms": [
     {
       "name": "attic",
-      "first_text": "You are in the pitch-black attic, the only way out is down, the way you came.\nYou sense a fuse box, its outline faintly visible but powerless. You notice something small, smooth, and round on the floor beside the fuse box, resembling batteries, as well as what appears to be an axe. You realize the smart thing to do is to probably take both of them.",
-      "TryingHallwayWithoutPower": "Power on the fuse box with the batteries first before going downstairs.",
-      "after_text": "You are back in the attic. Looks cozy and safe, nice spot to catch your breath.",
+      "first_text": "You are in the pitch-black attic, the only way out is down, the way you came.\nYou sense a fuse box, its outline faintly visible but powerless. You notice something small, smooth, & round on the floor beside the fuse box, resembling batteries,\nas well as what appears to be an axe. You realize the smart thing to do is to probably take both of them.",
+      "notallowed": "It's too dark and dangerous to go down right now. Make sure you power on the fuse box and take the axe first for protection.",
+      "after_text": "You are back in the attic. Looks cozy & safe, nice spot to catch your breath. You can continue your quest downstairs.",
+      "currentText": "You are currently in the attic. Only exit is down.",
       "times_entered": 1,
+      "used_status": false,
       "items": ["axe", "batteries"],
-      "exits": ["hallway"],
       "zombies": 0
     },
     {
       "name": "hallway",
-      "first_text": "You cautiously make your way down the ladder to the hallway, and there's two dull zombies on each end, west and east, blocking half open doors.\nThe only way into those two rooms will require you to kill them. Beside you, you see a bookshelf, empty except for a scribe with words and what appears to be some lockpicks.\nThe air quality is harsh and choking you, making you almost nauseous, and you realize you need to escape the house quickly before you slowly pass out and die.",
-      "after_text": "You are in the hallway.",
+      "first_text": "You've made it down to the hallway, once step closer to escaping this place. You find here two zombies blocking half open doors to your east and west.\nThe only way into those rooms will require you to kill both of them. Beside you, you see a bookshelf, empty except for a scribe with words & what appears to a lockpick.\nThe air quality is harsh & choking you, making you almost nauseous, & you realize you need to escape the house quickly before you slowly pass out & die.",
+      "after_text": "You are in the hallway. Can go up, east or west to attic, office & bedroom respectively.",
       "WestorEastwithzombies": "The zombie is in the way! You'll have to kill the zombie first to go this way.",
+      "currentText": "You are currently in the hallway. Can go east, west or up.",
       "times_entered": 0,
       "items": ["scribe", "lockpick"],
-      "exits": ["bedroom", "office"],
       "zombies": 2
     },
     {
       "name": "bedroom",
-      "first_text": "You open the door to find an old bedroom, filled with cobwebs and a thin layer of dust across the floor and furniture. Theres a menacing zombie standing and groaning on the bed;\n no one has slept in this bed in a while, and you doubt you would want to lay down on it either.\n The windows are too small for you to fit through, and too high up to jump out of. Nothing in this room looks interesting, except a bathroom to the north, as well as a locked rotary combination safe. What could be the passcode, and what could be inside?",
-      "after_text": "You are in the bedroom.",
+      "first_text": "You open the door to find an old bedroom, filled with cobwebs & a thin layer of dust across the floor & furniture. Theres a menacing zombie standing\n& groaning on the bed; no one has slept in this bed in a while, & you doubt you would want to lay down on it either.\nThe windows are too small for you to fit through, & too high up to jump out of. Nothing in this room looks interesting,\nexcept a bathroom to the north, as well as a locked rotary combination safe. What could be the passcode, & what could be inside?",
+      "after_text": "You are in the bedroom. There's a safe, northern path to bathroom, & an eastern exit to hallway.",
+      "currentText": "You are currently in the bedroom. Can go north or east.",
       "times_entered": 0,
-      "items": ["gun"],
+      "items": [""],
       "subrooms": ["safe"],
-      "exits": ["hallway", "bathroom"],
       "zombies": 1
     },
     {
-      "name": "Bathroom",
-      "first_text_withoutriddle": "You find yourself in a run-down bathroom. The sink is stained, and a cracked mirror shows your worried face. At least there's no zombies here, but there are cockroaches and bugs. There is a bathtub but it's too disgusting to check out. Yuck! The only way out is south, the way you came.",
-      "after_text": "You are in the Bathroom.",
+      "name": "bathroom",
+      "first_text": "You find yourself in a run-down bathroom. The sink is stained, & a cracked mirror shows your worried face. At least there's no zombies here,\nbut there are cockroaches & bugs. There is a curtain covering the tub but it's too disgusting to check out unless you have a good reason to. Yuck! The only way out is south, the way you came.",
+      "after_text": "You are in the filthy bathroom again, which has a dirty curtain covering something. Only way out is back south to bedroom.",
+      "currentText": "You are currently in the bathroom, only way out is south.",
       "times_entered": 0,
-      "subrooms": ["bathtub"],
-      "items": ["key"],
-      "exits": ["bedroom"],
+      "subrooms": ["curtain"],
+      "items": [""],
       "zombies": 0
     },
     {
       "name": "office",
-      "first_text": "Looks like a super old fashioned office room. There's a locked door to go down to the first floor from here, but you'll need to find a key and lockpicks won't work. There's two more dangerous zombies in your way of getting to that door. The desk shelves are all open and empty, but one catches your eye;\n this shelf has a shiny handle, but it's loosely locked; can you open it with your lockpicks?",
-      "after_text": "You are in the office room.",
+      "first_text": "Looks like a super old fashioned office room. There's a locked door to go down to the first floor from here, but you'll\nneed to find a key & lockpicks won't work. There's two more dangerous zombies in your way of getting to that door. The desk shelves are all open & empty,\nbut one catches your eye;this shelf has a shiny handle, but it's loosely locked; can you open it with your lockpicks?",
+      "after_text": "You are in the messy office room. There's a shelf, door leading downstairs, & western path to hallway.",
+      "currentText": "You are currently in the office. Can go west or down.",
+      "downwithlockeddoor": "The door to go downstairs is locked; try finding the key first.",
       "times_entered": 0,
-      "items": ["paper"],
       "subrooms": ["shelf"],
-      "exits": ["hallway", "living room"],
+      "items": [""],
       "zombies": 2
     },
     {
       "name": "living room",
-      "first_text": "You made it downstairs to the living room! It's old fashioned with an old box TV and scattered DVD cassettes. Here's there's two more zombies in your of getting to the western foyer. There's nothing here, except a full bookshelf with an empty slot asking for 'Victor's Diary' to be placed on it to unlock passage to go down the basement.",
-      "after_text": "You are in the living room.",
-      "basementWithoutflashlight": "It's too dark and dangerous! Get a source of light first.",
+      "first_text": "You made it downstairs to the living room! It's old fashioned with an old box TV & scattered DVD cassettes. Here's there's two more zombies in your of getting\nto the western foyer. There's nothing here, except a full bookshelf with an empty slot asking for 'Victor's Diary' to be placed on it to unlock passage to go down the basement.",
+      "after_text": "You are in the living room. Can go upstairs from here, and west to foyer, as well as down to basement if you have the diary to use on bookshelf.",
+      "downwithoutdiary": "The passage to the basement is locked. Find a diary and use it here to unlock it.",
+      "currentText": "You are currently in the living room. Can go up, down or west.",
+      "unlockedbasementbutnoflashlight": "It's too dark and dangerous to go down, who knows what's lurking down there! Get a source of light first.",
       "times_entered": 0,
-      "exits": ["basement", "office","foyer"],
+      "items": [""],
       "zombies": 2
     },
     {
       "name": "kitchen",
-      "first_text": "You enter the dirty kitchen. There's a zombie here, and a south exit to the garage, as well as a locked cupboard containing useful items. Continue your search for the front door key!",
-      "after_text": "You are back in the kitchen, ready to cook & eat rotten zombies? Just kidding.",
+      "first_text": "You enter the dirty kitchen. There's a zombie here, and a south exit to the garage, as well as a locked cupboard containing useful items.\nContinue your search for the front door key!",
+      "after_text": "You are back in the kitchen, ready to cook & eat rotten zombies? Just kidding. Can go south or east from here.",
+      "currentText": "You're standing in the kitchen. There are exits to south and east.",
       "times_entered": 0,
       "subrooms": ["cupboard"],
-      "items": ["flashlight", "journal"],
-      "exits": ["foyer","garage"],
+      "items": [""],
       "zombies": 2
     },
     {
       "name": "garage",
-      "first_text": "You enter the garage, an ugly dead end. Only thing here is a broken car like yours outside, and a zombie guarding an open box which contains what seems to be a diary. Try to retrieve the diary from the box!",
-      "after_text": "You are back in the garage, smelling like grease. To cheer you up, at least your broken car outside is cooler than the one here.",
+      "first_text": "You enter the garage, an ugly dead end. Only thing here is a broken car like yours outside, & a zombie guarding an open box which contains what seems to be a diary.\nTry to retrieve the diary from the box!",
+      "after_text": "You are back in the garage, only way back is north back to kitchen. smelling like grease, to cheer you up, at least your broken car outside is cooler than the one here.\nThe box in the corner contained a diary.",
+      "currentText": "Forgot where you are? You're in the garage, and can only go north.",
       "times_entered": 0,
       "subrooms": ["box"],
-      "items": ["diary"],
-      "exits": ["kitchen"],
+      "items": [""],
       "zombies": 1
     },
     {
       "name": "foyer",
-      "first_text": "You made it to the main foyer! It's very big and fancy, and there's 3 zombies here. There's a western exit to the kitchen, and the front door is heavily locked, requiring you to find a key to open it and exit as lockpicks won't work on it. Continue searching, maybe it's in the basement!",
-      "after_text": "You are in the foyer.",
+      "first_text": "You made it to the main foyer! It's very big & fancy, & there's 3 zombies here. There's a western exit to the kitchen, & the front door is heavily locked,\nrequiring you to find a key to open it & exit as lockpicks won't work on it. Continue searching, maybe it's in the basement!",
+      "after_text": "You are in the foyer, where your locked front door escape is. Find the key & use it to get outta here! You can go east & west from here.",
+      "currentText": "You are standing in the foyer right now. Can go west and east, and out the front door if you have the key for it.",
       "times_entered": 0,
-      "items": [],
-      "exits": ["kitchen", "living room", "Front Door"],
+      "items": [""],
       "zombies": 3
     },
     {
       "name": "basement",
-      "first_text": "You finally descend into the basement where you see in the far end 3 zombies guarding the front door key! There's no exits here neither anything interesting, besides the key. Kill the zombies to get the key!",
-      "afterkillzombies": "You did it!! You killed all 3 zombies here, and the front door key is yours! you take a moment to catch your breath, the lingering adrenaline coursing through your veins. You make your way to the key as it rests on a gothic dried-blood-stained pedestal, next to a clothed human skeleton, bathed in moonlight filtering through a small window. A red tag attached to it declares hauntingly, 'Frontdoor key.'",
-      "after_text": "You are back in the basement. Nothing to see here.",
+      "first_text": "You finally descend into the basement where you see in the far end 3 zombies guarding the front door key! There's no exits here neither anything interesting,\nbesides the key. Kill the zombies to get the key!",
+      "afterkillzombies": "You did it!! You killed all 3 zombies here, & the front door key is yours! you take a moment to catch your breath, the lingering adrenaline coursing through your veins.\nYou make your way to the key as it rests on a gothic dried-blood-stained pedestal, next to a clothed human skeleton, bathed in moonlight filtering through a small window.\nA red tag attached to it declares hauntingly, 'escapekey.'",
+      "after_text": "You are back in the basement. Nothing to see here besides horrific remains of human skeletons & dead zombies. Kill the zombies to take the front door key, if you haven't.",
+      "currentText": "You're in the basement right now, can only go back up",
+      "isLocked": true,
       "times_entered": 0,
-      "items": ["key"],
-      "exits": ["living room"],
+      "items": ["escapekey"],
       "zombies": 3
     }
   ],
-
-  "subrooms": [
+    "subrooms": [
     {
       "name": "shelf",
       "location": "office room",
       "locked": true,
       "items": "paper",
       "unlocker": "lockpick",
-      "locked_message": "Looks like you'll need lockpicks; to open this.",
+      "locked_message": "Looks like you'll need lockpicks to open this.",
       "unlocked_message": "It opened! Inside you find a piece of paper with some numbers on it!",
-      "openafter": "There's nothing in here anymore."
+      "openafter": "You've already opened this."
     },
     {
       "name": "safe",
       "location": "bedroom",
       "locked": true,
       "items": "gun",
+      "correct_number": "58273",
       "unlocker": "paper",
       "locked_message": "This safe can't be unlocked by force nor by lockpicks as it has a rotary combination lock. Where can you find the code?",
-      "unlocked_message": "The code from the paper worked! Inside you find a pistol, no way!",
-      "openafter": "There's nothing in here anymore."
+      "unlocked_message": "The code from the paper worked! Inside you find a gun, no way!",
+      "openafter": "You've already opened this."
     },
     {
-      "name": "bathtub",
+      "name": "curtain",
       "location": "bathroom",
       "locked": true,
-      "items": "key",
+      "items": "doorkey",
       "unlocker": "scribe",
-      "openbathtub1": "Not trying to look in there, it's too disgusting!",
-      "openbathtubwithriddle": "Despite the sheer disgust, you pull back the curtain and look into the bathtub and find a doorkey on the floor!",
-      "openafter": "There's nothing in here anymore."
+      "locked_message": "Not trying to look in there, it's too disgusting!",
+      "unlocked_message": "Despite the sheer disgust, you pull back the curtain and look into the bathtub and find a doorkey on the floor!",
+      "openafter": "You've already opened this."
     },
     {
       "name": "box",
       "items": "diary",
-      "unlocker": "paper",
+      "unlocker": "axe",
       "location": "garage",
       "locked": true,
       "openbox": "A lone diary rests in here, could it be Victor's Diary?",
-      "openafter": "There's nothing in here anymore."
+      "openafter": "You've already opened this."
     },
     {
        "name": "cupboard",
-      "items": "gun",
+      "items": ["flashlight", "journal"],
       "unlocker": "lockpick",
       "location": "kitchen",
       "locked": true,
-      "opencupboard1": "You'll need to use the lockpicks upstairs to unlock this.",
-      "opencupboard2": "The lockpicks worked on the cupboard, and in it you find a flashlight and a journal! Both of these look promising.",
-      "openafter": "Nothing in here anymore."
+      "locked_message": "You'll need to use the lockpicks upstairs to unlock this.",
+      "unlocked_message": "The lockpicks worked on the cupboard, and in it you find a flashlight and a journal! Both of these look promising.",
+      "openafter": "You've already opened this."
     }
   ],
-
-
   "items": [
     {
       "name": "batteries",
       "location": "attic",
       "desc": "Used to power on fuse box to power the house.",
       "TakenText": "These batteries look like they could work on the fuse box to give light to the house! Try them on the fuse box.",
-      "PoweredOnFuseBoxmessage": "The batteries powered on the fuse box! You restore all power to the house, except for the basement which isn't working."
+      "UseText": "The batteries powered on the fuse box! You restore all power to the house, except for the basement which isn't working.",
+      "used_status": false,
+      "req_location": "attic"
     },
     {
       "name": "axe",
       "location": "attic",
-      "desc": "Jake's secondary defense against zombies.",
+      "desc": "A secondary defense against zombies.",
       "Damage": 28,
-      "TakenText": "This will be really helpful to fight off all the zombies downstairs. Maybe there's more weapons in the house?"
+      "TakenText": "This will be really helpful to fight off all the zombies downstairs. Maybe there's more weapons in the house?",
+      "UseText": "This is weapon, I can attack with it instead."
     },
     {
       "name": "scribe",
       "location": "hallway",
       "desc": "Riddle for clue needed to find key to downstairs key in office.",
-      "TakenText": "This scrap of paper has a little riddle written on it in cursive handwriting. It reads:\n'I'm not a lock, but a tool that turns,\nIn the bathroom, where cleanliness yearns.\nNear the basin or tub, where water flows free,\nSearch for me there, and the key you shall see.'"
+      "TakenText": "This scrap of paper has a little riddle written on it in cursive handwriting. It reads:\n'I'm not a lock, but a tool that turns,\nIn the bathroom, where cleanliness yearns.\nNear the basin or tub, where water flows free,\nSearch for me there, & the key you shall see.'",
+      "UseText": "The scribe is hinting to something in a dirty tub. Wonder what it means."
     },
     {
       "name": "lockpick",
       "location": "hallway",
       "desc": "Useful tool needed to unlock various things.",
-      "TakenText": "A handy lockpick set! Back in high school you had a set just like this and were a pro at lockpicking. This can definitely unlock some cool things throughout this house."
-    },
+      "TakenText": "A handy lockpick set! Back in high school you had a set just like this & were a pro at lockpicking. This can definitely unlock some cool things throughout this house.",
+      "UseText": "Wonder what it means to use this? Maybe it opens something?"
 
+    },
     {
       "name": "flashlight",
       "location": "cupboard",
       "desc": "Required to navigate the dark basement.",
-      "TakenText": "You grab the flashlight and it works! You can use this to access the dark mysterious basement where there's no light."
+      "TakenText": "You grab the flashlight & it works! You can use this to access the dark mysterious basement where there's no light.",
+      "UseText": "Seems this was turned on the second I grabbed it."
+
     },
     {
       "name": "gun",
       "location": "safe",
-      "desc": "A pistol, this could do serious damage.",
+      "desc": "An old handgun, this could do serious damage.",
       "Damage": 50,
-      "TakenText": "This pistol looks like it was made 100 years ago. Nonetheless, it will make it easier to kill zombies, but you notice it only has 15 bullets left, so use wisely.",
-      "BulletsLeft": 15
+      "TakenText": "This gun looks like it was made 100 years ago. Nonetheless, it will make it easier to kill zombies, but you notice it only has 15 bullets left, so use wisely.",
+      "BulletsLeft": 15,
+      "UseText": "This is a weapon, it probabaly attacks"
+
     },
     {
       "name": "paper",
-      "location": "office",
+      "location": "desk",
       "desc": "Passcode for a safe.",
-      "TakenText": "Seems like a 5 digit numerical code for a safe. Wonder where the safe is, and what could lie inside of it?"
+      "TakenText": "Seems like a 5 digit numerical code for a safe. Wonder where the safe is, & what could lie inside of it?",
+      "UseText": "73582, But in what order is the code entered?"
     },
     {
-      "name": "key",
-      "location": "bathtub",
+      "name": "doorkey",
+      "location": "curtain",
       "desc": "Unlocks downstairs door in office.",
-      "TakenText": "What was this key doing in this nasty bathtub? Nonetheless, let's go to the office and use it to unlock the key to downstairs."
+      "TakenText": "What was this key doing in this nasty bathtub? Nonetheless, let's go to the office & use it to unlock the key to downstairs.",
+      "UseText": "How do you use a key, maybe you open something with it?",
+      "Wrong_Text": "wrong location",
+      "used_status": false,
+      "req_location": "office"
     },
     {
       "name": "escapekey",
       "location": "basement",
       "desc": "Unlock the front door for escape.",
-      "TakenText": "Taken! Finally, let's use this key to escape the house from the foyer."
+      "TakenText": "Taken! Finally, let's use this key to escape the house from the foyer.",
+      "used_status": false,
+      "req_location": "basement"
     },
     {
       "name": "journal",
       "location": "cupboard",
       "desc": "Explanation for everything going on.",
-      "TakenText": "A small journal! It seems handmade in a rush, with a hard leather cover and only two pages inside, held together with strings. What could it contain? Read it to find out. Time is running out!",
-      "UseJournal": "The small yet concise journal reads:\n\tDear my beloved Seraphina,\n\t\tIt is I, your dear husband of 30 years, Victor Blackthorne. I am grieved of your passing and want to raise you from the dead so that we may live together once again. I am locking\n this journal away in the kitchen and hope you will find it, as you always found me in my lows and helped me. I am composing this final letter in case you come back but I am longer here.\n My quest for forbidden knowledge has found me digging up the dead from the cemetery and experimenting on them in our basement, in hopes to be able to raise you too, my love. But the undead are overpowering me and not listening to my commands and I\n fear my death is certain, and I will never be able to see you again nor be buried with you. If you ever do come back, my diary in the garage written in our secret language has instructions on this forbidden disgraced knowledge\n so that you may bring me back too. I have hidden a gun in our safe, the passcode locked in the office desk shelf, and have locked all doors and windows to prevent the zombies from escaping outside, as well as powered off the house.\n Place my diary on the bookshelf in the living room to come find me, as I will spend my final moments hiding in the basement before the zombies get to me. I have with me the front door key, the only way out this nightmare.\n Retrieve it from the basement, unlock the front door, and release these malevolent beings once and for all. There remains no more barriers to overcome; the world must bear the consequences of my anguish and suffering\n in my innocent pursuit of tranquility and repose to have my wife back. Our suffering is ceaseless and harrowing, and I harbor no hopes for a better world for anyone except for us both. \nThis infernal punishment persists in its deceit, offering no deeper understanding of myself or the existence that surrounds me.\n"
+      "TakenText": "A small journal! It seems handmade in a rush, with a hard leather cover & only two pages inside, held together with strings. What could it contain? Read it to find out. Time is running out!",
+      "UseText": "The small yet concise journal reads:\n\tDear my beloved Seraphina,\n\t\tIt is I, your dear husband of 30 years, Victor Blackthorne. I am grieved of your passing & want to raise you from the dead so that we may live together once again. I am locking\n this journal away in the kitchen & hope you will find it, as you always found me in my lows & helped me. I am composing this final letter in case you come back but I am longer here.\n My quest for forbidden knowledge has found me digging up the dead from the cemetery & experimenting on them in our basement, in hopes to be able to raise you too, my love. But the undead are overpowering me & not listening to my commands & I\n fear my death is certain, & I will never be able to see you again nor be buried with you. If you ever do come back, my diary in the garage written in our secret language has instructions on this forbidden disgraced knowledge\n so that you may bring me back too. I have hidden a gun in our safe with the the combination code 58273, & have locked all doors & windows to prevent the zombies from escaping outside, as well as powered off the house.\n Place my diary on the bookshelf in the living room to come find me, as I will spend my final moments hiding in the basement before the zombies get to me. I have with me the front door key, the only way out this nightmare.\n Retrieve it from the basement, unlock the front door, & release these malevolent beings once & for all. There remains no more barriers to overcome; the world must bear the consequences of my anguish & suffering\n in my innocent pursuit of tranquility & repose to have my wife back. Our suffering is ceaseless & harrowing, & I harbor no hopes for a better world for anyone except for us both. \n"
     },
     {
       "name": "diary",
       "location": "box",
       "desc": "To get to the basement.",
       "TakenText": "You take a well maintained black hardcover diary with just two eerie words on its cover, reading 'Victor's Diary'.",
-      "UseDiaryinLivingroom": "Using the diary on shelf causes the bookshelf to slide down and reveal the stairs to basement, where you're potential escape awaits! It's too dark down there, and you'll need a source of light to go.",
-      "UseDiaryElsewhere": "This diary is old and the handwriting looks unreadable. The only use you have for it would be to try using it on the living room bookshelf."
+      "UseText": "Using the diary on shelf causes the bookshelf to slide down & reveal the stairs to basement, where you're potential escape awaits! It's too dark down there, & you'll need a source of light to go.",
+      "Wrong_text": "This diary is old & the handwriting looks unreadable. The only use you have for it would be to try using it on the living room bookshelf.",
+      "used_status": false,
+      "req_location": "living room"
     }
   ],
-   "player": {"name": "Jake", "health": 200
+  "player": {
+    "name": "Jake",
+    "health": 200
   },
   "npcs": [
     {
@@ -265,8 +284,6 @@
       "shout": "geghfbeubsbdeg"
     }
   ],
-
-
   "weapons": {
     "gun": {
       "name": "gun",
@@ -281,9 +298,84 @@
       "kill_message": "Lucky, your axe killed the zombie",
       "kill_damage": "Zombie health -= 20 to 35 damage (If it kills)",
       "is_wielded": false
-  }
+    }
+  },
+  "verbs": [
+    "open",
+    "take",
+    "use",
+    "wield",
+    "attack",
+    "inventory"
+  ],
+    "compass": [
+    "n",
+    "e",
+    "w",
+    "s",
+    "u",
+    "d",
+    "up",
+    "east",
+    "west",
+    "down",
+    "north",
+    "south",
+    "current",
+    "c"
+  ],
+   "possibleDirections": {
+    "s": "south",
+    "n": "north",
+    "w": "west",
+    "e": "east",
+    "u": "up",
+    "d": "down",
+    "south": "south",
+    "north": "north",
+    "west": "west",
+    "east": "east",
+    "up": "up",
+    "down": "down"
 },
-
-    "verbs":  ["open", "take", "use", "wield", "attack", "inventory"]
-
+    "roomConnections": {
+    "bathroom": {
+      "south": "bedroom"
+    },
+    "bedroom": {
+      "north": "bathroom",
+      "east": "hallway"
+    },
+    "hallway": {
+      "west": "bedroom",
+      "east": "office",
+      "up": "attic"
+    },
+    "office": {
+      "west": "hallway",
+      "down": "living room"
+    },
+    "living room": {
+      "up": "office",
+      "down": "basement",
+      "west": "foyer"
+    },
+    "foyer": {
+      "east": "living room",
+      "west": "kitchen"
+    },
+    "kitchen": {
+      "south": "garage",
+      "east": "foyer"
+    },
+    "garage": {
+      "north": "kitchen"
+    },
+    "basement": {
+      "up": "living room"
+    },
+    "attic": {
+      "down": "hallway"
+    }
+  }
 }
