@@ -56,24 +56,3 @@ class DirectionHandling:
                     print(self.data['rooms'][5]['unlockedbasementbutnoflashlight'])
                     return False
             return True  #if both above pass, that means diary.used == True and flashlight is in inventory. ready to go to basement
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

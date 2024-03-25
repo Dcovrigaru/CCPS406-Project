@@ -54,6 +54,12 @@ class VerbHandler:
 
     def handle_open(self, item_name):
         room = next((room for room in self.data['rooms'] if room['name'] == self.current_room.currentRoom), None)
+        is_subroom = item_name in room.get('subrooms', [])
+        if not is_subroom:
+            print(f"I don't see a {item_name} here.")
+            return
+
+
         if room and 'subrooms' in room:
             for subroom_name in room['subrooms']:
                 subroom = next((subroom for subroom in self.data['subrooms'] if subroom['name'] == subroom_name), None)
@@ -78,7 +84,6 @@ class VerbHandler:
                     'unlocker'] in self.inventory:
                     subroom['locked'] = False
                     print(subroom.get('unlocked_message', "The room is unlocked."))
-                    print(f"The {item_name} is in the {room['name']}.")
                     return
                 elif subroom and subroom.get('locked', True) and 'unlocker' in subroom and subroom[
                     'unlocker'] not in self.inventory:
@@ -115,7 +120,7 @@ class VerbHandler:
                                    None)
                     if subroom and item_name in subroom.get('items', []):
                         if subroom.get('locked', True):
-                            print(f"The {item_name} is in a locked subroom.")
+                            print(f"I don't see a {item_name}.")
                             return
                         else:
                             print(f"You took the {item_name}.")

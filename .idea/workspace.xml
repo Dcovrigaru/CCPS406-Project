@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="pulled dean's which had updated verbs and json and added finished directions.py to it. moved compass, roomconnections and possibledirections to json" />
+    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="Safe needs a passcode">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/GameData.Json" beforeDir="false" afterPath="$PROJECT_DIR$/data/GameData.Json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/directions.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/directions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/verbs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/verbs.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,17 +45,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.directions.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.testingrizvi.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Rizvi-Branch"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.directions.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.testingrizvi.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Dean2.0-Branch&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\dean\PycharmProjects\CCPS406-Project\data" />
@@ -239,13 +245,13 @@
       <option name="project" value="LOCAL" />
       <updated>1709685765093</updated>
     </task>
-    <task id="LOCAL-00015" summary="pulled dean's which had updated verbs and json and added finished directions.py to it. moved compass, roomconnections and possibledirections to json">
+    <task id="LOCAL-00015" summary="Safe needs a passcode">
       <option name="closed" value="true" />
-      <created>1711311550183</created>
+      <created>1709840398582</created>
       <option name="number" value="00015" />
       <option name="presentableId" value="LOCAL-00015" />
       <option name="project" value="LOCAL" />
-      <updated>1711311550183</updated>
+      <updated>1709840398582</updated>
     </task>
     <option name="localTasksCounter" value="16" />
     <servers />
@@ -270,7 +276,7 @@
     <MESSAGE value="Added 'UseText' for items in Json&#10;Removed Debugging code from main&#10;Added basics for 'use'" />
     <MESSAGE value="Added &quot;are you sure you want to quit&quot; check" />
     <MESSAGE value="Updated verbs and Json" />
-    <MESSAGE value="pulled dean's which had updated verbs and json and added finished directions.py to it. moved compass, roomconnections and possibledirections to json" />
-    <option name="LAST_COMMIT_MESSAGE" value="pulled dean's which had updated verbs and json and added finished directions.py to it. moved compass, roomconnections and possibledirections to json" />
+    <MESSAGE value="Safe needs a passcode" />
+    <option name="LAST_COMMIT_MESSAGE" value="Safe needs a passcode" />
   </component>
 </project>
