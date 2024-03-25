@@ -32,9 +32,8 @@ class Zombie(Character):
 class Player(Character):
     def __init__(self, id, health, damage_min, damage_max):
         super().__init__(id, health, damage_min, damage_max)
-        self.current_room = None  # Initialize current room attribute
-        self.current_weapon = "bare hands"  # Initialize current weapon attribute
-
+        self.current_weapon = "bare hands"  # Assuming the player starts without any weapon
+        self.inventory = []
     # Define method to update current room
     def update_current_room(self, room):
         self.current_room = room

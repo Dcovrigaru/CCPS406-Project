@@ -14,7 +14,7 @@ class Combat:
         }
         damage_range = weapon_damage.get(self.player.current_weapon, weapon_damage["bare hands"])
         damage = random.randint(*damage_range)
-        if self.player.current_weapon:
+        if self.player.current_weapon != "bare hands":
             print(f"{self.player.id} attacks {zombie.id} with {self.player.current_weapon}!")
         else:
             print(f"{self.player.id} attacks {zombie.id} with bare hands!")
@@ -58,6 +58,7 @@ class Combat:
                 # Player attacks
                 if self.player.healthStatus() and zombie.healthStatus():
                     action = input("Enter action: ").lower()
+                    # need to remove because of verbs 
                     if action == "attack":
                         player_damage = self.player_attack(zombie)
                         if not zombie.healthStatus():

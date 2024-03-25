@@ -22,7 +22,6 @@ class VerbHandler:
         if verb in verbs:
             # Check if there's a second word (after the verb)
             if len(words) > 1:
-
                 # Join the remaining words to form the item name
                 item_name = ' '.join(words[1:])
                 # Check if the verb is not "inventory" and the item is in the items list
@@ -30,7 +29,10 @@ class VerbHandler:
                     if verb == "take":
                         self.handle_take(item_name)
                     elif verb == "attack":
-                        self.handle_attack(item_name)
+                        if self.current_room.has_zombies():  # Check if there are zombies in the room
+                            self.handle_attack(item_name)
+                        else:
+                            print("There are no zombies in this room to attack.")
                     elif item_name in self.items or item_name in self.inventory or verb == "open":
                         # Call the corresponding method with the item name
                         getattr(self, f"handle_{verb}")(item_name)
@@ -39,7 +41,10 @@ class VerbHandler:
                 # If verb is "inventory", call the corresponding method without item
                 elif verb == "attack":
                     if words[1] == "zombie":
-                        self.handle_attack(words[1])
+                        if self.current_room.has_zombies():  # Check if there are zombies in the room
+                            self.handle_attack(words[1])
+                        else:
+                            print("There are no zombies in this room to attack.")
                     else:
                         print("You can only attack a zombie!")
             elif verb == "inventory":
