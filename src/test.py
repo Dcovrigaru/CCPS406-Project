@@ -1,5 +1,5 @@
-from player import Player
-from npc import NPC
+from character import Player
+from character import NPC
 from combat import Combat
 
 def test_combat_scenario():
