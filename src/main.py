@@ -1,6 +1,6 @@
 from combat import Combat
 from verbs import VerbHandler
-from directions import DirectionHandling, compass
+from directions import DirectionHandling
 #Importing Json
 import json
 with open('../data/GameData.json') as f:
@@ -12,19 +12,17 @@ items = data['items']
 
 #Class Instances/Variables
 currentRoom = "attic"
-UserCurrentRoom = DirectionHandling(currentRoom, data)
 player = None
 npc = None
 #Main Variables
-print('\n' * 2)
-print(data['story']['intro'])
-print('\n' * 2)
-for room in data['rooms']:
-    if room['name'] == currentRoom:
-        print(room['first_text'])
+
+
+UserCurrentRoom = DirectionHandling(currentRoom, data, None)
+verb_handler = VerbHandler(items, UserCurrentRoom, npc, player, data)
+UserCurrentRoom.verb_handler = verb_handler  # this is needed so DirectionHandling can access the inventory attribute of player
 
 def main():
-    verb_handler = VerbHandler(items, UserCurrentRoom, npc, player, data) #Calling the verb class
+    print(f"\n\n{data['story']['intro']}\n\n{data['rooms'][0]['first_text']}")
     while True:
         user_input = input("Enter in an action: ").lower()
         print(user_input.split(" "))
@@ -32,7 +30,7 @@ def main():
         if len(user_input) == 0:
             print("You're probably supposed to write something.")
             continue
-        elif user_input in compass:
+        elif user_input in data['compass']:
             #Direction input
             UserCurrentRoom.move(user_input)
         #Other command inputs (beyond this line)
@@ -43,7 +41,7 @@ def main():
                 print("Bye")
                 break
             else:
-                print("Guess well continue")
+                print("Guess we'll continue.")
                 continue
         elif user_input.split(" ")[0] in verbs:
             verb_handler.handle_action(user_input)
@@ -56,4 +54,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

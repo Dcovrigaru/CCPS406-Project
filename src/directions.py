@@ -1,59 +1,58 @@
-compass = ["n","e","w","s","u","d","up","east","west","down","north","south","current","c"]
 
 class DirectionHandling:
-    def __init__(self, currentRoom, data):
+    def __init__(self, currentRoom, data, verb_handler_instance):
         self.currentRoom = currentRoom
         self.data = data
+        self.verb_handler = verb_handler_instance
 
     def move(self, direction):
-        possibleDirections = {
-            's': 'south','n': 'north','w': 'west','e': 'east','u': 'up','d': 'down','south': 'south','north': 'north',
-            'west': 'west','east': 'east','up': 'up','down': 'down'
-        }
-
         direction = direction.lower()
-
         if direction == 'current' or direction =='c':
-            print(f'You are currently in the {self.currentRoom}.')
+            for room in self.data['rooms']:
+                if room['name'] == self.currentRoom:
+                    print(room['currentText'])
             return
-
-
-        if direction in possibleDirections:
-            targetDirection = possibleDirections[direction]
+        if direction in self.data['possibleDirections']:
+            targetDirection = self.data['possibleDirections'][direction]
             nextRoom = self.getNextRoom(targetDirection)
-
             if nextRoom:
-                self.currentRoom = nextRoom
-                print(f'You have moved {targetDirection} to {self.currentRoom}.')
-                for room in self.data['rooms']:
-                    if room['name'] == self.currentRoom:
-                        if room['times_entered'] == 0:
+                if self.AllowedToChangeRooms(nextRoom):
+                    self.currentRoom = nextRoom
+                    for room in self.data['rooms']:
+                        if room['name'] == self.currentRoom:
+                            if room['times_entered'] == 0:
+                                print(room['first_text'])
+                            else:
+                                print(room['after_text'])
                             room['times_entered'] += 1
-                            print(room['first_text'])
-                        else:
-                            print(room['after_text'])
-
-
             else:
-                print(f'You cannot go {targetDirection} from the {self.currentRoom}.')
-        else:
-            print('Invalid command.')
+                print(f"You cannot go {targetDirection} from the {self.currentRoom}.")
 
     def getNextRoom(self, direction):
-        roomConnections = {
-            'bathroom': {'south': 'bedroom'},
-            'bedroom': {'north': 'bathroom', 'east': 'hallway'},
-            'hallway': {'west': 'bedroom', 'east': 'office', 'up': 'attic'},
-            'office': {'west': 'hallway', 'down': 'living room'},
-            'living room': {'up': 'office', 'down': 'basement', 'west': 'foyer'},
-            'foyer': {'east': 'living room', 'west': 'kitchen'},
-            'kitchen': {'south': 'garage', 'east': 'foyer'},
-            'garage': {'north': 'kitchen'},
-            'basement': {'up': 'living room'},
-            'attic': {'down': 'hallway'}
-        }
+        return self.data['roomConnections'].get(self.currentRoom, {}).get(direction)
 
-        return roomConnections.get(self.currentRoom, {}).get(direction)
-
-
-
+    def AllowedToChangeRooms(self, nextRoom):
+        if nextRoom not in ('living room','hallway','basement'):
+            return True
+        inventory = self.verb_handler.inventory
+        if nextRoom== self.data['rooms'][1]['name']: #hallway
+            if self.data['items'][1]['name'] in inventory and self.data['items'][0]['used_status'] == True:
+                return True  #if axe in inventory, and batteries have been used, then allowed to go to hallway
+            else:
+                print(self.data['rooms'][0]['notallowed'])
+                return False
+        if nextRoom==self.data['rooms'][5]['name']: #living room
+            if self.data['items'][7]['name'] in inventory or self.data['items'][7]['used_status'] == True:
+                return True  #if doorkey in inventory
+            else:
+                print(self.data['rooms'][4]['notallowed'])
+                return False
+        if nextRoom==self.data['rooms'][9]['name']: #basement
+            if self.data['items'][10]['used_status'] == False: #if diary hasn't been used. doesnt matter if user has flashlight or not,
+                print(self.data['rooms'][5]['downwithoutdiary']) #the passage is still locked to the basement if diary hasnt been used.
+                return False
+            else:
+                if self.data['items'][4]['name'] not in inventory: #if diary has been used, but no flashlight
+                    print(self.data['rooms'][5]['unlockedbasementbutnoflashlight'])
+                    return False
+            return True  #if both above pass, that means diary.used == True and flashlight is in inventory. ready to go to basement
