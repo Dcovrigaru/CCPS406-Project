@@ -157,7 +157,7 @@
       "unlocker": "axe",
       "location": "garage",
       "locked": true,
-      "openbox": "A lone diary rests in here, could it be Victor's Diary?",
+      "unlocked_message": "You open the box. A lone diary rests in here, could it be Victor's Diary?",
       "openafter": "You've already opened this."
     },
     {

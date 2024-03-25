@@ -38,7 +38,7 @@ def main():
             checking_quit = input("Are you sure you want to quit? (y/n): ").lower()
             print(user_input.split(" "))
             if checking_quit == ("yes") or checking_quit == ("y"):
-                print("Bye")
+                print("Bye.")
                 break
             else:
                 print("Guess we'll continue.")
