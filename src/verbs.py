@@ -84,7 +84,6 @@ class VerbHandler:
                     'unlocker'] in self.inventory:
                     subroom['locked'] = False
                     print(subroom.get('unlocked_message', "The room is unlocked."))
-                    print(f"The {item_name} is in the {room['name']}.")
                     return
                 elif subroom and subroom.get('locked', True) and 'unlocker' in subroom and subroom[
                     'unlocker'] not in self.inventory:
