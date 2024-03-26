@@ -42,7 +42,7 @@ class DirectionHandling:
                 print(self.data['rooms'][0]['notallowed'])
                 return False
         if nextRoom==self.data['rooms'][5]['name']: #living room
-            if self.data['items'][7]['name'] in inventory or self.data['items'][7]['used_status'] == True:
+            if self.data['items'][7]['used_status'] == True:
                 return True  #if doorkey in inventory
             else:
                 print(self.data['rooms'][4]['notallowed'])

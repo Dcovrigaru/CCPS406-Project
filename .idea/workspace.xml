@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="Safe needs a passcode">
+    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="directions,rooms/subrooms, verbs and item mechanics are now 100% done i believe, can focus on combat stuff now. also just need to add the final game ending stuff">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/GameData.Json" beforeDir="false" afterPath="$PROJECT_DIR$/data/GameData.Json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verbs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/verbs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/directions.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/directions.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,17 +43,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.directions.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.testingrizvi.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Rizvi-Branch"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.directions.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.testingrizvi.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Rizvi-Branch&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\dean\PycharmProjects\CCPS406-Project\data" />
@@ -118,7 +118,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-5a2391486177-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13763.11" />
+        <option value="bundled-python-sdk-50da183f06c8-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13135.95" />
       </set>
     </attachedChunks>
   </component>
@@ -251,7 +251,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709840398582</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="directions and verbs are now 100% done i believe, can focus on combat stuff now. also just need to add the final game ending stuff">
+      <option name="closed" value="true" />
+      <created>1711408613122</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1711408613122</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -275,6 +283,7 @@
     <MESSAGE value="Added &quot;are you sure you want to quit&quot; check" />
     <MESSAGE value="Updated verbs and Json" />
     <MESSAGE value="Safe needs a passcode" />
-    <option name="LAST_COMMIT_MESSAGE" value="Safe needs a passcode" />
+    <MESSAGE value="directions and verbs are now 100% done i believe, can focus on combat stuff now. also just need to add the final game ending stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="directions and verbs are now 100% done i believe, can focus on combat stuff now. also just need to add the final game ending stuff" />
   </component>
 </project>
