@@ -160,7 +160,6 @@ class VerbHandler:
                     if not item['used_status']:
                         # Check if the current room matches the required location
                         if self.current_room.currentRoom == item['req_location']:
-                            print(item['req_location'])
                             item['used_status'] = True
                             self.inventory.remove(item_name)
                             # Print the 'UseText' of the item if available
@@ -168,7 +167,7 @@ class VerbHandler:
                                 print(item['UseText'])
                                 return
                         else:
-                            print(f"{item['name']} is not at the required location.")
+                            print(f"{item['name']} cannot be used here.")
                             return
                     else:
                         print(f"{item['name']} has already been used.")

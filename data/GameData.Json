@@ -145,10 +145,10 @@
       "name": "curtain",
       "location": "bathroom",
       "locked": true,
-      "items": "doorkey",
+      "items": "key",
       "unlocker": "scribe",
       "locked_message": "Not trying to look in there, it's too disgusting!",
-      "unlocked_message": "Despite the sheer disgust, you pull back the curtain and look into the bathtub and find a doorkey on the floor!",
+      "unlocked_message": "Despite the sheer disgust, you pull back the curtain and look into the bathtub and find a key on the floor!",
       "openafter": "You've already opened this."
     },
     {
@@ -230,7 +230,7 @@
       "UseText": "73582, But in what order is the code entered?"
     },
     {
-      "name": "doorkey",
+      "name": "key",
       "location": "curtain",
       "desc": "Unlocks downstairs door in office.",
       "TakenText": "What was this key doing in this nasty bathtub? Nonetheless, let's go to the office & use it to unlock the key to downstairs.",
