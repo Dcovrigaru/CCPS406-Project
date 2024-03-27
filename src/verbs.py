@@ -105,7 +105,6 @@ class VerbHandler:
         if current_room:
             # Check if the item is directly in the room (not in a subroom)
             if item_name in current_room['items']:
-                print(f"You took the {item_name}.")
                 self.inventory.append(item_name)
                 for item in self.data['items']:
                     if item['name'] == item_name:
@@ -168,7 +167,7 @@ class VerbHandler:
                                 print(item['UseText'])
                                 return
                         else:
-                            print(f"{item['name']} is not at the required location.")
+                            print(f"{item['name']} cannot be used here.")
                             return
                     else:
                         print(f"{item['name']} has already been used.")

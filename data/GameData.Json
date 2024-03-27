@@ -61,7 +61,7 @@
       "first_text": "Looks like a super old fashioned office room. There's a locked door to go down to the first floor from here, but you'll\nneed to find a key & lockpicks won't work. There's two more dangerous zombies in your way of getting to that door. The desk shelves are all open & empty,\nbut one catches your eye;this shelf has a shiny handle, but it's loosely locked; can you open it with your lockpicks?",
       "after_text": "You are in the messy office room. There's a shelf, door leading downstairs, & western path to hallway.",
       "currentText": "You are currently in the office. Can go west or down.",
-      "downwithlockeddoor": "The door to go downstairs is locked; try finding the key first.",
+      "notallowed": "The door to go downstairs is locked; try finding and using the key first.",
       "times_entered": 0,
       "subrooms": ["shelf"],
       "items": [""],
@@ -145,10 +145,10 @@
       "name": "curtain",
       "location": "bathroom",
       "locked": true,
-      "items": "doorkey",
+      "items": "key",
       "unlocker": "scribe",
       "locked_message": "Not trying to look in there, it's too disgusting!",
-      "unlocked_message": "Despite the sheer disgust, you pull back the curtain and look into the bathtub and find a doorkey on the floor!",
+      "unlocked_message": "Despite the sheer disgust, you pull back the curtain and look into the bathtub and find a key on the floor!",
       "openafter": "You've already opened this."
     },
     {
@@ -157,7 +157,7 @@
       "unlocker": "axe",
       "location": "garage",
       "locked": true,
-      "openbox": "A lone diary rests in here, could it be Victor's Diary?",
+      "unlocked_message": "You open the box. A lone diary rests in here, could it be Victor's Diary?",
       "openafter": "You've already opened this."
     },
     {
@@ -230,11 +230,11 @@
       "UseText": "73582, But in what order is the code entered?"
     },
     {
-      "name": "doorkey",
+      "name": "key",
       "location": "curtain",
       "desc": "Unlocks downstairs door in office.",
       "TakenText": "What was this key doing in this nasty bathtub? Nonetheless, let's go to the office & use it to unlock the key to downstairs.",
-      "UseText": "How do you use a key, maybe you open something with it?",
+      "UseText": "This key unlocked the door leading to downstairs! Let's go down and get closer to getting out of here.",
       "Wrong_Text": "wrong location",
       "used_status": false,
       "req_location": "office"
