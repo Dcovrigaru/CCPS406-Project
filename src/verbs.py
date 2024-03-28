@@ -61,7 +61,7 @@ class VerbHandler:
                     break
 
         if zombies_present:  # Checks if there are any zombies to attack
-            print("You can't open anything with zombies nearby")
+            print("You can't open anything with zombies nearby.")
             return
         room = next((room for room in self.data['rooms'] if room['name'] == self.current_room.currentRoom), None)
         is_subroom = item_name in room.get('subrooms', [])
@@ -121,7 +121,6 @@ class VerbHandler:
                         print(item.get('TakenText', ""))
                         break
                 return
-
             # Check if the item is in a locked subroom
             if 'subrooms' in current_room:
                 for subroom_name in current_room['subrooms']:
@@ -271,4 +270,3 @@ class VerbHandler:
             print("You have", correct_count, "digits in the right position.")
 
     # The rest of your code where you call the check_guess() function remains the same.
-
