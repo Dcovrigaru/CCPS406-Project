@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="full playable game is done with testing, just needs combat mechanics and npcs.">
+    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="complete game just needs combat and npc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/directions.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/directions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,6 +291,8 @@
     <MESSAGE value="Safe needs a passcode" />
     <MESSAGE value="directions and verbs are now 100% done i believe, can focus on combat stuff now. also just need to add the final game ending stuff" />
     <MESSAGE value="full playable game is done with testing, just needs combat mechanics and npcs." />
-    <option name="LAST_COMMIT_MESSAGE" value="full playable game is done with testing, just needs combat mechanics and npcs." />
+    <MESSAGE value="cant change rooms if current room has zombies AND you havent been to the destination room yet. also added gametime displayed at end of game. we can high score mechanic later, won't be hard" />
+    <MESSAGE value="complete game just needs combat and npc" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete game just needs combat and npc" />
   </component>
 </project>

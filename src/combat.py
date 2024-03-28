@@ -18,7 +18,7 @@ class Combat:
 
 
             print(self.data['weapons'][current_weapon]['attack_message'])
-            print("There are " + str(room_data['zombies']) + " zombies left in the room")
+            print("There are " + str(room_data['zombies']) + " zombies left in the room.")
 
         elif current_weapon == "axe":
             # Implement your own logic here for axe damage calculation
@@ -29,7 +29,7 @@ class Combat:
                     room['zombies'] -= 1
 
                     print(self.data['weapons'][current_weapon]['attack_message'])
-                    print("There are " + str(room_data['zombies']) + " zombies left in the room")
+                    print("There are " + str(room_data['zombies']) + " zombies left in the room.")
                     break
 
     def npc_attack(self):
