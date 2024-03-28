@@ -7,10 +7,10 @@ class DirectionHandling:
 
     def move(self, direction):
         direction = direction.lower()
-        if direction == 'current' or direction =='c':
+        if direction == 'look':
             for room in self.data['rooms']:
                 if room['name'] == self.currentRoom:
-                    print(room['currentText'])
+                    print(room['first_text'])
             return
         if direction in self.data['possibleDirections']:
             targetDirection = self.data['possibleDirections'][direction]
