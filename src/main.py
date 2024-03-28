@@ -1,7 +1,5 @@
-from combat import Combat
 from verbs import VerbHandler
 from directions import DirectionHandling
-#Importing Json
 import json
 import sys  #for the exit command to end game prematurely
 import time
@@ -58,7 +56,6 @@ def main():
     totalPlayTime = EndTime - StartTime
     minutes = int(totalPlayTime // 60)
     seconds = totalPlayTime % 60
-    # Display the elapsed time
     print(data['story']['gameEnd']) #ending message. Hooray!
     print("\nYou finished the game in {} minutes and {:.2f} seconds. Hope you had fun!".format(minutes, seconds))
 if __name__ == "__main__":
