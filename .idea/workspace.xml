@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="directions,rooms/subrooms, verbs and item mechanics are now 100% done i believe, can focus on combat stuff now. also just need to add the final game ending stuff">
+    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="full playable game is done with testing, just needs combat mechanics and npcs.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/GameData.Json" beforeDir="false" afterPath="$PROJECT_DIR$/data/GameData.Json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/directions.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/directions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
     </list>
@@ -260,7 +259,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711408613122</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="full playable game is done with testing, just needs combat mechanics and npcs.">
+      <option name="closed" value="true" />
+      <created>1711588034770</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1711588034770</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -285,6 +292,7 @@
     <MESSAGE value="Updated verbs and Json" />
     <MESSAGE value="Safe needs a passcode" />
     <MESSAGE value="directions and verbs are now 100% done i believe, can focus on combat stuff now. also just need to add the final game ending stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="directions and verbs are now 100% done i believe, can focus on combat stuff now. also just need to add the final game ending stuff" />
+    <MESSAGE value="full playable game is done with testing, just needs combat mechanics and npcs." />
+    <option name="LAST_COMMIT_MESSAGE" value="full playable game is done with testing, just needs combat mechanics and npcs." />
   </component>
 </project>

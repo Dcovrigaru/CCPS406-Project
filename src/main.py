@@ -4,6 +4,7 @@ from directions import DirectionHandling
 #Importing Json
 import json
 import sys  #for the exit command to end game prematurely
+import time
 with open('../data/GameData.json') as f:
     data = json.load(f)
 
@@ -24,6 +25,7 @@ UserCurrentRoom.verb_handler = verb_handler# this is needed so DirectionHandling
 
 def main():
     print(f"\n\n{data['story']['intro']}\n\n{data['rooms'][0]['first_text']}")
+    StartTime = time.time()
     while UserCurrentRoom.currentRoom!='outside':
         user_input = input("Enter in an action: ").lower()
         print(user_input.split(" "))
@@ -52,8 +54,12 @@ def main():
         else:
             print(f"Not sure what {user_input} means. Try again!")
             continue
+    EndTime = time.time()
+    totalPlayTime = EndTime - StartTime
+    minutes = int(totalPlayTime // 60)
+    seconds = totalPlayTime % 60
+    # Display the elapsed time
     print(data['story']['gameEnd']) #ending message. Hooray!
-
-
+    print("\nYou finished the game in {} minutes and {:.2f} seconds. Hope you had fun!".format(minutes, seconds))
 if __name__ == "__main__":
     main()

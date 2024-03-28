@@ -31,11 +31,16 @@ class DirectionHandling:
     def getNextRoom(self, direction):
         return self.data['roomConnections'].get(self.currentRoom, {}).get(direction)
 
-    def AllowedToChangeRooms(self, nextRoom):  #nothing to do with zombies yet.
+    def AllowedToChangeRooms(self, nextRoom):
+        # if currentRoom has zombies, but you've already been to the room you're trying to change to, then it'll allow you to.
+        # but if you haven't been to the nextRoom before, then it doesn't matter if it has zombies or not; you need to clear currentRoom of zombies before going there.
+        #eg if ur in hallway & it still has zombies, then you can go back up to attic (since you were already there) but not to bedroom or office, until you kill all hallway zombies
         for room in self.data['rooms']:
-            if self.currentRoom == room['name'] and room['zombies']!=0:
-                print(f"Uh oh, there's {room['zombies']} zombie(s) in the way blocking your path. Clear the room of zombies first.")
-                return False
+            if (self.currentRoom == room['name'] and room['zombies']!=0):
+                for room2 in self.data['rooms']:
+                    if nextRoom == room2['name'] and room2['times_entered']==0:
+                        print(f"Uh oh, there's {room['zombies']} zombie(s) in the way blocking your path. Clear the room of zombies first.")
+                        return False
         if nextRoom not in ('living room','hallway','basement', 'outside'): #these are the only rooms which are locked
             return True
         inventory = self.verb_handler.inventory
