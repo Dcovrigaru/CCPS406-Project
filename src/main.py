@@ -3,6 +3,7 @@ from verbs import VerbHandler
 from directions import DirectionHandling
 #Importing Json
 import json
+import sys  #for the exit command to end game prematurely
 with open('../data/GameData.json') as f:
     data = json.load(f)
 
@@ -17,13 +18,13 @@ npc = None
 #Main Variables
 
 
-UserCurrentRoom = DirectionHandling(currentRoom, data, None)
+UserCurrentRoom = DirectionHandling(currentRoom, data, None) #leave as None here.
 verb_handler = VerbHandler(items, UserCurrentRoom, npc, player, data)
-UserCurrentRoom.verb_handler = verb_handler  # this is needed so DirectionHandling can access the inventory attribute of player
+UserCurrentRoom.verb_handler = verb_handler# this is needed so DirectionHandling can access the inventory attribute of player
 
 def main():
     print(f"\n\n{data['story']['intro']}\n\n{data['rooms'][0]['first_text']}")
-    while True:
+    while UserCurrentRoom.currentRoom!='outside':
         user_input = input("Enter in an action: ").lower()
         print(user_input.split(" "))
         #Checking all input
@@ -39,7 +40,7 @@ def main():
             print(user_input.split(" "))
             if checking_quit == ("yes") or checking_quit == ("y"):
                 print("Bye.")
-                break
+                sys.exit() #end program here, NOT just while loop, since games ending message is after while loop.
             else:
                 print("Guess we'll continue.")
                 continue
@@ -51,6 +52,8 @@ def main():
         else:
             print(f"Not sure what {user_input} means. Try again!")
             continue
+    print(data['story']['gameEnd']) #ending message. Hooray!
+
 
 if __name__ == "__main__":
     main()

@@ -122,7 +122,6 @@ class VerbHandler:
                             print(f"I don't see a {item_name}.")
                             return
                         else:
-                            print(f"You took the {item_name}.")
                             self.inventory.append(item_name)
                             for item in self.data['items']:
                                 if item['name'] == item_name:
@@ -167,7 +166,7 @@ class VerbHandler:
                                 print(item['UseText'])
                                 return
                         else:
-                            print(f"{item['name']} cannot be used here.")
+                            print(item['Wrong_Text'])
                             return
                     else:
                         print(f"{item['name']} has already been used.")

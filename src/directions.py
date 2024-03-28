@@ -31,8 +31,12 @@ class DirectionHandling:
     def getNextRoom(self, direction):
         return self.data['roomConnections'].get(self.currentRoom, {}).get(direction)
 
-    def AllowedToChangeRooms(self, nextRoom):
-        if nextRoom not in ('living room','hallway','basement'):
+    def AllowedToChangeRooms(self, nextRoom):  #nothing to do with zombies yet.
+        for room in self.data['rooms']:
+            if self.currentRoom == room['name'] and room['zombies']!=0:
+                print(f"Uh oh, there's {room['zombies']} zombie(s) in the way blocking your path. Clear the room of zombies first.")
+                return False
+        if nextRoom not in ('living room','hallway','basement', 'outside'): #these are the only rooms which are locked
             return True
         inventory = self.verb_handler.inventory
         if nextRoom== self.data['rooms'][1]['name']: #hallway
@@ -56,3 +60,9 @@ class DirectionHandling:
                     print(self.data['rooms'][5]['unlockedbasementbutnoflashlight'])
                     return False
             return True  #if both above pass, that means diary.used == True and flashlight is in inventory. ready to go to basement
+        if nextRoom==self.data['rooms'][10]['name']:  #if trying to go north in foyer (which ends the game) without having used the latch
+            if self.data['items'][8]['used_status'] == True:
+                return True
+            else:
+                print(self.data['rooms'][8]['notallowed'])
+                return False
