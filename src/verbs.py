@@ -53,6 +53,16 @@ class VerbHandler:
             print("Invalid action. Please try again.")
 
     def handle_open(self, item_name):
+        zombies_present = False
+        for room in self.data['rooms']:
+            if room['name'] == self.current_room.currentRoom:
+                if room['zombies'] > 0:
+                    zombies_present = True  # Sets true if zombies are found in the room
+                    break
+
+        if zombies_present:  # Checks if there are any zombies to attack
+            print("You can't open anything with zombies nearby")
+            return
         room = next((room for room in self.data['rooms'] if room['name'] == self.current_room.currentRoom), None)
         is_subroom = item_name in room.get('subrooms', [])
         if not is_subroom:
