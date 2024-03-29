@@ -1,15 +1,13 @@
 from combat import Combat
 
 class VerbHandler:
-    def __init__(self, items, current_room, player, npc, data):
+    def __init__(self, items, current_room, data):
         self.items = items
         self.inventory = []
         self.wielded_weapon = None
         self.current_room = current_room
-        self.player = player
-        self.npc = npc
         self.data = data
-        self.combat_instance = Combat(player, npc, data)
+        self.combat_instance = Combat(data)
 
     def handle_action(self, user_input):
         verbs = self.data['verbs']

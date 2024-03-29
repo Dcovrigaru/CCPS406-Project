@@ -12,13 +12,11 @@ items = data['items']
 
 #Class Instances/Variables
 currentRoom = "attic"
-player = None
-npc = None
 #Main Variables
 
 
 UserCurrentRoom = DirectionHandling(currentRoom, data, None)
-verb_handler = VerbHandler(items, UserCurrentRoom, npc, player, data)
+verb_handler = VerbHandler(items, UserCurrentRoom, data)
 UserCurrentRoom.verb_handler = verb_handler  # this is needed so DirectionHandling can access the inventory attribute of player
 
 def main():
