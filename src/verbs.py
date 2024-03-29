@@ -51,6 +51,16 @@ class VerbHandler:
             print("Invalid action. Please try again.")
 
     def handle_open(self, item_name):
+        zombies_present = False
+        for room in self.data['rooms']:
+            if room['name'] == self.current_room.currentRoom:
+                if room['zombies'] > 0:
+                    zombies_present = True  # Sets true if zombies are found in the room
+                    break
+
+        if zombies_present:  # Checks if there are any zombies to attack
+            print("You can't open anything with zombies nearby")
+            return
         room = next((room for room in self.data['rooms'] if room['name'] == self.current_room.currentRoom), None)
         is_subroom = item_name in room.get('subrooms', [])
         if not is_subroom:
@@ -103,7 +113,6 @@ class VerbHandler:
         if current_room:
             # Check if the item is directly in the room (not in a subroom)
             if item_name in current_room['items']:
-                print(f"You took the {item_name}.")
                 self.inventory.append(item_name)
                 for item in self.data['items']:
                     if item['name'] == item_name:
@@ -166,7 +175,7 @@ class VerbHandler:
                                 print(item['UseText'])
                                 return
                         else:
-                            print(f"{item['name']} is not at the required location.")
+                            print(f"{item['name']} cannot be used here.")
                             return
                     else:
                         print(f"{item['name']} has already been used.")
@@ -261,4 +270,3 @@ class VerbHandler:
             print("You have", correct_count, "digits in the right position.")
 
     # The rest of your code where you call the check_guess() function remains the same.
-
