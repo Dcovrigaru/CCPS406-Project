@@ -13,6 +13,9 @@ class Character:
     def is_alive(self):
         return self.health > 0
 
+    def get_name(self):
+        return self.name
+
 class Player(Character):
     def __init__(self, name, health=100):
         super().__init__(name, health)
@@ -42,3 +45,4 @@ class NPC(Character):
             return f"The hostile {self.name} growls menacingly."
 
 
+player_stats = Player('player')

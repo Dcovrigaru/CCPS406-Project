@@ -1,15 +1,13 @@
 from combat import Combat
 
 class VerbHandler:
-    def __init__(self, items, current_room, player, npc, data):
+    def __init__(self, items, current_room, data):
         self.items = items
         self.inventory = []
         self.wielded_weapon = None
         self.current_room = current_room
-        self.player = player
-        self.npc = npc
         self.data = data
-        self.combat_instance = Combat(player, npc, data)
+        self.combat_instance = Combat(data)
 
     def handle_action(self, user_input):
         verbs = self.data['verbs']
@@ -22,7 +20,6 @@ class VerbHandler:
         if verb in verbs:
             # Check if there's a second word (after the verb)
             if len(words) > 1:
-
                 # Join the remaining words to form the item name
                 item_name = ' '.join(words[1:])
                 # Check if the verb is not "inventory" and the item is in the items list
@@ -54,6 +51,12 @@ class VerbHandler:
 
     def handle_open(self, item_name):
         room = next((room for room in self.data['rooms'] if room['name'] == self.current_room.currentRoom), None)
+        is_subroom = item_name in room.get('subrooms', [])
+        if not is_subroom:
+            print(f"I don't see a {item_name} here.")
+            return
+
+
         if room and 'subrooms' in room:
             for subroom_name in room['subrooms']:
                 subroom = next((subroom for subroom in self.data['subrooms'] if subroom['name'] == subroom_name), None)
@@ -78,7 +81,6 @@ class VerbHandler:
                     'unlocker'] in self.inventory:
                     subroom['locked'] = False
                     print(subroom.get('unlocked_message', "The room is unlocked."))
-                    print(f"The {item_name} is in the {room['name']}.")
                     return
                 elif subroom and subroom.get('locked', True) and 'unlocker' in subroom and subroom[
                     'unlocker'] not in self.inventory:
@@ -115,7 +117,7 @@ class VerbHandler:
                                    None)
                     if subroom and item_name in subroom.get('items', []):
                         if subroom.get('locked', True):
-                            print(f"The {item_name} is in a locked subroom.")
+                            print(f"I don't see a {item_name}.")
                             return
                         else:
                             print(f"You took the {item_name}.")
@@ -156,7 +158,6 @@ class VerbHandler:
                     if not item['used_status']:
                         # Check if the current room matches the required location
                         if self.current_room.currentRoom == item['req_location']:
-                            print(item['req_location'])
                             item['used_status'] = True
                             self.inventory.remove(item_name)
                             # Print the 'UseText' of the item if available
