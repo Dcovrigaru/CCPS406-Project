@@ -20,7 +20,6 @@ class Combat:
                 if room['name'] == current_room:
                     room['zombies'] -= 1
                     break
-            print(self.data['weapons'][current_weapon]['attack_message'])
             print("There are " + str(room_data['zombies']) + " zombies left in the room")
 
         elif current_weapon == "axe":
@@ -36,7 +35,6 @@ class Combat:
                         zombie_stats = NPC('zombie', 1, 10, )
                     if not self.zombie_attack():
                         raise PlayerDefeatedException("Player is defeated")
-                    print(self.data['weapons'][current_weapon]['attack_message'])
                     print("There are " + str(room_data['zombies']) + " zombies left in the room")
                     break
 
@@ -45,6 +43,6 @@ class Combat:
         player_stats.take_damage(damage)
         print(f"{zombie_stats.name} attacks {player_stats.name} for {damage} damage!")
         if not player_stats.is_alive():
-            print(f"{player_stats.name} has been defeated. Game over.")
+            print(f"You are dead.")
             return False
         return True
