@@ -1,9 +1,15 @@
 import random
+from character import Player
+from character import player_stats
+from character import NPC
 
+zombie_stats = NPC('zombie', 1, 10, )
+
+class PlayerDefeatedException(Exception):
+    pass
 class Combat:
-    def __init__(self, player, npc, data):
-        self.player = player
-        self.npc = npc
+
+    def __init__(self, data):
         self.data = data
 
     def player_attack(self, current_weapon, current_room):
@@ -14,11 +20,7 @@ class Combat:
                 if room['name'] == current_room:
                     room['zombies'] -= 1
                     break
-
-
-
-            print(self.data['weapons'][current_weapon]['attack_message'])
-            print("There are " + str(room_data['zombies']) + " zombies left in the room.")
+            print("There are " + str(room_data['zombies']) + " zombies left in the room")
 
         elif current_weapon == "axe":
             # Implement your own logic here for axe damage calculation
@@ -26,17 +28,21 @@ class Combat:
             # Decrement the number of zombies in the current room
             for room in self.data['rooms']:
                 if room['name'] == current_room:
-                    room['zombies'] -= 1
-
-                    print(self.data['weapons'][current_weapon]['attack_message'])
-                    print("There are " + str(room_data['zombies']) + " zombies left in the room.")
+                    global zombie_stats
+                    zombie_stats.take_damage(damage)
+                    if not zombie_stats.is_alive():
+                        room['zombies'] -= 1
+                        zombie_stats = NPC('zombie', 1, 10, )
+                    if not self.zombie_attack():
+                        raise PlayerDefeatedException("Player is defeated")
+                    print("There are " + str(room_data['zombies']) + " zombies left in the room")
                     break
 
-    def npc_attack(self):
-        if not self.npc.is_alive():
-            print(f"{self.npc.name} can no longer attack.")
-            return
-
-        damage = random.randint(self.npc.damage_min, self.npc.damage_max)
-        self.player.take_damage(damage)
-        print(f"Ow, that hurt. {self.npc.name} did {damage} damage. You now have {self.player.health} health left.")
+    def zombie_attack(self):
+        damage = random.randint(1, 10)  # Placeholder for zombie's damage
+        player_stats.take_damage(damage)
+        print(f"{zombie_stats.name} attacks {player_stats.name} for {damage} damage!")
+        if not player_stats.is_alive():
+            print(f"You are dead.")
+            return False
+        return True

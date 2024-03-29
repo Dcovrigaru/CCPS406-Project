@@ -1,15 +1,30 @@
 from combat import Combat
 
+
+def check_guess(correct_number, user_guess):
+    """Check how many digits are in the correct position."""
+    correct_count = 0
+    if (len(user_guess)) != 5:
+        print("Remember, this safe accepts a 5 digit number")
+        return False
+    for i in range(len(correct_number)):
+        if correct_number[i] == user_guess[i]:
+            correct_count += 1
+    if correct_count == 5:
+        print("Congratulations! You guessed the number correctly:", correct_number)
+        return True
+    else:
+        print("You have", correct_count, "digits in the right position.")
+
+
 class VerbHandler:
-    def __init__(self, items, current_room, player, npc, data):
+    def __init__(self, items, current_room, data):
         self.items = items
         self.inventory = []
         self.wielded_weapon = None
         self.current_room = current_room
-        self.player = player
-        self.npc = npc
         self.data = data
-        self.combat_instance = Combat(player, npc, data)
+        self.combat_instance = Combat(data)
 
     def handle_action(self, user_input):
         verbs = self.data['verbs']
@@ -22,7 +37,6 @@ class VerbHandler:
         if verb in verbs:
             # Check if there's a second word (after the verb)
             if len(words) > 1:
-
                 # Join the remaining words to form the item name
                 item_name = ' '.join(words[1:])
                 # Check if the verb is not "inventory" and the item is in the items list
@@ -61,7 +75,7 @@ class VerbHandler:
                     break
 
         if zombies_present:  # Checks if there are any zombies to attack
-            print("You can't open anything with zombies nearby.")
+            print("You can't open anything with zombies nearby")
             return
         room = next((room for room in self.data['rooms'] if room['name'] == self.current_room.currentRoom), None)
         is_subroom = item_name in room.get('subrooms', [])
@@ -78,7 +92,7 @@ class VerbHandler:
                         # If the safe is locked, prompt the user for the guess
                         correct_number = subroom.get('correct_number', '')  # Get the correct number for the safe
                         user_guess = input("Enter your guess (5 digits): ")
-                        if self.check_guess(correct_number, user_guess):
+                        if check_guess(correct_number, user_guess):
                             # If the guess is correct, set 'locked' to False and print a success message
                             subroom['locked'] = False
                             print(subroom.get('unlocked_message', "The room is unlocked."))
@@ -112,15 +126,33 @@ class VerbHandler:
         # Find the current room
         current_room = next((room for room in self.data['rooms'] if room['name'] == self.current_room.currentRoom),
                             None)
+        zombies_present = False
+        for room in self.data['rooms']:
+            if room['name'] == self.current_room.currentRoom:
+                if room['zombies'] > 0:
+                    zombies_present = True  # Sets true if zombies are found in the room
+                    break
         if current_room:
             # Check if the item is directly in the room (not in a subroom)
             if item_name in current_room['items']:
+                if item_name == 'latch':
+                    if not zombies_present:
+                        self.inventory.append(item_name)
+                        for item in self.data['items']:
+                            if item['name'] == item_name:
+                                print(item.get('TakenText', ""))
+                                break
+                        return
+                    else:
+                        print("You cant pick this while while zombies are alive and gaurding it.")
+                        return
                 self.inventory.append(item_name)
                 for item in self.data['items']:
                     if item['name'] == item_name:
                         print(item.get('TakenText', ""))
                         break
                 return
+
             # Check if the item is in a locked subroom
             if 'subrooms' in current_room:
                 for subroom_name in current_room['subrooms']:
@@ -131,6 +163,7 @@ class VerbHandler:
                             print(f"I don't see a {item_name}.")
                             return
                         else:
+                            print(f"You took the {item_name}.")
                             self.inventory.append(item_name)
                             for item in self.data['items']:
                                 if item['name'] == item_name:
@@ -150,7 +183,7 @@ class VerbHandler:
                 if 'used_status' in item:
                     # Check if the item has already been used and is not in the inventory
                     if item['used_status'] and item_name not in self.inventory:
-                        print("You already used this item, you don't have it anymore.")
+                        print("You already used this item, you don't have it anymore")
                         return
 
         # Check if the item is not in the inventory
@@ -175,7 +208,7 @@ class VerbHandler:
                                 print(item['UseText'])
                                 return
                         else:
-                            print(item['Wrong_Text'])
+                            print(f"{item['name']} cannot be used here.")
                             return
                     else:
                         print(f"{item['name']} has already been used.")
@@ -184,7 +217,7 @@ class VerbHandler:
 
         # If no item is found with the provided name
         else:
-            print(f"No item found with the name '{item_name}'.")
+            print(f"No item found with the name '{item_name}'")
 
         # Print the 'UseText' of the item if available
         for item in self.data['items']:
@@ -214,14 +247,14 @@ class VerbHandler:
         if not self.data['weapons'][item_name]['is_wielded']:
             self.data['weapons'][item_name]['is_wielded'] = True
             self.wielded_weapon = item_name
-            print(f"You are now wielding the {self.wielded_weapon}.")
+            print(f"You are now wielding the {self.wielded_weapon}")
         else:
-            print(f"The {item_name} is already wielded.")
+            print(f"The {item_name} is already wielded")
 
     def handle_attack(self, item_name):  # Function for handling the verb 'attack'
         # Implement attack action logic
         if item_name != "zombies" and item_name != "zombie":
-            print(f"Uh oh, you can't attack a {item_name}.")
+            print(f"Uh oh, you can't attack a {item_name}")
             return
         zombies_present = False
         for room in self.data['rooms']:
@@ -231,12 +264,12 @@ class VerbHandler:
                     break
 
         if not zombies_present:  # Checks if there are any zombies to attack
-            print("There are no zombies in this room.")
+            print("There are no zombies in this room")
             return
 
         # Check if the player is wielding a weapon
         if self.wielded_weapon is None:  # Checking if a player is wielding a weapon
-            print(f"You are not wielding any weapon to attack with.")
+            print(f"You are not wielding any weapon to attack with")
             return
         else:
             self.combat_instance.player_attack(self.wielded_weapon,
@@ -245,7 +278,7 @@ class VerbHandler:
 
     def handle_inventory(self):  # Function for handling the verb 'inventory'
         if len(self.inventory) == 0:  # Displays a message if the inventory is empty
-            print("You haven't picked anything up.")
+            print("You haven't picked anything up")
         else:
             for item_name in self.inventory:
                 for item in self.data['items']:
@@ -253,20 +286,5 @@ class VerbHandler:
                         print(
                             f"[{item['name']}]\t{item['desc']}")  # Displays each item vertically in a list side by side its description
                         break
-
-    def check_guess(self, correct_number, user_guess):
-        """Check how many digits are in the correct position."""
-        correct_count = 0
-        if (len(user_guess)) != 5:
-            print("Remember, this safe accepts a 5 digit number.")
-            return False
-        for i in range(len(correct_number)):
-            if correct_number[i] == user_guess[i]:
-                correct_count += 1
-        if correct_count == 5:
-            print("Congratulations! You guessed the number correctly:", correct_number)
-            return True
-        else:
-            print("You have", correct_count, "digits in the right position.")
 
     # The rest of your code where you call the check_guess() function remains the same.

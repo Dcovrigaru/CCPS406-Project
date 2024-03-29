@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="complete game just needs combat and npc">
+    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="Updated main">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/GameData.Json" beforeDir="false" afterPath="$PROJECT_DIR$/data/GameData.Json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/combat.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/combat.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/verbs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/verbs.py" afterDir="false" />
     </list>
@@ -52,7 +52,7 @@
     &quot;Python.testingrizvi.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Rizvi-Branch&quot;
+    &quot;git-widget-placeholder&quot;: &quot;Dean2.0-Branch&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -119,7 +119,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-50da183f06c8-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13135.95" />
+        <option value="bundled-python-sdk-5a2391486177-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13763.11" />
       </set>
     </attachedChunks>
   </component>
@@ -252,23 +252,47 @@
       <option name="project" value="LOCAL" />
       <updated>1709840398582</updated>
     </task>
-    <task id="LOCAL-00016" summary="directions and verbs are now 100% done i believe, can focus on combat stuff now. also just need to add the final game ending stuff">
+    <task id="LOCAL-00016" summary="Verbs is completed">
       <option name="closed" value="true" />
-      <created>1711408613122</created>
+      <created>1711406696369</created>
       <option name="number" value="00016" />
       <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
-      <updated>1711408613122</updated>
+      <updated>1711406696369</updated>
     </task>
-    <task id="LOCAL-00017" summary="full playable game is done with testing, just needs combat mechanics and npcs.">
+    <task id="LOCAL-00017" summary="Verbs is completed">
       <option name="closed" value="true" />
-      <created>1711588034770</created>
+      <created>1711406837081</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1711588034770</updated>
+      <updated>1711406837081</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Verbs is completed">
+      <option name="closed" value="true" />
+      <created>1711575724581</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1711575724581</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Verbs is completed">
+      <option name="closed" value="true" />
+      <created>1711577064277</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1711577064277</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Updated main">
+      <option name="closed" value="true" />
+      <created>1711662014223</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1711662014223</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -292,10 +316,8 @@
     <MESSAGE value="Added &quot;are you sure you want to quit&quot; check" />
     <MESSAGE value="Updated verbs and Json" />
     <MESSAGE value="Safe needs a passcode" />
-    <MESSAGE value="directions and verbs are now 100% done i believe, can focus on combat stuff now. also just need to add the final game ending stuff" />
-    <MESSAGE value="full playable game is done with testing, just needs combat mechanics and npcs." />
-    <MESSAGE value="cant change rooms if current room has zombies AND you havent been to the destination room yet. also added gametime displayed at end of game. we can high score mechanic later, won't be hard" />
-    <MESSAGE value="complete game just needs combat and npc" />
-    <option name="LAST_COMMIT_MESSAGE" value="complete game just needs combat and npc" />
+    <MESSAGE value="Verbs is completed" />
+    <MESSAGE value="Updated main" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated main" />
   </component>
 </project>

@@ -2,6 +2,7 @@ import json
 import sys
 import time
 from combat import Combat
+from combat import PlayerDefeatedException
 from verbs import VerbHandler
 from directions import DirectionHandling
 
@@ -15,38 +16,37 @@ def reset_game_data():
 
 def play_game(data):
     currentRoom = "attic"
-    player = None
-    npc = None
-    mediumTurns = 65
-    hardTurns = 55
 
     UserCurrentRoom = DirectionHandling(currentRoom, data, None)
-    verb_handler = VerbHandler(data['items'], UserCurrentRoom, npc, player, data)
+    verb_handler = VerbHandler(data['items'], UserCurrentRoom, data)
     UserCurrentRoom.verb_handler = verb_handler
 
     turn_count = 0
     totalPlayTime = 0
 
-    print("WELCOME TO DEATH ESCAPE. Choose your difficulty:")
+    print("Welcome to death escape. Choose your difficulty:")
     print("e - Easy (infinite turns)")
-    print(f"m - Medium ({mediumTurns} turns)")
-    print(f"h - Hard ({hardTurns} turns)")
+    print("m - Medium (40 turns)")
+    print("h - Hard (30 turns)")
 
     while True:
         user_choice = input().lower()
         if user_choice == 'e' or user_choice == 'easy':
             turn_limit = float('inf')
+            #time_limit = None
             break
         elif user_choice == 'm' or user_choice == 'medium':
-            turn_limit = mediumTurns
+            turn_limit = 40
+            #time_limit = 20
             break
         elif user_choice == 'h' or user_choice == 'hard':
-            turn_limit = hardTurns
+            turn_limit = 30
+            #time_limit = 10
             break
         else:
             print("Invalid choice. Please select e, m, or h.")
 
-    print(f"\n{data['story']['intro']}\n{data['rooms'][0]['first_text']}")
+    print(f"\n\n{data['story']['intro']}\n\n{data['rooms'][0]['first_text']}")
     StartTime = time.time()
 
     while UserCurrentRoom.currentRoom != 'outside' and (turn_count != turn_limit if turn_limit != float('inf') else True):
@@ -82,15 +82,20 @@ def play_game(data):
 
     if UserCurrentRoom.currentRoom == 'outside':
         print(data['story']['gameEnd'])
-        print("\nYou finished the game in {} minutes and {:.1f} seconds, using a total of {} out of {} turns. Hope you had fun!".format(minutes, seconds, turn_count, turn_limit))
+        print("\nYou finished the game in {} minutes and {:.2f} seconds. Hope you had fun!".format(minutes, seconds))
     elif turn_count == turn_limit:
-        print(f"\nYou ran out of turns, you used a total of {turn_count} out of {turn_limit} turns. Better luck next time!")
-        print("You played the game for {} minutes and {:.1f} seconds. Hope you had fun!".format(minutes, seconds))
+        print(f"\nYou ran out of turns, you used a total of {turn_count} turns. Better luck next time!")
+        print("\nYou Played the game for {} minutes and {:.2f} seconds. Hope you had fun!".format(minutes, seconds))
 
 def main():
     while True:
         game_data = initialize_game_data()
-        play_game(game_data)
+        try:
+            play_game(game_data)
+        except PlayerDefeatedException:
+            pass
+        except Exception as e:
+            print(f"An error occurred: {e}")
         reset = input("\nDo you want to play again? (yes/no): ").lower()
         if reset != 'yes' and reset != 'y':
             print("\nGoodbye!")
