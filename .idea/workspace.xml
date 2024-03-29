@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="Verbs is completed">
+    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="including json">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/directions.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/directions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/verbs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/verbs.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +18,9 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/test-branch" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -45,18 +45,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.directions.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.testingrizvi.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;test-branch&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.directions.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.test.executor": "Run",
+    "Python.testingrizvi.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Marco-Branch",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\dean\PycharmProjects\CCPS406-Project\data" />
@@ -273,7 +273,31 @@
       <option name="project" value="LOCAL" />
       <updated>1711406837081</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="deans ACTUAL up to date branch changes">
+      <option name="closed" value="true" />
+      <created>1711718109115</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1711718109115</updated>
+    </task>
+    <task id="LOCAL-00019" summary="deans ACTUAL up to date branch changes">
+      <option name="closed" value="true" />
+      <created>1711718141520</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1711718141520</updated>
+    </task>
+    <task id="LOCAL-00020" summary="including json">
+      <option name="closed" value="true" />
+      <created>1711718191439</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1711718191439</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -298,7 +322,9 @@
     <MESSAGE value="Updated verbs and Json" />
     <MESSAGE value="Safe needs a passcode" />
     <MESSAGE value="Verbs is completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Verbs is completed" />
+    <MESSAGE value="deans ACTUAL up to date branch changes" />
+    <MESSAGE value="including json" />
+    <option name="LAST_COMMIT_MESSAGE" value="including json" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CCPS406_Project$test.coverage" NAME="test Coverage Results" MODIFIED="1711701974571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
