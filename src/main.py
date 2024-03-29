@@ -85,7 +85,7 @@ def play_game(data):
         print("\nYou finished the game in {} minutes and {:.2f} seconds. Hope you had fun!".format(minutes, seconds))
     elif turn_count == turn_limit:
         print(f"\nYou ran out of turns, you used a total of {turn_count} turns. Better luck next time!")
-        print("\nYou Played the game for {} minutes and {:.2f} seconds. Hope you had fun!".format(minutes, seconds))
+        print("\nYou played the game for {} minutes and {:.2f} seconds. Hope you had fun!".format(minutes, seconds))
 
 def main():
     while True:
