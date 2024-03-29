@@ -4,6 +4,9 @@ from character import player_stats
 from character import NPC
 
 zombie_stats = NPC('zombie', 1, 10, )
+
+class PlayerDefeatedException(Exception):
+    pass
 class Combat:
 
     def __init__(self, data):
@@ -32,7 +35,7 @@ class Combat:
                         room['zombies'] -= 1
                         zombie_stats = NPC('zombie', 1, 10, )
                     if not self.zombie_attack():
-                        quit()
+                        raise PlayerDefeatedException("Player is defeated")
                     print(self.data['weapons'][current_weapon]['attack_message'])
                     print("There are " + str(room_data['zombies']) + " zombies left in the room")
                     break
