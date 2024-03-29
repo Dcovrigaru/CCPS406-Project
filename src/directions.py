@@ -21,11 +21,10 @@ class DirectionHandling:
                     for room in self.data['rooms']:
                         if room['name'] == self.currentRoom:
                             if room['times_entered'] == 0:
-                                room['times_entered'] += 1
                                 print(room['first_text'])
                             else:
-                                room['times_entered'] += 1
                                 print(room['after_text'])
+                            room['times_entered'] += 1
             else:
                 print(f"You cannot go {targetDirection} from the {self.currentRoom}.")
 
@@ -57,24 +56,3 @@ class DirectionHandling:
                     print(self.data['rooms'][5]['unlockedbasementbutnoflashlight'])
                     return False
             return True  #if both above pass, that means diary.used == True and flashlight is in inventory. ready to go to basement
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
