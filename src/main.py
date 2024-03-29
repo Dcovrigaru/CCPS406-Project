@@ -2,6 +2,7 @@ import json
 import sys
 import time
 from combat import Combat
+from combat import PlayerDefeatedException
 from verbs import VerbHandler
 from directions import DirectionHandling
 
@@ -15,11 +16,9 @@ def reset_game_data():
 
 def play_game(data):
     currentRoom = "attic"
-    player = None
-    npc = None
 
     UserCurrentRoom = DirectionHandling(currentRoom, data, None)
-    verb_handler = VerbHandler(data['items'], UserCurrentRoom, npc, player, data)
+    verb_handler = VerbHandler(data['items'], UserCurrentRoom, data)
     UserCurrentRoom.verb_handler = verb_handler
 
     turn_count = 0
@@ -91,7 +90,12 @@ def play_game(data):
 def main():
     while True:
         game_data = initialize_game_data()
-        play_game(game_data)
+        try:
+            play_game(game_data)
+        except PlayerDefeatedException:
+            pass
+        except Exception as e:
+            print(f"An error occurred: {e}")
         reset = input("\nDo you want to play again? (yes/no): ").lower()
         if reset != 'yes' and reset != 'y':
             print("\nGoodbye!")
