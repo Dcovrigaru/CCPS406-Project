@@ -1,3 +1,4 @@
+'''
 import random
 
 from src import verbs
@@ -80,3 +81,4 @@ class NPC:
                 return f"The NPC has looted {item_name}."
             else:
                 return f"I don't see a {item_name} here to loot."
+'''
