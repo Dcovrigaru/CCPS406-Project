@@ -1,6 +1,4 @@
-'''
 import random
-
 from src import verbs
 from verbs import VerbHandler
 from directions import DirectionHandling
@@ -81,4 +79,3 @@ class NPC:
                 return f"The NPC has looted {item_name}."
             else:
                 return f"I don't see a {item_name} here to loot."
-'''

@@ -1,9 +1,9 @@
 import random
 from character import Player
 from character import player_stats
-from character import NPC
+from character import ZombieNPC
 
-zombie_stats = NPC('zombie', 1, 10, )
+zombie_stats = ZombieNPC('zombie', 1, 10, )
 
 class PlayerDefeatedException(Exception):
     pass
