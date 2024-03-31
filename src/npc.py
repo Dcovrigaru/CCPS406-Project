@@ -1,17 +1,16 @@
 import random
-from src import verbs
 from verbs import VerbHandler
 from directions import DirectionHandling
 class NPC:
-    def __init__(self, data, currentRoom):
+    def __init__(self, data, currentRoom, items, verb_handler_instance):
         self.states = ["IDLE", "MOVE", "ATTACK", "LOOT"]
         self.current_state = random.choices(self.states, [0.4, 0.4, 0.15, 0.05])[0]
         self.inventory = []
         self.currentRoom = 'bedroom'  # NPC spawns in the bedroom
-        self.directionHandler = DirectionHandling(data, currentRoom)
-        self.VerbHandler = VerbHandler(data, currentRoom)  # Instantiate VerbHandler with appropriate parameters
+        self.directionHandler = DirectionHandling(currentRoom, data, verb_handler_instance)
+        self.verbHandler = VerbHandler(items, currentRoom, data)  # Instantiate VerbHandler with appropriate parameters
 
-    def change_state(self, available_items, available_enemies):
+    def NPC_change_state(self, available_items, available_enemies):
         probabilities = [0.4, 0.4, 0.15, 0.05]
         possible_states = self.states.copy()
 
@@ -24,58 +23,42 @@ class NPC:
 
         self.current_state = random.choices(possible_states, probabilities)[0]
 
-
-    def act(self, room):
+    def NPC_act(self):
         if self.current_state == "IDLE":
             return "NPC is idling."
         elif self.current_state == "MOVE":
-            return self.move(room)
-        elif self.current_state == "ATTACK":
-            return self.attack(room)
+            return self.NPC_move()
         elif self.current_state == "LOOT":
-            return self.loot(room)
+            return self.NPC_loot(self.currentRoom)
+    def NPC_move(self):
+        # Store previous room
+        oldRoom = self.currentRoom
 
-    def move(self, direction):
-        # Check if the move is legal
-        if direction in self.directionHandler.data['rooms'][self.currentRoom]['exits']:
-            self.directionHandler.move(direction)
-        else:
-            print(f"The NPC cannot move {direction} from the {self.currentRoom}.")
-        # Implement movement logic here
-        # NPC spawns in bedroom
-        pass
+        # Get all possible next rooms
+        nextRooms = self.directionHandler.getAllNextRooms(self.currentRoom)
+        print(f"{nextRooms} is the next room")
 
-    class Combat:
-        def __init__(self, data):
-            self.data = data
+        # If there are no connected rooms, raise an error
+        if not nextRooms:
+            raise ValueError(f"The NPC is in {self.currentRoom}, which has no connected rooms.")
 
-        def npc_attack(self, damage_min, damage_max, current_room):
-            # Calculate damage dealt by NPC
-            damage = random.randint(damage_min, damage_max)
+        # Choose a random direction
+        direction = random.choice(list(nextRooms.keys()))
 
-            # Reduce zombie health
-            for room in self.data['rooms']:
-                if room['name'] == current_room['name']:
-                    room['zombie_health'] -= damage
-                    # If zombie's health drops to or below 0, remove the zombie from the room
-                    if room['zombie_health'] <= 0:
-                        room['zombies'] -= 1
-                        room['zombie_health'] = 100  # Reset zombie's health
-                        return f"NPC attacks the zombie for {damage} damage. The zombie has been defeated."
-                    else:
-                        return f"NPC attacks the zombie for {damage} damage. The zombie's health is now {room['zombie_health']}."
-            return "No zombie found in the current room."
+        # Move the NPC to the new room
+        self.currentRoom = nextRooms[direction]
+        print(f"Lookout! NPC moved from {oldRoom} to {self.currentRoom}\n")
 
-    def loot(self, item_name):
+    def NPC_loot(self, item_name):
         # Ability to pick up any item in game
         # Ability to pick up only items it sees
-        def loot(self, item_name):
-            room = next((room for room in self.data['rooms'] if room['name'] == self.current_room.currentRoom), None)
-            if room and item_name in room.get('items', []) or any(
-                    subroom.get('items', []) for subroom in room.get('subrooms', [])):
-                # Call the handle_take function from VerbHandler
-                self.VerbHandler.handle_take(item_name)
-                self.inventory.append(item_name)
-                return f"The NPC has looted {item_name}."
-            else:
-                return f"I don't see a {item_name} here to loot."
+        room = next((room for room in self.data['rooms'] if room['name'] == self.current_room.currentRoom), None)
+        if room and item_name in room.get('items', []) or any(
+                subroom.get('items', []) for subroom in room.get('subrooms', [])):
+            # Call the handle_take function from VerbHandler
+            self.verbHandler.handle_take(item_name)
+            self.inventory.append(item_name)
+            return f"The NPC has looted {item_name}."
+        else:
+            return f"I don't see a {item_name} here to loot."
+

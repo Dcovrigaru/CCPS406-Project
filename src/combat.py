@@ -33,12 +33,12 @@ class Combat:
                     if not zombie_stats.is_alive():
                         room['zombies'] -= 1
                         zombie_stats = NPC('zombie', 1, 10, )
-                    if not self.zombie_attack():
+                    if not self.attack():
                         raise PlayerDefeatedException("Player is defeated")
                     print("There are " + str(room_data['zombies']) + " zombies left in the room")
                     break
 
-    def zombie_attack(self):
+    def attack(self):
         damage = random.randint(1, 10)  # Placeholder for zombie's damage
         player_stats.take_damage(damage)
         print(f"{zombie_stats.name} attacks {player_stats.name} for {damage} damage!")
