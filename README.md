@@ -32,12 +32,15 @@ Death Escape is a text-based adventure game where the player, Jake, finds himsel
 1. Start the game by running main.py in the src directory: python src/main.py
 
 ## Basic Commands 
-
+North, n, South, s, up, u, down, d, etc..: To change rooms and move throughout the game world.
 inventory: Check the items you are carrying.
 use [item]: Use an item from your inventory.
 take [item]: Take an item and add it to your inventory.
 open [object]: Attempt to open something in the environment.
-attack [enemy] with [item]: Attack an enemy using an item.
+attack [enemy]: Attack an enemy using an item.
+wield [weapon]: change current wielded weapon.
+read [item]: Read a text article from your inventory, like paper, journal etc.
+
 
 Will add more later
 
