@@ -33,6 +33,7 @@ Death Escape is a text-based adventure game where the player, Jake, finds himsel
 
 ## Basic Commands 
 North, n, South, s, up, u, down, d, etc..: To change rooms and move throughout the game world.
+look: Display long description of the current room the player is in.
 inventory: Check the items you are carrying.
 use [item]: Use an item from your inventory.
 take [item]: Take an item and add it to your inventory.
