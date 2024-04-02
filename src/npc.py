@@ -1,14 +1,18 @@
+import json
 import random
-from verbs import VerbHandler
+#from verbs import VerbHandler
 from directions import DirectionHandling
 class NPC:
     def __init__(self, data, currentRoom, items, verb_handler_instance):
         self.states = ["IDLE", "MOVE", "ATTACK", "LOOT"]
-        self.current_state = random.choices(self.states, [0.4, 0.4, 0.15, 0.05])[0]
+        #self.current_state = random.choices(self.states, [0.4, 0.4, 0.15, 0.05])[0]
+        self.currentState = "LOOT" # LOOT TEST CASE
         self.inventory = []
-        self.currentRoom = 'bedroom'  # NPC spawns in the bedroom
+        self.data = data
+        self.currentRoom = 'attic'  # NPC spawns in the bedroom
+        #self.currentRoom = 'hallway'  # LOOT TEST CASE
         self.directionHandler = DirectionHandling(currentRoom, data, verb_handler_instance)
-        self.verbHandler = VerbHandler(items, currentRoom, data)  # Instantiate VerbHandler with appropriate parameters
+        #self.verbHandler = VerbHandler(items, currentRoom, data)  # Instantiate VerbHandler with appropriate parameters
 
     def NPC_change_state(self, available_items, available_enemies):
         probabilities = [0.4, 0.4, 0.15, 0.05]
@@ -21,14 +25,14 @@ class NPC:
             possible_states.remove("ATTACK")
             probabilities.pop(2)
 
-        self.current_state = random.choices(possible_states, probabilities)[0]
+        self.currentState = random.choices(possible_states, probabilities)[0]
 
     def NPC_act(self):
-        if self.current_state == "IDLE":
+        if self.currentState == "IDLE":
             return "NPC is idling."
-        elif self.current_state == "MOVE":
+        elif self.currentState == "MOVE":
             return self.NPC_move()
-        elif self.current_state == "LOOT":
+        elif self.currentState == "LOOT":
             return self.NPC_loot(self.currentRoom)
     def NPC_move(self):
         # Store previous room
@@ -49,16 +53,27 @@ class NPC:
         self.currentRoom = nextRooms[direction]
         print(f"Lookout! NPC moved from {oldRoom} to {self.currentRoom}\n")
 
-    def NPC_loot(self, item_name):
-        # Ability to pick up any item in game
-        # Ability to pick up only items it sees
-        room = next((room for room in self.data['rooms'] if room['name'] == self.current_room.currentRoom), None)
-        if room and item_name in room.get('items', []) or any(
-                subroom.get('items', []) for subroom in room.get('subrooms', [])):
-            # Call the handle_take function from VerbHandler
-            self.verbHandler.handle_take(item_name)
-            self.inventory.append(item_name)
-            return f"The NPC has looted {item_name}."
-        else:
-            return f"I don't see a {item_name} here to loot."
+    def NPC_loot(self, room):
+        # Load the game data from the JSON file
+        with open('../data/GameData.json') as f:
+            data = json.load(f)
 
+        # Get the current room of the NPC
+        current_room_name = self.currentRoom
+
+        # Find the current room in the data
+        current_room = next((room for room in data['rooms'] if room['name'] == current_room_name), None)
+
+        if current_room:
+            items = current_room.get('items', [])
+            if items and items[0] != "":
+                for item_name in items:
+                    if item_name in self.inventory:
+                        print(f"You already have the {item_name} in your inventory.")
+                        continue
+                    self.inventory.append(item_name)
+                    print(f"The NPC has looted {item_name}.")
+            else:
+                print("There are no items in this room to loot.")
+        else:
+            print("The current room does not exist in the game data.")
