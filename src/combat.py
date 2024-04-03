@@ -54,4 +54,3 @@ class Combat:
                 f"There are {room_data['zombies']} zombies left in the room")
 
 
-

@@ -36,25 +36,29 @@ def play_game(data):
 
     turn_count = 0
     totalPlayTime = 0
-
+    hardturns = 70
+    mediumturns = 82
+    EasyHP = 200
+    MediumHP = 150
+    HardHP = 100
     print("Welcome to death escape. Choose your difficulty:")
-    print("e - Easy (infinite turns & 200HP)")
-    print("m - Medium (40 turns & 150HP)")
-    print("h - Hard (30 turns & 100HP)")
+    print(f"e - Easy (infinite turns & {EasyHP}HP)")
+    print(f"m - Medium ({mediumturns} turns & {MediumHP}HP)")
+    print(f"h - Hard ({hardturns} turns & {HardHP}HP)")
 
     while True:
         user_choice = input().lower()
         if user_choice == 'e' or user_choice == 'easy':
             turn_limit = float('inf')
-            player_stats.health = 200
+            player_stats.health = EasyHP
             break
         elif user_choice == 'm' or user_choice == 'medium':
-            turn_limit = 40
-            player_stats.health = 150
+            turn_limit = mediumturns
+            player_stats.health = MediumHP
             break
         elif user_choice == 'h' or user_choice == 'hard':
-            turn_limit = 30
-            player_stats.health = 100
+            turn_limit = hardturns
+            player_stats.health = HardHP
             break
         else:
             print("Invalid choice. Please select e, m, or h.")
@@ -73,7 +77,6 @@ def play_game(data):
         elif user_input == "exit":
             checking_quit = input("Are you sure you want to quit? (y/n): ").lower()
             if checking_quit == "yes" or checking_quit == "y":
-                print("Bye.")
                 break
             else:
                 print("Guess we'll continue.")
@@ -100,13 +103,13 @@ def play_game(data):
 
     if UserCurrentRoom.currentRoom == 'outside':
         print(data['story']['gameEnd'])
-        print("\nYou finished the game in {} minutes and {:.2f} seconds. Hope you had fun!".format(minutes, seconds))
+        print("\nYou finished the game in {} minutes and {:.2f} seconds, using {} out of {} total turns. Hope you had fun!".format(minutes, seconds, turn_count, turn_limit))
     elif turn_count == turn_limit:
         print(f"\nYou ran out of turns, you used a total of {turn_count} turns. Better luck next time!")
-        print("\nYou Played the game for {} minutes and {:.2f} seconds. Hope you had fun!".format(minutes, seconds))
+        print("You played the game for {} minutes and {:.2f} seconds. Hope you had fun!".format(minutes, seconds))
     else:
         print(f"\nYou used a total of {turn_count} turns!")
-        print("\nYou Played the game for {} minutes and {:.2f} seconds. Hope you had fun!".format(minutes, seconds))
+        print("You played the game for {} minutes and {:.2f} seconds. Hope you had fun!".format(minutes, seconds))
 
 
 def main():

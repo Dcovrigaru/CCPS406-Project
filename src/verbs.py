@@ -79,7 +79,7 @@ class VerbHandler:
                 if 'ReadText' in item:
                     print(item['ReadText'])
                 else:
-                    print("This item can't be read")
+                    print("This item can't be read.")
                 return
 
         print(f"I don't see a {item_name} here.")
@@ -93,7 +93,7 @@ class VerbHandler:
                     break
 
         if zombies_present:  # Checks if there are any zombies to attack
-            print("You can't open anything with zombies nearby")
+            print("You can't open anything with zombies nearby.")
             return
         room = next((room for room in self.data['rooms'] if room['name'] == self.current_room.currentRoom), None)
         is_subroom = item_name in room.get('subrooms', [])
@@ -181,7 +181,6 @@ class VerbHandler:
                             print(f"I don't see a {item_name}.")
                             return
                         else:
-                            print(f"You took the {item_name}.")
                             self.inventory.append(item_name)
                             for item in self.data['items']:
                                 if item['name'] == item_name:
@@ -201,7 +200,7 @@ class VerbHandler:
                 if 'used_status' in item:
                     # Check if the item has already been used and is not in the inventory
                     if item['used_status'] and item_name not in self.inventory:
-                        print("You already used this item, you don't have it anymore")
+                        print("You already used this item, you don't have it anymore.")
                         return
 
         # Check if the item is not in the inventory
@@ -235,7 +234,7 @@ class VerbHandler:
 
         # If no item is found with the provided name
         else:
-            print(f"No item found with the name '{item_name}'")
+            print(f"No item found with the name '{item_name}'.")
 
         # Print the 'UseText' of the item if available
         for item in self.data['items']:
@@ -267,12 +266,12 @@ class VerbHandler:
             self.wielded_weapon = item_name
             print(f"You are now wielding the {self.wielded_weapon}")
         else:
-            print(f"The {item_name} is already wielded")
+            print(f"The {item_name} is already wielded.")
 
     def handle_attack(self, item_name):  # Function for handling the verb 'attack'
         # Implement attack action logic
         if item_name != "zombies" and item_name != "zombie":
-            print(f"Uh oh, you can't attack a {item_name}")
+            print(f"Uh oh, you can't attack a {item_name}.")
             return
         zombies_present = False
         for room in self.data['rooms']:
@@ -282,12 +281,12 @@ class VerbHandler:
                     break
 
         if not zombies_present:  # Checks if there are any zombies to attack
-            print("There are no zombies in this room")
+            print("There are no zombies in this room.")
             return
 
         # Check if the player is wielding a weapon
         if self.wielded_weapon is None:  # Checking if a player is wielding a weapon
-            print(f"You are not wielding any weapon to attack with")
+            print(f"You are not wielding any weapon to attack with.")
             return
         else:
             self.combat_instance.player_attack(self.wielded_weapon,
@@ -296,7 +295,7 @@ class VerbHandler:
 
     def handle_inventory(self):  # Function for handling the verb 'inventory'
         if len(self.inventory) == 0:  # Displays a message if the inventory is empty
-            print("You haven't picked anything up")
+            print("You haven't picked anything up.")
         else:
             for item_name in self.inventory:
                 for item in self.data['items']:
