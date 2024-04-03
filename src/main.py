@@ -3,6 +3,7 @@ import sys
 import time
 from combat import Combat
 from combat import PlayerDefeatedException
+from character import player_stats
 from verbs import VerbHandler
 from directions import DirectionHandling
 from npc import NPC
@@ -45,10 +46,11 @@ def play_game(data):
         user_choice = input().lower()
         if user_choice == 'e' or user_choice == 'easy':
             turn_limit = float('inf')
-
+            player_stats.health = 200
             break
         elif user_choice == 'm' or user_choice == 'medium':
             turn_limit = 40
+            player_stats.health = 150
             break
         elif user_choice == 'h' or user_choice == 'hard':
             turn_limit = 30

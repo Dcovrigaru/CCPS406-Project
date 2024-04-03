@@ -46,5 +46,3 @@ class Combat:
             print(f"You were attacked for {int(health) - int(player_stats.health)} damage.")
             print(f"You have {player_stats.health} health remaining.")
             print("There are " + str(room_data['zombies']) + " zombies left in the room")
-
-
