@@ -3,6 +3,7 @@ import sys
 import time
 from combat import Combat
 from combat import PlayerDefeatedException
+from character import player_stats
 from verbs import VerbHandler
 from directions import DirectionHandling
 from npc import NPC
@@ -37,21 +38,23 @@ def play_game(data):
     totalPlayTime = 0
 
     print("Welcome to death escape. Choose your difficulty:")
-    print("e - Easy (infinite turns)")
-    print("m - Medium (40 turns)")
-    print("h - Hard (30 turns)")
+    print("e - Easy (infinite turns & 200HP)")
+    print("m - Medium (40 turns & 150HP)")
+    print("h - Hard (30 turns & 100HP)")
 
     while True:
         user_choice = input().lower()
         if user_choice == 'e' or user_choice == 'easy':
             turn_limit = float('inf')
-
+            player_stats.health = 200
             break
         elif user_choice == 'm' or user_choice == 'medium':
             turn_limit = 40
+            player_stats.health = 150
             break
         elif user_choice == 'h' or user_choice == 'hard':
             turn_limit = 30
+            player_stats.health = 100
             break
         else:
             print("Invalid choice. Please select e, m, or h.")
@@ -71,7 +74,7 @@ def play_game(data):
             checking_quit = input("Are you sure you want to quit? (y/n): ").lower()
             if checking_quit == "yes" or checking_quit == "y":
                 print("Bye.")
-                sys.exit()
+                break
             else:
                 print("Guess we'll continue.")
                 continue
@@ -101,6 +104,10 @@ def play_game(data):
     elif turn_count == turn_limit:
         print(f"\nYou ran out of turns, you used a total of {turn_count} turns. Better luck next time!")
         print("\nYou Played the game for {} minutes and {:.2f} seconds. Hope you had fun!".format(minutes, seconds))
+    else:
+        print(f"\nYou used a total of {turn_count} turns!")
+        print("\nYou Played the game for {} minutes and {:.2f} seconds. Hope you had fun!".format(minutes, seconds))
+
 
 def main():
     while True:
@@ -114,7 +121,7 @@ def main():
         reset = input("\nDo you want to play again? (yes/no): ").lower()
         if reset != 'yes' and reset != 'y':
             print("\nGoodbye!")
-            break
+            sys.exit()
 
 if __name__ == "__main__":
     main()

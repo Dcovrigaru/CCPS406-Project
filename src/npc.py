@@ -29,7 +29,7 @@ class NPC:
         return self.available_enemies, self.available_items
 
     def NPC_change_state(self):
-        probabilities = [0.1, 0.1, 0.7, 0.1]
+        probabilities = [0.4, 0.4, 0.15, 0.05]
         possible_states = self.states.copy()
 
         if not self.available_items:
@@ -97,7 +97,9 @@ class NPC:
             if items and items[0] != "":
                 for item_name in items:
                     if item_name not in self.inventory:
-                        if item_name in verb_handler_instance.inventory:
+                        if item_name == 'batteries':
+                            print("The NPC tried to loot batteries, but you already used them.")
+                        elif item_name in verb_handler_instance.inventory:
                             print(f"The NPC tried to loot{item_name}, but you already have it in your inventory.")
                         else:
                             self.inventory.append(item_name)

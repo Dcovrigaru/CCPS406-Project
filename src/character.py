@@ -6,7 +6,7 @@ class Character:
     def take_damage(self, damage):
         self.health -= damage
         if self.health <= 0:
-            print(f"Operation Finished")
+            pass
         else:
             pass
 
