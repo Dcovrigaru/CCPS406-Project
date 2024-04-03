@@ -244,7 +244,7 @@
       "TakenText": "Taken! Finally, let's use this latch to escape the house from the foyer.",
       "used_status": false,
       "UseText": "You use the latch on the door to enable it to be opened. After struggling for a few seconds, it worked; the front door exit out of the house has been unlocked!\nExit north from here, the foyer, to get out of this nightmare once and for all!",
-      "Wrong_Text": "Try using this in the foyer on the front door. It might unlock the door to get out of this place.",
+      "Wrong_Text": "Try using this somewhere else. It might unlock the door to get out of this place.",
       "req_location": "foyer"
     },
     {
@@ -262,7 +262,7 @@
       "TakenText": "You take a well maintained black hardcover diary with just two eerie words on its cover, reading 'Victor's Diary'. Looking inside, it's words look all gibberish though.",
       "UseText": "Using the diary on shelf causes the bookshelf to slide down & reveal the stairs to basement, where you're potential escape awaits! It's too dark down there, & you'll need a source of light to go.",
       "ReadText": "Zerfle gorphbix xentwylph quazzr, flibjik phwizzt kludgymo! Snixqwert flobbernoodle shnazzzle, bixbop fwoo!\nJorplixx grimblyquak, zizzle zork. Wibblyquib glippophop, yipzop!\nTwirlygig blizzblazz, xanthar squopple!Fizzwizzle snazzlefrizz, quibberquak!",
-      "Wrong_Text": "No need to use this diary here. The only use you have for it would be to try using it on the living room bookshelf.",
+      "Wrong_Text": "No need to use this diary here. Maybe it't a part of a puzzle?",
       "used_status": false,
       "req_location": "living room"
     }
@@ -291,7 +291,8 @@
       "name": "gun",
       "attack_message": "Headshot, the zombie is dead",
       "damage_message": "Zombie health -= 35",
-      "is_wielded": false
+      "is_wielded": false,
+      "ammo": 10
     },
     "axe": {
       "name": "axe",
