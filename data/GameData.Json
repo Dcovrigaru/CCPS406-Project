@@ -178,8 +178,9 @@
       "name": "scribe",
       "location": "hallway",
       "desc": "Riddle containing a clue pointing to something in a dirty tub.",
-      "TakenText": "This scrap of paper has a little riddle written on it in cursive handwriting. It reads:\n'I'm not a lock, but a tool that turns,\nIn the bathroom, where cleanliness yearns.\nNear the basin or tub, where water flows free,\nSearch for me there, & the key you shall see.'",
-      "UseText": "The scribe is hinting to something in a dirty tub. Wonder what it means."
+      "TakenText": "Cool scribe, wonder what I could do with it.",
+      "UseText": "The scribe is hinting to something in a dirty tub. Wonder what it means.",
+      "ReadText": "This scrap of paper has a little riddle written on it in cursive handwriting. It reads:\n'I'm not a lock, but a tool that turns,\nIn the bathroom, where cleanliness yearns.\nNear the basin or tub, where water flows free,\nSearch for me there, & the key you shall see.'"
     },
     {
       "name": "lockpick",
@@ -293,7 +294,8 @@
     "use",
     "wield",
     "attack",
-    "inventory"
+    "inventory",
+    "read"
   ],
     "compass": [
     "n",

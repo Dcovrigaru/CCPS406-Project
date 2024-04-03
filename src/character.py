@@ -6,9 +6,9 @@ class Character:
     def take_damage(self, damage):
         self.health -= damage
         if self.health <= 0:
-            print(f"{self.name} has been defeated.")
+            pass
         else:
-            print(f"{self.name} takes {damage} damage! {self.name} now has {self.health}")
+            pass
 
     def is_alive(self):
         return self.health > 0
