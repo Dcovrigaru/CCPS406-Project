@@ -54,6 +54,7 @@ def play_game(data):
             break
         elif user_choice == 'h' or user_choice == 'hard':
             turn_limit = 30
+            player_stats.health = 100
             break
         else:
             print("Invalid choice. Please select e, m, or h.")
