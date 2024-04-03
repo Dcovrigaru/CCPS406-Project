@@ -12,13 +12,18 @@ class Combat:
 
     def player_attack(self, current_weapon, current_room):
         room_data = next(room for room in self.data['rooms'] if room['name'] == current_room)
-        if current_weapon == "gun":
-            # Decrement the number of zombies in the current room
-            for room in self.data['rooms']:
-                if room['name'] == current_room:
-                    room['zombies'] -= 1
-                    break
-            print("There are " + str(room_data['zombies']) + " zombies left in the room")
+
+        if current_weapon in self.data['weapons'] and current_weapon == 'gun':
+            weapon = self.data['weapons'][current_weapon]
+
+            if weapon['ammo'] > 0: # If the gun has ammo, proceed
+                weapon['ammo'] -= 1
+                print(f"{weapon['attack_message']}")
+                room_data['zombies'] -= 1
+                print("There are " + str(room_data['zombies']) + " zombies left in the room")
+                print(f"You have {weapon['ammo']} bullets left.")
+            else:
+                print("Out of ammo!") #If the gun has no ammo, no attack can be made
 
         elif current_weapon == "axe":
             attacks = 0

@@ -25,6 +25,7 @@ class VerbHandler:
         self.current_room = current_room
         self.data = data
         self.combat_instance = Combat(data)
+        self.looted = []
 
     def handle_action(self, user_input):
         verbs = self.data['verbs']
@@ -101,12 +102,15 @@ class VerbHandler:
             print(f"I don't see a {item_name} here.")
             return
 
-
         if room and 'subrooms' in room:
             for subroom_name in room['subrooms']:
                 subroom = next((subroom for subroom in self.data['subrooms'] if subroom['name'] == subroom_name), None)
-                if subroom and subroom['name'] == item_name and subroom.get('name', '') == 'safe':
+                if subroom and subroom.get('correct_number', None) is not None:
                     if subroom.get('locked', True):
+                        # Perform actions for a locked subroom with a correct number
+                        correct_number = subroom['correct_number']
+                        # Add your logic here to check if the correct number matches player input
+
                         # If the safe is locked, prompt the user for the guess
                         correct_number = subroom.get('correct_number', '')  # Get the correct number for the safe
                         user_guess = input("Enter your guess (5 digits): ")
@@ -140,6 +144,10 @@ class VerbHandler:
         if item_name in self.inventory:
             print(f"You already have the {item_name} in your inventory.")
             return
+        elif item_name in self.looted and item_name not in self.inventory:
+            print(f"I don't see a {item_name} here.")
+            return
+
 
         # Find the current room
         current_room = next((room for room in self.data['rooms'] if room['name'] == self.current_room.currentRoom),
@@ -156,6 +164,7 @@ class VerbHandler:
                 if item_name == 'latch':
                     if not zombies_present:
                         self.inventory.append(item_name)
+                        self.looted.append(item_name)
                         for item in self.data['items']:
                             if item['name'] == item_name:
                                 print(item.get('TakenText', ""))
@@ -165,6 +174,7 @@ class VerbHandler:
                         print("You cant pick this while while zombies are alive and gaurding it.")
                         return
                 self.inventory.append(item_name)
+                self.looted.append(item_name)
                 for item in self.data['items']:
                     if item['name'] == item_name:
                         print(item.get('TakenText', ""))
@@ -183,6 +193,7 @@ class VerbHandler:
                         else:
                             print(f"You took the {item_name}.")
                             self.inventory.append(item_name)
+                            self.looted.append(item_name)
                             for item in self.data['items']:
                                 if item['name'] == item_name:
                                     print(item.get('TakenText', ""))
@@ -226,7 +237,7 @@ class VerbHandler:
                                 print(item['UseText'])
                                 return
                         else:
-                            print(f"{item['name']} cannot be used here.")
+                            print(f"{item['Wrong_Text']}")
                             return
                     else:
                         print(f"{item['name']} has already been used.")
@@ -292,11 +303,10 @@ class VerbHandler:
         else:
             self.combat_instance.player_attack(self.wielded_weapon,
                                                self.current_room.currentRoom)  # Calls the player_attack to handle attacks
-            # print(data['weapons'][self.wielded_weapon]['attack_message'])
 
     def handle_inventory(self):  # Function for handling the verb 'inventory'
         if len(self.inventory) == 0:  # Displays a message if the inventory is empty
-            print("You haven't picked anything up")
+            print("Your inventory is empty")
         else:
             for item_name in self.inventory:
                 for item in self.data['items']:
@@ -305,4 +315,3 @@ class VerbHandler:
                             f"[{item['name']}]\t{item['desc']}")  # Displays each item vertically in a list side by side its description
                         break
 
-    # The rest of your code where you call the check_guess() function remains the same.
