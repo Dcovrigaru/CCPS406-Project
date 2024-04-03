@@ -1,4 +1,3 @@
-
 class DirectionHandling:
     def __init__(self, currentRoom, data, verb_handler_instance):
         self.currentRoom = currentRoom
@@ -30,6 +29,13 @@ class DirectionHandling:
 
     def getNextRoom(self, direction):
         return self.data['roomConnections'].get(self.currentRoom, {}).get(direction)
+
+    def getAllNextRooms(self, room):
+        try:
+            return self.data['roomConnections'].get(room)
+        except KeyError:
+            #--debug print(f"{room} in getAllNextRooms")
+            print("Key 'roomConnections' not found in the data.")
 
     def AllowedToChangeRooms(self, nextRoom):
         # if currentRoom has zombies, but you've already been to the room you're trying to change to, then it'll allow you to.

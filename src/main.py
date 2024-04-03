@@ -5,6 +5,7 @@ from combat import Combat
 from combat import PlayerDefeatedException
 from verbs import VerbHandler
 from directions import DirectionHandling
+from npc import NPC
 
 def initialize_game_data():
     with open('../data/GameData.json') as f:
@@ -14,11 +15,23 @@ def reset_game_data():
     with open('../data/GameData_initial.json') as f:
         return json.load(f)
 
+
 def play_game(data):
+
+    NPC_currentRoom = None
+    NPC_verb_handler_instance = None
+
+    # Create an instance of the NPC class
+
     currentRoom = "attic"
+
     UserCurrentRoom = DirectionHandling(currentRoom, data, None)
     verb_handler = VerbHandler(data['items'], UserCurrentRoom, data)
+
+    NPC_currentRoom = "bedroom"  # Assuming NPC spawns in the bedroom initially
+    NPC_verb_handler_instance = verb_handler  # Pass the verb_handler instance to NPC
     UserCurrentRoom.verb_handler = verb_handler
+    npc = NPC(data, NPC_currentRoom, NPC_verb_handler_instance)
 
     turn_count = 0
     totalPlayTime = 0
@@ -32,15 +45,13 @@ def play_game(data):
         user_choice = input().lower()
         if user_choice == 'e' or user_choice == 'easy':
             turn_limit = float('inf')
-            #time_limit = None
+
             break
         elif user_choice == 'm' or user_choice == 'medium':
             turn_limit = 40
-            #time_limit = 20
             break
         elif user_choice == 'h' or user_choice == 'hard':
             turn_limit = 30
-            #time_limit = 10
             break
         else:
             print("Invalid choice. Please select e, m, or h.")
@@ -71,7 +82,11 @@ def play_game(data):
         else:
             print(f"Not sure what {user_input} means. Try again!")
             continue
-        #Call NPC call
+
+        npc.NPC_available_items_enemies(npc.currentRoom) # First run the available items
+        npc.NPC_change_state() # Then change state based on the available items
+        npc.NPC_act(NPC_verb_handler_instance) #Then act based on NPC current state
+
         turn_count += 1
 
     EndTime = time.time()

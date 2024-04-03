@@ -66,6 +66,24 @@ class VerbHandler:
         else:
             print("Invalid action. Please try again.")
 
+    def handle_read(self, item_name):
+        # Check if the item is not in the inventory
+        if item_name not in self.inventory:
+            print(f"You don't have the {item_name} in your inventory.")
+            return
+
+        for item in self.data['items']:
+            # Check if the current item's name matches the provided item_name
+            if item['name'] == item_name:
+                # Check if the 'ReadText' key is present in the item
+                if 'ReadText' in item:
+                    print(item['ReadText'])
+                else:
+                    print("This item can't be read")
+                return
+
+        print(f"I don't see a {item_name} here.")
+
     def handle_open(self, item_name):
         zombies_present = False
         for room in self.data['rooms']:
