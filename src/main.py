@@ -16,7 +16,6 @@ def reset_game_data():
 
 def play_game(data):
     currentRoom = "attic"
-
     UserCurrentRoom = DirectionHandling(currentRoom, data, None)
     verb_handler = VerbHandler(data['items'], UserCurrentRoom, data)
     UserCurrentRoom.verb_handler = verb_handler
@@ -72,6 +71,7 @@ def play_game(data):
         else:
             print(f"Not sure what {user_input} means. Try again!")
             continue
+        #Call NPC call
         turn_count += 1
 
     EndTime = time.time()
