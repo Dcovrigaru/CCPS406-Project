@@ -5,6 +5,7 @@ from combat import Combat
 from combat import PlayerDefeatedException
 from verbs import VerbHandler
 from directions import DirectionHandling
+from npc import NPC
 
 def initialize_game_data():
     with open('../data/GameData.json') as f:
@@ -14,7 +15,15 @@ def reset_game_data():
     with open('../data/GameData_initial.json') as f:
         return json.load(f)
 
+
 def play_game(data):
+
+    NPC_currentRoom = None
+    NPC_verb_handler_instance = None
+
+    # Create an instance of the NPC class
+    npc = NPC(data, NPC_currentRoom, NPC_verb_handler_instance)
+
     currentRoom = "attic"
 
     UserCurrentRoom = DirectionHandling(currentRoom, data, None)
@@ -72,6 +81,11 @@ def play_game(data):
         else:
             print(f"Not sure what {user_input} means. Try again!")
             continue
+
+        npc.NPC_available_items_enemies(npc.currentRoom) # First run the available items
+        npc.NPC_change_state() # Then change state based on the available items
+        npc.NPC_act() #Then act based on NPC current state
+
         turn_count += 1
 
     EndTime = time.time()

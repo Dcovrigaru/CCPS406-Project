@@ -9,33 +9,29 @@ def test_NPC():
     # Mock data
     with open('../data/GameData.json') as f:
         data = json.load(f)
-    # Replace this with your actual game data
 
-    currentRoom = None
-        #'hallway'  # Replace this with the name of the current room
-    room = {}  # Replace this with an actual room object
-
-    # mock items
-    items = None
-
-    # mock verb handler instance
-    verb_handler_instance = None
+    NPC_currentRoom = None
+    NPC_verb_handler_instance = None
 
     # Create an instance of the NPC class
-    npc = NPC(data, currentRoom, items, verb_handler_instance)
+    npc = NPC(data, NPC_currentRoom, NPC_verb_handler_instance)
 
+    #npc.NPC_available_items_enemies(npc.NPC_currentRoom)
 
-    # [PASSED] TEST #1 -- Test NPC_change_state method with available items and available enemies
-    initial_state = npc.currentState
-    print("Initial state:\n", npc.currentState)
-    npc.NPC_change_state(available_items=True, available_enemies=False)
-    print("Current state:", npc.currentState)
+    for i in range(1, 100):
+        print(f"NPC run #{i} values:\n")
 
-    # TEST #3 -- Test NPC_loot when there are available items in room
-    expected_output = f"The NPC has looted {items}."  # replace with the expected output
-    npc.NPC_loot(currentRoom)
-    print(f"The NPC is in {npc.currentRoom} and looted {npc.inventory}!")
+        print(f"Initial state: {npc.currentState}")
+        print(f"Current room: {npc.currentRoom}\n")
+        npc.NPC_available_items_enemies(npc.currentRoom) # First run the available items
+        print(f"Available items: {npc.available_items}, Available enemies:{npc.available_enemies}\n")
+        npc.NPC_change_state() # Then change state based on the available items
+        #npc.inventory = ['axe']
+        #npc.currentState = 'ATTACK'
+        print(f"Current state: {npc.currentState}")
+        npc.NPC_act() #Then act based on NPC current state
 
+        print("\n")
 
 
 
