@@ -3,12 +3,15 @@ from directions import DirectionHandling
 
 
 class NPC:
+    global name
+    name = "Victor's ghost"
+
     def __init__(self, data, currentRoom, verb_handler_instance):
         self.states = ["IDLE", "MOVE", "ATTACK", "LOOT"]
-        self.currentState = random.choices(self.states, [0.4, 0.4, 0.15, 0.05])[0]
+        self.currentState = random.choices(self.states, [0.4, 0.5, 0.08, 0.02])[0]
         self.inventory = []
         self.data = data
-        self.currentRoom = currentRoom  # NPC spawns in the bedroom
+        self.currentRoom = currentRoom
         self.directionHandler = DirectionHandling(currentRoom, data, verb_handler_instance)
         self.available_enemies = False
         self.available_items = False
@@ -30,7 +33,7 @@ class NPC:
         return self.available_enemies, self.available_items
 
     def NPC_change_state(self):
-        probabilities = [0.4, 0.4, 0.15, 0.05]
+        probabilities = [0.4, 0.5, 0.08, 0.02]
         possible_states = self.states.copy()
 
         if not self.available_items:
@@ -44,7 +47,7 @@ class NPC:
 
     def NPC_act(self,verb_handler_instance):
         if self.currentState == "IDLE":
-            print("\nNPC is idling...\n")
+            print(f"\n{name} is just looking around...\n")
         elif self.currentState == "MOVE":
             return self.NPC_move()
         elif self.currentState == "LOOT":
@@ -60,9 +63,15 @@ class NPC:
             rooms[0] = rooms[0].capitalize()
 
             if not nextRooms:
-                raise ValueError(f"\nThe NPC is in {self.currentRoom}, which has no connected rooms.")
+                raise ValueError(f"\n{name} is in {self.currentRoom}, which has no connected rooms.")
 
-            direction = random.choice(list(nextRooms.keys()))
+            possible_directions = [direction for direction, room in nextRooms.items() if room != 'outside']
+
+            if not possible_directions:
+                print(f"\n{name} is stuck in {self.currentRoom} as all paths lead outside.")
+                break
+
+            direction = random.choice(possible_directions)
 
             messages = [
                 "Nice play!",
@@ -74,20 +83,20 @@ class NPC:
                 "Brace yourself!",
                 "Here we go!",
                 "On the move!",
-                "Advancing forward!"
+                "Advancing forward!",
+                "You're going down!",
+                "Prepare to be crushed!",
+                "No mercy!",
+                "Time to dominate!",
+                "Say goodbye to your chances!",
             ]
 
             self.currentRoom = nextRooms[direction]
 
             message = random.choice(messages)
 
-            print(f"\n{message} NPC moved from {oldRoom} to {self.currentRoom}.\n")
-
-            if self.currentRoom == 'outside':
-                print(f"\nNPC is outside, moving back to {oldRoom}.\n")
-                self.currentRoom = oldRoom
-            else:
-                break
+            print(f"\n{message} {name} moved from {oldRoom} to {self.currentRoom}.\n")
+            break
 
     def NPC_loot(self, verb_handler_instance):
         current_room_name = self.currentRoom
@@ -99,13 +108,15 @@ class NPC:
                 for item_name in items:
                     if item_name not in self.inventory:
                         if item_name == 'batteries':
-                            print("\nThe NPC tried to loot batteries, but you already used them.")
+                            print(f"\n{name} tried to loot batteries, but you already used them.")
+                        if item_name == 'latch':
+                            print(f"{name} tried to loot the latch, hes not aloud to do this.")
                         elif item_name in verb_handler_instance.inventory:
-                            print(f"\nThe NPC tried to loot{item_name}, but you already have it in your inventory.")
+                            print(f"\n{name} tried to loot{item_name}, but you already have it in your inventory.")
                         else:
                             self.inventory.append(item_name)
                             verb_handler_instance.inventory.append(item_name)
-                            print(f"\nThe NPC has looted {item_name}, and you also got it.")
+                            print(f"\n{name} has looted {item_name}, and you also got it.")
             else:
                 print("\nThere are no items in this room to loot.")
         else:
@@ -123,6 +134,7 @@ class NPC:
                 for room in self.data['rooms']:
                     if room['name'] == self.currentRoom:
                         room['zombies'] -= 1
-                        print(f"\nNPC just attacked and killed a zombie! There are {room['zombies']} zombie(s) left in {self.currentRoom}.\n")
+                        print(f"\n{name} just attacked and killed a zombie! There are {room['zombies']} zombie(s) "
+                              f"left in {self.currentRoom}.\n")
                         break
             return
