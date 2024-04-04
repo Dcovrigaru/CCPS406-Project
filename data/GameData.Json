@@ -255,7 +255,7 @@
       "location": "box",
       "desc": "To get to the basement.",
       "TakenText": "You take a well maintained black hardcover diary with just two eerie words on its cover, reading 'Victor's Diary'. Looking inside, it's words look all gibberish though.",
-      "UseText": "Using the diary on shelf causes the bookshelf to slide down & reveal the stairs to basement, where you're potential escape awaits! It's too dark down there, & you'll need a source of light to go.",
+      "UseText": "Using the diary on shelf causes the bookshelf to slide down & reveal the stairs to basement, where you're potential escape awaits!\nIt's too dark down there, & you'll need a source of light to go.",
       "ReadText": "Zerfle gorphbix xentwylph quazzr, flibjik phwizzt kludgymo! Snixqwert flobbernoodle shnazzzle, bixbop fwoo!\nJorplixx grimblyquak, zizzle zork. Wibblyquib glippophop, yipzop!\nTwirlygig blizzblazz, xanthar squopple!Fizzwizzle snazzlefrizz, quibberquak!",
       "Wrong_Text": "No need to use this diary here. Maybe it't a part of a puzzle?",
       "used_status": false,
