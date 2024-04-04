@@ -37,7 +37,8 @@ inventory: Check the items you are carrying.
 use [item]: Use an item from your inventory.
 take [item]: Take an item and add it to your inventory.
 open [object]: Attempt to open something in the environment.
-attack [enemy] with [item]: Attack an enemy using an item.
-
-Will add more later
+attack [enemy]: Attack an enemy using an item.
+read [item]: read item from inventory
+north, n, south, s, up, u, down, d, etc: directions to change rooms in the environment
+look: redisplay the initial long description of your current room
 
