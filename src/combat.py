@@ -20,7 +20,7 @@ class Combat:
                 weapon['ammo'] -= 1
                 print(f"{weapon['attack_message']}")
                 room_data['zombies'] -= 1
-                print("There are " + str(room_data['zombies']) + " zombies left in the room")
+                print("There are " + str(room_data['zombies']) + " zombies left in the room.")
                 print(f"You have {weapon['ammo']} bullets left.")
             else:
                 print("Out of ammo!") #If the gun has no ammo, no attack can be made
@@ -45,7 +45,7 @@ class Combat:
                         f"You have {player_stats.health} health remaining.\n"
                         f"You are dead.")
 
-                    raise PlayerDefeatedException("Player is defeated")
+                    raise PlayerDefeatedException("Player is defeated.")
             # Decrement the number of zombies in the current room
             for room in self.data['rooms']:
                 if room['name'] == current_room:
@@ -56,6 +56,6 @@ class Combat:
                 f"You attacked the {self.zombie_stats.name} {attacks} times, dealing a total of {total_damage} damage.\n"
                 f"You were attacked for {int(health) - int(player_stats.health)} damage.\n"
                 f"You have {player_stats.health} health remaining.\n"
-                f"There are {room_data['zombies']} zombies left in the room")
+                f"There are {room_data['zombies']} zombies left in the room.")
 
 

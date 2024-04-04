@@ -9,7 +9,7 @@ class DirectionHandling:
         if direction == 'look':
             for room in self.data['rooms']:
                 if room['name'] == self.currentRoom:
-                    print(room['first_text'])
+                    print(room['first_text'].format(zombiecount=room['zombies']))
             return
         if direction in self.data['possibleDirections']:
             targetDirection = self.data['possibleDirections'][direction]
@@ -20,7 +20,7 @@ class DirectionHandling:
                     for room in self.data['rooms']:
                         if room['name'] == self.currentRoom:
                             if room['times_entered'] == 0:
-                                print(room['first_text'])
+                                print(room['first_text'].format(zombiecount=room['zombies']))
                             else:
                                 print(room['after_text'])
                             room['times_entered'] += 1
@@ -40,7 +40,6 @@ class DirectionHandling:
     def AllowedToChangeRooms(self, nextRoom):
         # if currentRoom has zombies, but you've already been to the room you're trying to change to, then it'll allow you to.
         # but if you haven't been to the nextRoom before, then it doesn't matter if it has zombies or not; you need to clear currentRoom of zombies before going there.
-        #eg if ur in hallway & it still has zombies, then you can go back up to attic (since you were already there) but not to bedroom or office, until you kill all hallway zombies
         for room in self.data['rooms']:
             if (self.currentRoom == room['name'] and room['zombies']!=0):
                 for room2 in self.data['rooms']:

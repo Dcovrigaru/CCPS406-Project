@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="Ammo added, main menu added">
+    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="Read Function added, NPC fully works">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/GameData.Json" beforeDir="false" afterPath="$PROJECT_DIR$/data/GameData.Json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/combat.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/combat.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/directions.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/directions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/npc.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/npc.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/verbs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/verbs.py" afterDir="false" />
@@ -53,8 +55,7 @@
     "Python.testingrizvi.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "full.screen.before.presentation.mode": "false",
-    "git-widget-placeholder": "Dean2.0-Branch"
+    "git-widget-placeholder": "Rizvi-Branch"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -334,15 +335,7 @@
       <option name="project" value="LOCAL" />
       <updated>1712165178561</updated>
     </task>
-    <task id="LOCAL-00026" summary="Ammo added, main menu added">
-      <option name="closed" value="true" />
-      <created>1712174652717</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1712174652717</updated>
-    </task>
-    <option name="localTasksCounter" value="27" />
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -371,7 +364,6 @@
     <MESSAGE value="Working combat and main" />
     <MESSAGE value="Slight combat edit" />
     <MESSAGE value="Read Function added, NPC fully works" />
-    <MESSAGE value="Ammo added, main menu added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ammo added, main menu added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Read Function added, NPC fully works" />
   </component>
 </project>

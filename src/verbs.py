@@ -317,4 +317,3 @@ class VerbHandler:
                         print(
                             f"[{item['name']}]\t{item['desc']}")  # Displays each item vertically in a list side by side its description
                         break
-

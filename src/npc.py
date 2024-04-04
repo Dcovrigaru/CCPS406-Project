@@ -4,7 +4,7 @@ from directions import DirectionHandling
 
 class NPC:
     global name
-    name = "Victor's ghost"
+    name = "Victor's Ghost"
 
     def __init__(self, data, currentRoom, verb_handler_instance):
         self.states = ["IDLE", "MOVE", "ATTACK", "LOOT"]
@@ -73,27 +73,9 @@ class NPC:
 
             direction = random.choice(possible_directions)
 
-            messages = [
-                "Nice play!",
-                "Okay, I see what you did there...",
-                "My turn!",
-                "GG!",
-                "Lookout!",
-                "Heads up!",
-                "Brace yourself!",
-                "Here we go!",
-                "On the move!",
-                "Advancing forward!",
-                "You're going down!",
-                "Prepare to be crushed!",
-                "No mercy!",
-                "Time to dominate!",
-                "Say goodbye to your chances!",
-            ]
-
             self.currentRoom = nextRooms[direction]
 
-            message = random.choice(messages)
+            message = random.choice(self.data["messages"])
 
             print(f"\n{message} {name} moved from {oldRoom} to {self.currentRoom}.\n")
             break
@@ -110,9 +92,9 @@ class NPC:
                         if item_name == 'batteries':
                             print(f"\n{name} tried to loot batteries, but you already used them.")
                         if item_name == 'latch':
-                            print(f"{name} tried to loot the latch, hes not aloud to do this.")
+                            print(f"{name} tried to loot the latch, but the basement's strong zombies didn't allow him!")
                         elif item_name in verb_handler_instance.inventory:
-                            print(f"\n{name} tried to loot{item_name}, but you already have it in your inventory.")
+                            print(f"\n{name} wanted to take the {item_name}, but you already got it first.")
                         else:
                             self.inventory.append(item_name)
                             verb_handler_instance.inventory.append(item_name)

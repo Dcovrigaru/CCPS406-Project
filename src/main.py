@@ -50,11 +50,11 @@ def help_menu(user_current_room, data):
 
 def game_menu():
     global turn_limit
-    hard_turns = 70
-    medium_turns = 82
-    easy_hp = 200
-    medium_hp = 150
-    hard_hp = 100
+    hard_turns = 60
+    medium_turns = 72
+    easy_hp = 375
+    medium_hp = 225
+    hard_hp = 115
     print("*" * 40)
     print("*" + " " * 38 + "*")
     print("*" + " " * 7 + "Welcome to Death Escape!" + " " * 7 + "*")
@@ -99,11 +99,10 @@ def play_game(data, user_current_room):
     turn_count = 0
     total_play_time = 0
     game_menu()
-    print(f"\n\n{data['story']['intro']}\n\n{data['rooms'][0]['first_text']}")
+    print(f"\n{data['story']['intro']}\n\n{data['rooms'][0]['first_text']}")
     start_time = time.time()
 
-    while user_current_room.currentRoom != 'outside' and (
-            turn_count != turn_limit if turn_limit != float('inf') else True):
+    while user_current_room.currentRoom != 'outside' and (turn_count != turn_limit if turn_limit != float('inf') else True):
         user_input = input("Enter in an action: ").lower()
 
         if len(user_input) == 0:
@@ -146,9 +145,9 @@ def play_game(data, user_current_room):
     if user_current_room.currentRoom == 'outside':
         print(data['story']['gameEnd'])
         print(
-            "\nYou finished the game in {} minutes and {:.2f} seconds, using {} out of {} total turns. Hope you had "
+            "\nYou finished the game in {} minutes and {:.2f} seconds, using {} out of {} total turns with {} health left. Hope you had "
             "fun!".format(
-                minutes, seconds, turn_count, turn_limit))
+                minutes, seconds, turn_count, turn_limit, player_stats.health))
     elif turn_count == turn_limit:
         print(f"\nYou ran out of turns, you used a total of {turn_count} turns. Better luck next time!")
         print("You played the game for {} minutes and {:.2f} seconds. Hope you had fun!".format(minutes, seconds))
