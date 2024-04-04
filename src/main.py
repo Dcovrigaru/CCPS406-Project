@@ -27,19 +27,26 @@ def reset_game_data():
     with open('../data/GameData_initial.json') as f:
         return json.load(f)
 
-def help_menu():
-    print("1. Instructions")
-    print("2. Tips and Tricks")
 
-    choice = input("Enter your choice (1, 2, or anything else to go back): ")
+def help_menu(user_current_room, data):
+    cur = user_current_room.currentRoom
+
+    print("1. Hint")
+
+    choice = input("Enter 1 for a hint, or anything else to go back): ")
 
     if choice == '1':
-        print("Instructions: [Insert game instructions here]")
-        input("Press Enter to return to the game...")
-    elif choice == '2':
-        print("Tips and Tricks: [Insert tips and tricks here]")
-        input("Press Enter to return to the game...")
-    else: print("Going back now")
+        # Access the JSON data and find the current room data
+        rooms_data = data['rooms']
+        current_room_data = next(room for room in rooms_data if room['name'] == cur)
+
+        # Print the hint for the current room
+        hint = current_room_data.get('hint', 'No hint available.')
+        print(f"Hint for the {cur}: {hint}")
+        input("Press any key to return to the game...")
+    else:
+        print("Invalid choice, returning to the game.")
+
 
 def game_menu():
     global turn_limit
@@ -55,52 +62,35 @@ def game_menu():
     print("*" * 40)
     while True:
 
-        print("1. Instructions")
-        print("2. Tips and Tricks")
-        print("3. Proceed")
+        input("Press any key to continue")
 
-        choice = input("Enter your choice (1, 2, or 3): ")
+        print(f"e - Easy (infinite turns & {easy_hp}HP)")
+        print(f"m - Medium ({medium_turns} turns & {medium_hp}HP)")
+        print(f"h - Hard ({hard_turns} turns & {hard_hp}HP)")
 
-        if choice == '1':
-            print("Instructions: [Insert game instructions here]")
-            input("Press Enter to return to the menu...")
-        elif choice == '2':
-            print("Tips and Tricks: [Insert tips and tricks here]")
-            input("Press Enter to return to the menu...")
-        elif choice == '3':
-            print("Welcome to death escape. Choose your difficulty:")
-            print(f"e - Easy (infinite turns & {easy_hp}HP)")
-            print(f"m - Medium ({medium_turns} turns & {medium_hp}HP)")
-            print(f"h - Hard ({hard_turns} turns & {hard_hp}HP)")
-
-            while True:
-                user_choice = input().lower()
-                if user_choice in ('e', 'easy'):
-                    turn_limit = float('inf')
-                    player_stats.health = easy_hp
-                    break
-                elif user_choice in ('m', 'medium'):
-                    turn_limit = medium_turns
-                    player_stats.health = medium_hp
-                    break
-                elif user_choice in ('h', 'hard'):
-                    turn_limit = hard_turns
-                    player_stats.health = hard_hp
-                    break
-                else:
-                    print("Invalid choice. Please select e, m, or h.")
-            print("Proceeding with the game...")
-            break
-        else:
-            print("Invalid input! Please enter 1, 2, or 3.")
+        while True:
+            user_choice = input().lower()
+            if user_choice in ('e', 'easy'):
+                turn_limit = float('inf')
+                player_stats.health = easy_hp
+                break
+            elif user_choice in ('m', 'medium'):
+                turn_limit = medium_turns
+                player_stats.health = medium_hp
+                break
+            elif user_choice in ('h', 'hard'):
+                turn_limit = hard_turns
+                player_stats.health = hard_hp
+                break
+            else:
+                print("Invalid choice. Please select e, m, or h.")
+        print("Proceeding with the game...")
+        break
 
 
-def play_game(data):
+def play_game(data, user_current_room):
     global turn_limit
-    # npc_current_room = None
-    # npc_verb_handler_instance = None
-    current_room = "attic"
-    user_current_room = DirectionHandling(current_room, data, None)
+    current_room = user_current_room.currentRoom
     verb_handler = VerbHandler(data['items'], user_current_room, data)
     npc_current_room = npc_random_room(data)
     npc_verb_handler_instance = verb_handler
@@ -134,7 +124,7 @@ def play_game(data):
             print(f"What are you trying to {user_input} ?")
         elif user_input == 'help':
             print("Game Paused")
-            help_menu()
+            help_menu(user_current_room, data)
             print("Game Unpaused")
             continue
         else:
@@ -170,15 +160,24 @@ def play_game(data):
 def main():
     while True:
         game_data = initialize_game_data()
+        current_room = "attic"  # Set the initial room
         try:
-            play_game(game_data)
-        except PlayerDefeatedException:
-            pass
+            while True:
+                user_current_room = DirectionHandling(current_room, game_data, None)
+                try:
+                    play_game(game_data, user_current_room)
+                    break  # Exit the inner loop when the game ends
+                except PlayerDefeatedException:
+                    pass
+                except Exception as e:
+                    print(f"An error occurred: {e}")
+
+                reset = input("\nDo you want to play again? (yes/no): ").lower()
+                if reset != 'yes' and reset != 'y':
+                    print("\nGoodbye!")
+                    sys.exit()
         except Exception as e:
             print(f"An error occurred: {e}")
-        reset = input("\nDo you want to play again? (yes/no): ").lower()
-        if reset != 'yes' and reset != 'y':
-            print("\nGoodbye!")
             sys.exit()
 
 

@@ -23,7 +23,8 @@
       "times_entered": 1,
       "used_status": false,
       "items": ["axe", "batteries"],
-      "zombies": 0
+      "zombies": 0,
+      "hint": "You would need to 'use' the batteries, before being able to proceed."
     },
     {
       "name": "hallway",
@@ -41,16 +42,18 @@
       "times_entered": 0,
       "items": [""],
       "subrooms": ["safe"],
-      "zombies": 1
+      "zombies": 1,
+      "hint": "The code to the safe can be found in the office."
     },
     {
       "name": "bathroom",
-      "first_text": "You find yourself in a run-down bathroom. The sink is stained, & a cracked mirror shows your worried face. At least there's no zombies here,\nbut there are cockroaches & bugs. There is a curtain covering the tub but it's too disgusting to check out unless you have a good reason to. Yuck! The only way out is south, the way you came.",
+      "first_text": "You find yourself in a run-down bathroom. The sink is stained, & a cracked mirror shows your worried face. At least there's no zombies here,\nbut there are cockroaches & bugs. There is a curtain covering the tub but it's too disgusting to check out unless you have a good reason to. Yuck!\n The only way out is south, the way you came.",
       "after_text": "You are in the filthy bathroom again, which has a dirty curtain covering something. Only way out is back south to bedroom.",
       "times_entered": 0,
       "subrooms": ["curtain"],
       "items": [""],
-      "zombies": 0
+      "zombies": 0,
+      "hint": "Try opening the curtain, make sure you have the necessary item or it won't open."
     },
     {
       "name": "office",
@@ -64,7 +67,7 @@
     },
     {
       "name": "living room",
-      "first_text": "You made it downstairs to the living room! It's old fashioned with an old box TV & scattered DVD cassettes. Here's there's two more zombies in your of getting\nto the western foyer. There's nothing here, except a full bookshelf with an empty slot asking for 'Victor's Diary' to be placed on it to unlock passage to go down the basement.",
+      "first_text": "You made it downstairs to the living room! It's old fashioned with an old box TV & scattered DVD cassettes. Here's there's two more zombies in your of getting\nto the western foyer. \nThere's nothing here, except a full bookshelf with an empty slot asking for 'Victor's Diary' to be placed on it to unlock passage to go down the basement.",
       "after_text": "You are in the living room. Can go upstairs from here, and west to foyer, as well as down to basement if you have the diary to use on bookshelf.",
       "downwithoutdiary": "The passage to the basement is locked. Find a diary and use it here to unlock it.",
       "unlockedbasementbutnoflashlight": "It's too dark and dangerous to go down, who knows what's lurking down there! Get a source of light first.",
@@ -79,7 +82,8 @@
       "times_entered": 0,
       "subrooms": ["cupboard"],
       "items": [""],
-      "zombies": 2
+      "zombies": 2,
+      "hint": "You cannot escape the house without the items found in this room."
     },
     {
       "name": "garage",
@@ -89,6 +93,7 @@
       "subrooms": ["box"],
       "items": [""],
       "zombies": 1
+
     },
     {
       "name": "foyer",
@@ -106,7 +111,8 @@
       "isLocked": true,
       "times_entered": 0,
       "items": ["latch"],
-      "zombies": 3
+      "zombies": 3,
+      "hint": "If looted correctly, this room is the last step before escape."
     },
     {
       "name": "outside",
@@ -197,7 +203,7 @@
       "name": "lockpick",
       "location": "hallway",
       "desc": "Useful tool needed to unlock various things.",
-      "TakenText": "A handy lockpick set! Back in high school you had a set just like this & were a pro at lockpicking. This can definitely unlock some cool things throughout this house.",
+      "TakenText": "A handy lockpick set! Back in high school you had a set just like this & were a pro at lockpicking.\n This can definitely unlock some cool things throughout this house.",
       "UseText": "Try opening locked things while having this lockpick."
 
     },
@@ -221,7 +227,7 @@
     },
     {
       "name": "paper",
-      "location": "desk",
+      "location": "shelf",
       "desc": "Passcode for a safe.",
       "TakenText": "Seems like a 5 digit numerical code for a safe. Wonder where the safe is, & what could lie inside of it?",
       "UseText": "You can't 'use' this paper. Try reading it instead.",
