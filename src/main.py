@@ -171,12 +171,13 @@ def main():
                 except Exception as e:
                     print(f"An error occurred: {e}")
 
-                reset = input("\nDo you want to play again? (yes/no): ").lower()
-                if reset != 'yes' and reset != 'y':
-                    print("\nGoodbye!")
-                    sys.exit()
+
         except Exception as e:
             print(f"An error occurred: {e}")
+            sys.exit()
+        reset = input("\nDo you want to play again? (yes/no): ").lower()
+        if reset != 'yes' and reset != 'y':
+            print("\nGoodbye!")
             sys.exit()
 
 

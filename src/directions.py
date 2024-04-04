@@ -40,6 +40,7 @@ class DirectionHandling:
     def AllowedToChangeRooms(self, nextRoom):
         # if currentRoom has zombies, but you've already been to the room you're trying to change to, then it'll allow you to.
         # but if you haven't been to the nextRoom before, then it doesn't matter if it has zombies or not; you need to clear currentRoom of zombies before going there.
+        return True
         for room in self.data['rooms']:
             if (self.currentRoom == room['name'] and room['zombies']!=0):
                 for room2 in self.data['rooms']:
