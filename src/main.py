@@ -11,30 +11,23 @@ from npc import NPC
 # Declare turn_limit as a global variable
 turn_limit = 0
 
-
 def npc_random_room(data):
     filtered_rooms = [room for room in data["rooms"] if room["name"] != "attic"]
     random_room = random.choice(filtered_rooms)
     return random_room["name"]
 
-
 def initialize_game_data():
     with open('../data/GameData.json') as f:
         return json.load(f)
-
 
 def reset_game_data():
     with open('../data/GameData_initial.json') as f:
         return json.load(f)
 
-
 def help_menu(user_current_room, data):
     cur = user_current_room.currentRoom
-
     print("1. Hint")
-
     choice = input("Enter 1 for a hint, or anything else to go back): ")
-
     if choice == '1':
         # Access the JSON data and find the current room data
         rooms_data = data['rooms']
@@ -46,7 +39,6 @@ def help_menu(user_current_room, data):
         input("Press any key to return to the game...")
     else:
         print("Invalid choice, returning to the game.")
-
 
 def game_menu():
     global turn_limit
@@ -61,13 +53,10 @@ def game_menu():
     print("*" + " " * 38 + "*")
     print("*" * 40)
     while True:
-
         input("Press any key to continue")
-
         print(f"e - Easy (infinite turns & {easy_hp}HP)")
         print(f"m - Medium ({medium_turns} turns & {medium_hp}HP)")
         print(f"h - Hard ({hard_turns} turns & {hard_hp}HP)")
-
         while True:
             user_choice = input().lower()
             if user_choice in ('e', 'easy'):
@@ -86,7 +75,6 @@ def game_menu():
                 print("Invalid choice. Please select e, m, or h.")
         print("Proceeding with the game...")
         break
-
 
 def play_game(data, user_current_room):
     global turn_limit
@@ -155,7 +143,6 @@ def play_game(data, user_current_room):
         print(f"\nYou used a total of {turn_count} turns!")
         print("You played the game for {} minutes and {:.2f} seconds. Hope you had fun!".format(minutes, seconds))
 
-
 def main():
     while True:
         game_data = initialize_game_data()
@@ -171,7 +158,6 @@ def main():
                 except Exception as e:
                     print(f"An error occurred: {e}")
 
-
         except Exception as e:
             print(f"An error occurred: {e}")
             sys.exit()
@@ -179,7 +165,6 @@ def main():
         if reset != 'yes' and reset != 'y':
             print("\nGoodbye!")
             sys.exit()
-
 
 if __name__ == "__main__":
     main()

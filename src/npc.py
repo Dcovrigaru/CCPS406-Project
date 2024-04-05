@@ -75,7 +75,7 @@ class NPC:
 
             self.currentRoom = nextRooms[direction]
 
-            message = random.choice(self.data["messages"])
+            message = random.choice(self.data["NPCmessages"])
 
             print(f"\n{message} {name} moved from {oldRoom} to {self.currentRoom}.\n")
             break

@@ -13,12 +13,12 @@
       "used_status": false,
       "items": ["axe", "batteries"],
       "zombies": 0,
-      "hint": "You would need to 'use' the batteries, before being able to proceed."
+      "hint": "The fuse box needs batteries to be used on them to power on the light to the rest of the house to\nmake it safe to go down."
     },
     {
       "name": "hallway",
-      "first_text": "You've made it down to the hallway, once step closer to escaping this place. You find here {zombiecount} zombies blocking\nhalf open doors to your east and west.The only way into those rooms will require you to kill both of them.\nBeside you, you see a bookshelf, empty except for a scribe with words & what appears to a lockpick.\nYou sense that there is the presence of another entity nearby in this house that isn't a zombie. A ghost maybe,\nlurking within the walls of the house.",
-      "after_text": "You are in the hallway. Can go up, east or west to attic, office & bedroom respectively.",
+      "first_text": "You've made it down to the hallway, once step closer to escaping this place. You find here {zombiecount} zombie(s) blocking\nhalf open doors to your east and west.The only way into those rooms will require you to kill both of them.\nBeside you, you see a bookshelf, empty except for a scribe with words & what appears to a lockpick.\nYou sense that there is the presence of another entity nearby in this house that isn't a zombie. A ghost maybe,\nlurking within the walls of the house.",
+      "after_text": "You are in the hallway. Can go up, east or west to attic, office & bedroom respectively. There are {zombiecount} zombie(s) here.",
       "times_entered": 0,
       "items": ["scribe", "lockpick"],
       "zombies": 2
@@ -26,7 +26,7 @@
     {
       "name": "bedroom",
       "first_text": "You open the door to find an old bedroom, filled with cobwebs & a thin layer of dust across the floor & furniture.\nThere are {zombiecount} zombie(s) here and a filthy bed; no one has slept in this bed in a while, & you doubt you would want to\nlay down on it either. The windows are too small for you to fit through, & too high up to jump out of.\nNothing in this room looks interesting, except a bathroom to the north, as well as a locked rotary combination safe.\nWhat could be the passcode, & what could be inside?",
-      "after_text": "You are in the bedroom. There's a safe, northern path to bathroom, & an eastern exit to hallway.",
+      "after_text": "You are in the bedroom. There's a safe, northern path to bathroom, & an eastern exit to hallway. There are {zombiecount} zombie(s) here.",
       "times_entered": 0,
       "items": [""],
       "subrooms": ["safe"],
@@ -46,7 +46,7 @@
     {
       "name": "office",
       "first_text": "Looks like a super old fashioned office room. There's a locked door to go down to the first floor from here, but you'll\nneed to find a key & lockpicks won't work. There's {zombiecount} zombies in your way of getting to that door. The desk shelves\nare all open & empty,but one catches your eye; this shelf has a shiny handle, but it's loosely locked;\ncan you open it with your lockpicks?",
-      "after_text": "You are in the messy office room. There's a shelf, door leading downstairs, & western path to hallway.",
+      "after_text": "You are in the messy office room. There are exits down and west, and {zombiecount} zombie(s) here.",
       "notallowed": "The door to go downstairs is locked; try finding and using the key first.",
       "times_entered": 0,
       "subrooms": ["shelf"],
@@ -56,7 +56,7 @@
     {
       "name": "living room",
       "first_text": "You made it downstairs to the living room! It's old fashioned with an old box TV & scattered DVD cassettes.\nHere's there's {zombiecount} zombies in your of getting to the western foyer. There's nothing here, except a full bookshelf with an\nempty slot asking for 'Victor's Diary' to be placed on it to unlock passage to go down the basement.",
-      "after_text": "You are in the living room. Can go upstairs from here, and west to foyer, as well as down to basement if you have the diary to use on bookshelf.",
+      "after_text": "You are in the living room. You can go up, west and down from here, and are{zombiecount} zombie(s) here.",
       "downwithoutdiary": "The passage to the basement is locked. Find a diary and use it here to unlock it.",
       "unlockedbasementbutnoflashlight": "It's too dark and dangerous to go down, who knows what's lurking down there! Get a source of light first.",
       "times_entered": 0,
@@ -66,7 +66,7 @@
     {
       "name": "kitchen",
       "first_text": "You enter the dirty kitchen. There's {zombiecount} zombie(s) here, and a south exit to the garage, as well as a locked cupboard\ncontaining useful items. Continue your search for a way out!",
-      "after_text": "You are back in the kitchen, ready to cook & eat rotten zombies? Just kidding. Can go south or east from here.",
+      "after_text": "You are back in the kitchen, ready to cook & eat rotten zombies? Just kidding. Can go south or east from here, and {zombiecount} zombie(s) are within here.",
       "times_entered": 0,
       "subrooms": ["cupboard"],
       "items": [""],
@@ -86,7 +86,7 @@
     {
       "name": "foyer",
       "first_text": "You made it to the main foyer, it's very big & fancy, & there's {zombiecount} zombies here. There's a western exit to the kitchen,\n& the front door is heavily locked, requiring you to find a latch to open it & exit as lockpicks won't work on it.\nContinue searching, maybe it's in the basement!",
-      "after_text": "You are in the foyer, where your locked northern escape is. Find the latch & use it to get out of here!\nYou can go east & west from here, and north if you find and use the latch.",
+      "after_text": "You are in the foyer with {zombiecount} other zombie(s), where your locked northern escape is. Find the latch & use it to get out of here!\nYou can go east & west from here, and north if you find and use the latch.\n",
       "notallowed": "North from the foyer is the exit, but it's locked; you need to find the latch to unlock it.",
       "times_entered": 0,
       "items": [""],
@@ -95,7 +95,7 @@
     {
       "name": "basement",
       "first_text": "You finally descend into the basement where you see in the far end {zombiecount} zombies guarding the latch you're looking\nfor to unlock the front door. There's no exits here neither anything interesting,\nbesides the latch. Kill the zombies to get the latch and your freedom!",
-      "after_text": "You are back in the basement. Nothing to see here besides horrific remains of human skeletons & dead zombies.",
+      "after_text": "You are back in the basement. Have you retrieved the latch yet? There are {zombiecount} zombie(s) guarding it!",
       "isLocked": true,
       "times_entered": 0,
       "items": ["latch"],
@@ -373,7 +373,7 @@
       "down": "hallway"
     }
   },
-  "messages": [
+  "NPCmessages": [
     "Nice play!",
     "Okay, I see what you did there...",
     "My turn!",
