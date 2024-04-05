@@ -18,7 +18,8 @@ class Combat:
 
             if weapon['ammo'] > 0: # If the gun has ammo, proceed
                 weapon['ammo'] -= 1
-                print(f"{weapon['attack_message']}")
+                randomAttackMessage = random.choice(weapon['attack_messages'])
+                print(randomAttackMessage)
                 room_data['zombies'] -= 1
                 print("There are " + str(room_data['zombies']) + " zombies left in the room.")
                 print(f"You have {weapon['ammo']} bullets left.")

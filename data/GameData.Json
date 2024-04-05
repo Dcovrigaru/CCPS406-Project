@@ -210,7 +210,6 @@
       "desc": "An old handgun, this could do serious damage.",
       "Damage": 50,
       "TakenText": "This gun looks like it was made 100 years ago. Nonetheless, it will make it easier to kill zombies, but you notice it only has 15 bullets left, so use wisely.",
-      "BulletsLeft": 15,
       "UseText": "Wield this weapon and attack zombies with it."
 
     },
@@ -262,35 +261,38 @@
       "req_location": "living room"
     }
   ],
-  "player": {
-    "name": "Jake",
-    "health": 200
-  },
   "npcs": [
     {
       "type": "zombie",
       "health": 60,
       "damage_min": 15,
-      "damage_max": 40,
-      "is_friendly": false
+      "damage_max": 40
     }
   ],
   "weapons": {
-    "gun": {
-      "name": "gun",
-      "attack_message": "Headshot, the zombie is dead.",
-      "damage_message": "Zombie health -= 35",
-      "is_wielded": false,
-      "ammo": 11
-    },
+ "gun": {
+    "name": "gun",
+    "attack_messages": [
+    "Headshot, the zombie is dead.",
+    "BOOM! Down goes the zombie!",
+    "Blam! Another one bites the dust!",
+    "Ka-pow! The undead menace is no more!",
+    "Bam! Zombie down, mission accomplished!",
+    "Bang! The zombie didn't stand a chance!",
+    "Crack! That's one less zombie to worry about!",
+    "Pow! The undead threat has been neutralized!",
+    "Kaboom! Zombie eradicated!",
+    "Zap! Another undead foe bites the dust!",
+    "Whack! The undead are no match for you!"
+     ],
+    "is_wielded": false,
+    "ammo": 10
+},
     "axe": {
-      "name": "axe",
-      "attack_message": "Bodyshot, the zombie is injured.",
-      "damage_message": "Zombie health -= 20 to 35 damage.",
-      "kill_message": "Lucky, your axe killed the zombie.",
-      "kill_damage": "Zombie health -= 20 to 35 damage (If it kills)",
-      "is_wielded": false
-    }
+    "name": "axe",
+    "is_wielded": false
+}
+
   },
   "verbs": [
     "open",

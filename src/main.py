@@ -53,8 +53,8 @@ def game_menu():
     hard_turns = 60
     medium_turns = 72
     easy_hp = 375
-    medium_hp = 225
-    hard_hp = 115
+    medium_hp = 200
+    hard_hp = 125
     print("*" * 40)
     print("*" + " " * 38 + "*")
     print("*" + " " * 7 + "Welcome to Death Escape!" + " " * 7 + "*")
