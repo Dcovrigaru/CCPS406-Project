@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="got rid of unused stuff in JSON, made gun attack message more diverse.">
+    <list default="true" id="80e47d39-1a01-4b1c-b51b-81631e23af27" name="Changes" comment="Made Wield&#10;Updated main.py to tell verb class users current location&#10;Edited the Json file&#10;Updated take to ensure that the item being accessed is in the users current room">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-02-10_1_34_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-02-10_1_34_p_m___Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/GameData.Json" beforeDir="false" afterPath="$PROJECT_DIR$/data/GameData.Json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/directions.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/directions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/npc.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/npc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/verbs.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/verbs.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Ofir-Branch" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,11 +48,10 @@
   &quot;keyToString&quot;: {
     &quot;Python.directions.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Run&quot;,
     &quot;Python.testingrizvi.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Rizvi-Branch&quot;
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -62,7 +60,7 @@
       <recent name="C:\Users\dean\PycharmProjects\CCPS406-Project\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CCPS406-Project" />
       <option name="ENV_FILES" value="" />
@@ -85,42 +83,16 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="CCPS406-Project" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.main" />
-        <item itemvalue="Python.main" />
-        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-50da183f06c8-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13135.95" />
+        <option value="bundled-python-sdk-5a2391486177-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13763.11" />
       </set>
     </attachedChunks>
   </component>
@@ -149,215 +121,7 @@
       <option name="project" value="LOCAL" />
       <updated>1709435260961</updated>
     </task>
-    <task id="LOCAL-00003" summary="Combat is 90 percent done&#10;Every class imports json from main, json is only imported in main now&#10;Edited the Json file again slightly">
-      <option name="closed" value="true" />
-      <created>1709475030265</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1709475030265</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Directions includes room descriptions">
-      <option name="closed" value="true" />
-      <created>1709476078273</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1709476078273</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Directions includes room descriptions">
-      <option name="closed" value="true" />
-      <created>1709476166862</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1709476166862</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Directions includes room descriptions">
-      <option name="closed" value="true" />
-      <created>1709477001894</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1709477001894</updated>
-    </task>
-    <task id="LOCAL-00007" summary="More Verbs">
-      <option name="closed" value="true" />
-      <created>1709514991133</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1709514991133</updated>
-    </task>
-    <task id="LOCAL-00008" summary="More Verbs">
-      <option name="closed" value="true" />
-      <created>1709580672726</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1709580672726</updated>
-    </task>
-    <task id="LOCAL-00009" summary="More Verbs">
-      <option name="closed" value="true" />
-      <created>1709587503862</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1709587503862</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Added 'UseText' for items in Json&#10;Removed Debugging code from main&#10;Added basics for 'use'">
-      <option name="closed" value="true" />
-      <created>1709596712677</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1709596712677</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Added &quot;are you sure you want to quit&quot; check">
-      <option name="closed" value="true" />
-      <created>1709597210719</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1709597210719</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Added &quot;are you sure you want to quit&quot; check">
-      <option name="closed" value="true" />
-      <created>1709597905375</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1709597905375</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Added &quot;are you sure you want to quit&quot; check">
-      <option name="closed" value="true" />
-      <created>1709597959074</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1709597959074</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Updated verbs and Json">
-      <option name="closed" value="true" />
-      <created>1709685765093</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1709685765093</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Safe needs a passcode">
-      <option name="closed" value="true" />
-      <created>1709840398582</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1709840398582</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Verbs is completed">
-      <option name="closed" value="true" />
-      <created>1711406696369</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1711406696369</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Verbs is completed">
-      <option name="closed" value="true" />
-      <created>1711406837081</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1711406837081</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Verbs is completed">
-      <option name="closed" value="true" />
-      <created>1711575724581</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1711575724581</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Verbs is completed">
-      <option name="closed" value="true" />
-      <created>1711577064277</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1711577064277</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Updated main">
-      <option name="closed" value="true" />
-      <created>1711662014223</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1711662014223</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Working combat and main">
-      <option name="closed" value="true" />
-      <created>1711721279846</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1711721279846</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Working combat and main">
-      <option name="closed" value="true" />
-      <created>1711721312884</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1711721312884</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Slight combat edit">
-      <option name="closed" value="true" />
-      <created>1712111521327</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1712111521327</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Read Function added, NPC fully works">
-      <option name="closed" value="true" />
-      <created>1712118564968</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1712118564968</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Read Function added, NPC fully works">
-      <option name="closed" value="true" />
-      <created>1712165178561</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1712165178561</updated>
-    </task>
-    <task id="LOCAL-00026" summary="formatted all text better, balanced difficulty levels and finished up game">
-      <option name="closed" value="true" />
-      <created>1712267887083</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1712267887083</updated>
-    </task>
-    <task id="LOCAL-00027" summary="formatted all text better, balanced difficulty levels and finished up game">
-      <option name="closed" value="true" />
-      <created>1712269746130</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1712269746130</updated>
-    </task>
-    <task id="LOCAL-00028" summary="got rid of unused stuff in JSON, made gun attack message more diverse.">
-      <option name="closed" value="true" />
-      <created>1712356699062</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1712356699062</updated>
-    </task>
-    <option name="localTasksCounter" value="29" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -374,20 +138,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fdg" />
     <MESSAGE value="Made Wield&#10;Updated main.py to tell verb class users current location&#10;Edited the Json file&#10;Updated take to ensure that the item being accessed is in the users current room" />
-    <MESSAGE value="Combat is 90 percent done&#10;Every class imports json from main, json is only imported in main now&#10;Edited the Json file again slightly" />
-    <MESSAGE value="Directions includes room descriptions" />
-    <MESSAGE value="More Verbs" />
-    <MESSAGE value="Added 'UseText' for items in Json&#10;Removed Debugging code from main&#10;Added basics for 'use'" />
-    <MESSAGE value="Added &quot;are you sure you want to quit&quot; check" />
-    <MESSAGE value="Updated verbs and Json" />
-    <MESSAGE value="Safe needs a passcode" />
-    <MESSAGE value="Verbs is completed" />
-    <MESSAGE value="Updated main" />
-    <MESSAGE value="Working combat and main" />
-    <MESSAGE value="Slight combat edit" />
-    <MESSAGE value="Read Function added, NPC fully works" />
-    <MESSAGE value="formatted all text better, balanced difficulty levels and finished up game" />
-    <MESSAGE value="got rid of unused stuff in JSON, made gun attack message more diverse." />
-    <option name="LAST_COMMIT_MESSAGE" value="got rid of unused stuff in JSON, made gun attack message more diverse." />
+    <option name="LAST_COMMIT_MESSAGE" value="Made Wield&#10;Updated main.py to tell verb class users current location&#10;Edited the Json file&#10;Updated take to ensure that the item being accessed is in the users current room" />
   </component>
 </project>

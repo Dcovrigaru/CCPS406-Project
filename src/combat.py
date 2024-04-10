@@ -18,8 +18,7 @@ class Combat:
 
             if weapon['ammo'] > 0: # If the gun has ammo, proceed
                 weapon['ammo'] -= 1
-                randomAttackMessage = random.choice(weapon['attack_messages'])
-                print(randomAttackMessage)
+                print(f"{weapon['attack_message']}")
                 room_data['zombies'] -= 1
                 print("There are " + str(room_data['zombies']) + " zombies left in the room.")
                 print(f"You have {weapon['ammo']} bullets left.")
@@ -38,7 +37,6 @@ class Combat:
                 # Zombie attacks back after each player's attack
                 zombie_damage = random.randint(1, 10)
                 player_stats.take_damage(zombie_damage)
-                #print(f"{self.zombie_stats.name} attacks {player_stats.name} for {zombie_damage} damage!")
                 if not player_stats.is_alive():
                     print(
                         f"You attacked the {self.zombie_stats.name} {attacks} times, dealing a total of {total_damage} damage.\n"
@@ -58,5 +56,4 @@ class Combat:
                 f"You were attacked for {int(health) - int(player_stats.health)} damage.\n"
                 f"You have {player_stats.health} health remaining.\n"
                 f"There are {room_data['zombies']} zombies left in the room.")
-
 

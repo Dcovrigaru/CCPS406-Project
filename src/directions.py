@@ -22,7 +22,7 @@ class DirectionHandling:
                             if room['times_entered'] == 0:
                                 print(room['first_text'].format(zombiecount=room['zombies']))
                             else:
-                                print(room['after_text'].format(zombiecount=room['zombies']))
+                                print(room['after_text'])
                             room['times_entered'] += 1
             else:
                 print(f"You cannot go {targetDirection} from the {self.currentRoom}.")
@@ -71,7 +71,8 @@ class DirectionHandling:
                     return False
             return True  #if both above pass, that means diary.used == True and flashlight is in inventory. ready to go to basement
         if nextRoom==self.data['rooms'][10]['name']:  #if trying to go north in foyer (which ends the game) without having used the latch
-            if self.data['items'][8]['used_status'] == True:
+            if self.data['items'][8][(''
+                                      'e')] == True:
                 return True
             else:
                 print(self.data['rooms'][8]['notallowed'])
