@@ -31,18 +31,13 @@ class Player(Character):
             print("Your inventory is empty.")
 
 class NPC(Character):
-    def __init__(self, name, damage_min, damage_max, health=100, is_friendly=False, shout=None):
+    def __init__(self, name, damage_min, damage_max, health=100):
         super().__init__(name, health)
         self.damage_min = damage_min
         self.damage_max = damage_max
-        self.is_friendly = is_friendly
-        self.shout = shout
 
-    def speak(self):
-        if self.is_friendly:
-            return f"The friendly {self.name} says: '{self.shout}'"
-        else:
-            return f"The hostile {self.name} growls menacingly."
+
+
 
 
 player_stats = Player('player')
