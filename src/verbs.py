@@ -33,34 +33,17 @@ class VerbHandler:
         words = user_input.split()
         # Extract the verb (first word)
         verb = words[0]
-
         # Check if the verb is in the list of verbs
         if verb in verbs:
             # Check if there's a second word (after the verb)
             if len(words) > 1:
                 # Join the remaining words to form the item name
                 item_name = ' '.join(words[1:])
-                # Check if the verb is not "inventory" and the item is in the items list
-                if verb != "inventory":
-                    if verb == "take":
-                        self.handle_take(item_name)
-                    elif verb == "attack":
-                        self.handle_attack(item_name)
-                    elif item_name in self.items or item_name in self.inventory or verb == "open":
-                        # Call the corresponding method with the item name
-                        getattr(self, f"handle_{verb}")(item_name)
-                    elif verb == "use":
-                        self.handle_use(item_name)
-                    else:
-                        print(f"You haven't found '{item_name}' yet.")
-                # If verb is "inventory", call the corresponding method without item
-                elif verb == "attack":
-                    if words[1] == "zombie":
-                        self.handle_attack(words[1])
-                    else:
-                        print("You can only attack a zombie!")
-            elif verb == "inventory":
-                getattr(self, f"handle_{verb}")()
+                # Call the required function with the item name
+                getattr(self, f"handle_{verb}")(item_name)
+                # Inventory is the only verb that does not require an item or any other word following it
+            elif "verb" == 'inventory':
+                getattr(self, f"handle_{verb}")
             else:
                 # No item provided
                 print("No item provided. Please try again.")
@@ -72,7 +55,6 @@ class VerbHandler:
         if item_name not in self.inventory:
             print(f"You don't have the {item_name} in your inventory.")
             return
-
         for item in self.data['items']:
             # Check if the current item's name matches the provided item_name
             if item['name'] == item_name:
@@ -111,7 +93,6 @@ class VerbHandler:
                 if subroom and subroom.get('correct_number', None) is not None:
                     if subroom.get('locked', True):
                         # Perform actions for a locked subroom with a correct number
-                        correct_number = subroom['correct_number']
                         # Add your logic here to check if the correct number matches player input
 
                         # If the safe is locked, prompt the user for the guess
@@ -142,6 +123,7 @@ class VerbHandler:
                     print(subroom.get('openafter', "The room is already unlocked."))
                     return
         print(f"I don't see a {item_name} here.")
+
     def handle_take(self, item_name):
         # Check if the item is already in the inventory
         if item_name in self.inventory:
@@ -150,7 +132,6 @@ class VerbHandler:
         elif item_name in self.looted and item_name not in self.inventory:
             print(f"I don't see a {item_name} here.")
             return
-
 
         # Find the current room
         current_room = next((room for room in self.data['rooms'] if room['name'] == self.current_room.currentRoom),
@@ -259,7 +240,6 @@ class VerbHandler:
         return
 
     def handle_wield(self, item_name):  # Function for handling the verb 'wield'
-        weapons = self.data['weapons']
         weapon_names = [self.data["weapons"][weapon]["name"] for weapon in self.data["weapons"]]
         # Check if the item is in the inventory
         if item_name not in self.inventory:  # Checking to see if the player has the said item
@@ -305,9 +285,10 @@ class VerbHandler:
             return
         else:
             self.combat_instance.player_attack(self.wielded_weapon,
-                                               self.current_room.currentRoom)  # Calls the player_attack to handle attacks
+                                               self.current_room.currentRoom)  # Calls the player_attack to handle
+            # attacks
 
-    def handle_inventory(self):  # Function for handling the verb 'inventory'
+    def handle_inventory(self, _):  # Function for handling the verb 'inventory'
         if len(self.inventory) == 0:  # Displays a message if the inventory is empty
             print("Your inventory is empty.")
         else:
@@ -315,5 +296,6 @@ class VerbHandler:
                 for item in self.data['items']:
                     if item['name'] == item_name:
                         print(
-                            f"[{item['name']}]\t{item['desc']}")  # Displays each item vertically in a list side by side its description
+                            f"[{item['name']}]\t{item['desc']}")  # Displays each item vertically in a list side by
+                        # side its description
                         break
