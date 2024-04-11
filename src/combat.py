@@ -56,4 +56,3 @@ class Combat:
                 f"You were attacked for {int(health) - int(player_stats.health)} damage.\n"
                 f"You have {player_stats.health} health remaining.\n"
                 f"There are {room_data['zombies']} zombies left in the room.")
-
