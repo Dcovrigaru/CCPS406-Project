@@ -5,7 +5,7 @@ import random
 from combat import PlayerDefeatedException
 from character import player_stats
 from verbs import VerbHandler
-from directions import DirectionHandling
+from directions import direction_handling
 from npc import NPC
 
 # Declare turn_limit as a global variable
@@ -29,7 +29,7 @@ def reset_game_data():
 
 
 def help_menu(user_current_room, data):
-    cur = user_current_room.currentRoom
+    cur = user_current_room.current_room
 
     print("1. Hint")
 
@@ -101,7 +101,7 @@ def play_game(data, user_current_room):
     print(f"\n{data['story']['intro']}\n\n{data['rooms'][0]['first_text']}")
     start_time = time.time()
 
-    while user_current_room.currentRoom != 'outside' and (
+    while user_current_room.current_room != 'outside' and (
             turn_count != turn_limit if turn_limit != float('inf') else True):
         user_input = input("Enter in an action: ").lower()
 
@@ -130,7 +130,7 @@ def play_game(data, user_current_room):
             print(f"Not sure what {user_input} means. Try again!")
             continue
 
-        npc.NPC_available_items_enemies(npc.currentRoom)
+        npc.NPC_available_items_enemies(npc.current_room)
         npc.NPC_change_state()
         npc.NPC_act(npc_verb_handler_instance)
 
@@ -142,8 +142,8 @@ def play_game(data, user_current_room):
     minutes = int(total_play_time // 60)
     seconds = total_play_time % 60
 
-    if user_current_room.currentRoom == 'outside':
-        print(data['story']['gameEnd'])
+    if user_current_room.current_room == 'outside':
+        print(data['story']['game_end'])
         print(
             "\nYou finished the game in {} minutes and {:.2f} seconds, using {} out of {} total turns with {} health "
             "left. Hope you had"
@@ -163,7 +163,7 @@ def main():
         current_room = "attic"  # Set the initial room
         try:
             while True:
-                user_current_room = DirectionHandling(current_room, game_data, None)
+                user_current_room = direction_handling(current_room, game_data, None)
                 try:
                     play_game(game_data, user_current_room)
                     break  # Exit the inner loop when the game ends

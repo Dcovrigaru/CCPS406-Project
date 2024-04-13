@@ -58,9 +58,9 @@ class VerbHandler:
         for item in self.data['items']:
             # Check if the current item's name matches the provided item_name
             if item['name'] == item_name:
-                # Check if the 'ReadText' key is present in the item
-                if 'ReadText' in item:
-                    print(item['ReadText'])
+                # Check if the 'read_text' key is present in the item
+                if 'read_text' in item:
+                    print(item['read_text'])
                 else:
                     print("This item can't be read.")
                 return
@@ -73,7 +73,7 @@ class VerbHandler:
             return
         zombies_present = False
         for room in self.data['rooms']:
-            if room['name'] == self.current_room.currentRoom:
+            if room['name'] == self.current_room.current_room:
                 if room['zombies'] > 0:
                     zombies_present = True  # Sets true if zombies are found in the room
                     break
@@ -81,7 +81,7 @@ class VerbHandler:
         if zombies_present:  # Checks if there are any zombies to attack
             print("You can't open anything with zombies nearby.")
             return
-        room = next((room for room in self.data['rooms'] if room['name'] == self.current_room.currentRoom), None)
+        room = next((room for room in self.data['rooms'] if room['name'] == self.current_room.current_room), None)
         is_subroom = item_name in room.get('subrooms', [])
         if not is_subroom:
             print(f"I don't see a {item_name} here.")
@@ -134,11 +134,11 @@ class VerbHandler:
             return
 
         # Find the current room
-        current_room = next((room for room in self.data['rooms'] if room['name'] == self.current_room.currentRoom),
+        current_room = next((room for room in self.data['rooms'] if room['name'] == self.current_room.current_room),
                             None)
         zombies_present = False
         for room in self.data['rooms']:
-            if room['name'] == self.current_room.currentRoom:
+            if room['name'] == self.current_room.current_room:
                 if room['zombies'] > 0:
                     zombies_present = True  # Sets true if zombies are found in the room
                     break
@@ -151,7 +151,7 @@ class VerbHandler:
                         self.looted.append(item_name)
                         for item in self.data['items']:
                             if item['name'] == item_name:
-                                print(item.get('TakenText', ""))
+                                print(item.get('taken_text', ""))
                                 break
                         return
                     else:
@@ -161,7 +161,7 @@ class VerbHandler:
                 self.looted.append(item_name)
                 for item in self.data['items']:
                     if item['name'] == item_name:
-                        print(item.get('TakenText', ""))
+                        print(item.get('taken_text', ""))
                         break
                 return
 
@@ -180,7 +180,7 @@ class VerbHandler:
                             self.looted.append(item_name)
                             for item in self.data['items']:
                                 if item['name'] == item_name:
-                                    print(item.get('TakenText', ""))
+                                    print(item.get('taken_text', ""))
                                     break
                             return
 
@@ -213,15 +213,15 @@ class VerbHandler:
                     # Check if the item has not been used yet
                     if not item['used_status']:
                         # Check if the current room matches the required location
-                        if self.current_room.currentRoom == item['req_location']:
+                        if self.current_room.current_room == item['req_location']:
                             item['used_status'] = True
                             self.inventory.remove(item_name)
-                            # Print the 'UseText' of the item if available
-                            if 'UseText' in item:
-                                print(item['UseText'])
+                            # Print the 'use_text' of the item if available
+                            if 'use_text' in item:
+                                print(item['use_text'])
                                 return
                         else:
-                            print(f"{item['Wrong_Text']}")
+                            print(f"{item['wrong_text']}")
                             return
                     else:
                         print(f"{item['name']} has already been used.")
@@ -232,10 +232,10 @@ class VerbHandler:
         else:
             print(f"No item found with the name '{item_name}'.")
 
-        # Print the 'UseText' of the item if available
+        # Print the 'use_text' of the item if available
         for item in self.data['items']:
             if item['name'] == item_name:
-                print(item.get('UseText', ""))
+                print(item.get('use_text', ""))
                 break
         return
 
@@ -270,7 +270,7 @@ class VerbHandler:
             return
         zombies_present = False
         for room in self.data['rooms']:
-            if room['name'] == self.current_room.currentRoom:
+            if room['name'] == self.current_room.current_room:
                 if room['zombies'] > 0:
                     zombies_present = True  # Sets true if zombies are found in the room
                     break
@@ -285,7 +285,7 @@ class VerbHandler:
             return
         else:
             self.combat_instance.player_attack(self.wielded_weapon,
-                                               self.current_room.currentRoom)  # Calls the player_attack to handle
+                                               self.current_room.current_room)  # Calls the player_attack to handle
             # attacks
 
     def handle_inventory(self, _):  # Function for handling the verb 'inventory'

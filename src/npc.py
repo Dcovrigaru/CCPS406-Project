@@ -1,18 +1,18 @@
 import random
-from directions import DirectionHandling
+from directions import direction_handling
 
 
 class NPC:
     global name
     name = "Victor's Ghost"
 
-    def __init__(self, data, currentRoom, verb_handler_instance):
+    def __init__(self, data, current_room, verb_handler_instance):
         self.states = ["IDLE", "MOVE", "ATTACK", "LOOT"]
-        self.currentState = random.choices(self.states, [0.4, 0.5, 0.08, 0.02])[0]
+        self.current_state = random.choices(self.states, [0.4, 0.5, 0.08, 0.02])[0]
         self.inventory = []
         self.data = data
-        self.currentRoom = currentRoom
-        self.directionHandler = DirectionHandling(currentRoom, data, verb_handler_instance)
+        self.current_room = current_room
+        self.direction_handler = direction_handling(current_room, data, verb_handler_instance)
         self.available_enemies = False
         self.available_items = False
 
@@ -43,45 +43,45 @@ class NPC:
             possible_states.remove("ATTACK")
             probabilities.pop(2)
 
-        self.currentState = random.choices(possible_states, probabilities)[0]
+        self.current_state = random.choices(possible_states, probabilities)[0]
 
     def NPC_act(self,verb_handler_instance):
-        if self.currentState == "IDLE":
+        if self.current_state == "IDLE":
             print(f"\n{name} is just looking around...\n")
-        elif self.currentState == "MOVE":
+        elif self.current_state == "MOVE":
             return self.NPC_move()
-        elif self.currentState == "LOOT":
+        elif self.current_state == "LOOT":
             return self.NPC_loot(verb_handler_instance)
-        elif self.currentState == "ATTACK":
+        elif self.current_state == "ATTACK":
             return self.NPC_attack(self.data)
 
     def NPC_move(self):
         while True:
-            oldRoom = self.currentRoom
-            nextRooms = self.directionHandler.getAllNextRooms(self.currentRoom)
-            rooms = list(nextRooms.values())
+            old_room = self.current_room
+            next_rooms = self.direction_handler.get_all_next_rooms(self.current_room)
+            rooms = list(next_rooms.values())
             rooms[0] = rooms[0].capitalize()
 
-            if not nextRooms:
-                raise ValueError(f"\n{name} is in {self.currentRoom}, which has no connected rooms.")
+            if not next_rooms:
+                raise ValueError(f"\n{name} is in {self.current_room}, which has no connected rooms.")
 
-            possible_directions = [direction for direction, room in nextRooms.items() if room != 'outside']
+            possible_directions = [direction for direction, room in next_rooms.items() if room != 'outside']
 
             if not possible_directions:
-                print(f"\n{name} is stuck in {self.currentRoom} as all paths lead outside.")
+                print(f"\n{name} is stuck in {self.current_room} as all paths lead outside.")
                 break
 
             direction = random.choice(possible_directions)
 
-            self.currentRoom = nextRooms[direction]
+            self.current_room = next_rooms[direction]
 
-            message = random.choice(self.data["messages"])
+            message = random.choice(self.data["NPCmessages"])
 
-            print(f"\n{message} {name} moved from {oldRoom} to {self.currentRoom}.\n")
+            print(f"\n{message} {name} moved from {old_room} to {self.current_room}.\n")
             break
 
     def NPC_loot(self, verb_handler_instance):
-        current_room_name = self.currentRoom
+        current_room_name = self.current_room
         current_room = next((room for room in self.data['rooms'] if room['name'] == current_room_name), None)
 
         if current_room:
@@ -105,18 +105,18 @@ class NPC:
             print("\nThe current room does not exist in the game data.")
 
     def NPC_attack(self, data):
-        if self.currentState == 'ATTACK':
+        if self.current_state == 'ATTACK':
             zombies_present = False
             for room in self.data['rooms']:
-                if room['name'] == self.currentRoom:
+                if room['name'] == self.current_room:
                     if room['zombies'] > 0:
                         zombies_present = True
                         break
             if zombies_present:
                 for room in self.data['rooms']:
-                    if room['name'] == self.currentRoom:
+                    if room['name'] == self.current_room:
                         room['zombies'] -= 1
                         print(f"\n{name} just attacked and killed a zombie! There are {room['zombies']} zombie(s) "
-                              f"left in {self.currentRoom}.\n")
+                              f"left in {self.current_room}.\n")
                         break
             return
